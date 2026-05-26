@@ -3057,6 +3057,12 @@
               select.options[select.selectedIndex].text) || "";
           injectHidden("GRADA", gradaName);
           injectHidden("PRIVACY", new Date().toISOString());
+          // Capture page language so n8n/Mandrill can route to the right
+          // template (ES / GL / EN). Falls back to <html lang>.
+          injectHidden(
+            "LANG",
+            (document.documentElement.lang || "es").slice(0, 2).toLowerCase()
+          );
 
           submittedAt = Date.now();
           const submitBtn = form.querySelector('button[type="submit"]');
