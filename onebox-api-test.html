@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONEBOX API · RC Celta Avísame</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0d1117;
+        --bg-elev: #161b22;
+        --bg-elev-2: #1c2128;
+        --border: #30363d;
+        --text: #e6edf3;
+        --text-muted: #8b949e;
+        --text-faint: #6e7681;
+        --accent: #7ab1d9;
+        --accent-strong: #a3cdec;
+        --green: #3fb950;
+        --yellow: #d29922;
+        --red: #f85149;
+        --code-key: #79c0ff;
+        --code-string: #a5d6ff;
+        --code-number: #ffa657;
+        --code-comment: #8b949e;
+        --code-redacted: #d29922;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--accent-strong);
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Header */
+      .docs-header {
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(
+          180deg,
+          rgba(122, 177, 217, 0.06) 0%,
+          rgba(122, 177, 217, 0) 100%
+        );
+        padding: 3rem 0 1.5rem;
+      }
+
+      .eyebrow {
+        margin: 0 0 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+      }
+
+      .docs-header h1 {
+        margin: 0 0 0.75rem;
+        font-size: 2.25rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .lead {
+        margin: 0 0 2rem;
+        font-size: 1.05rem;
+        color: var(--text-muted);
+        max-width: 720px;
+      }
+
+      .endpoint-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding-top: 0.5rem;
+        border-top: 1px dashed var(--border);
+      }
+
+      .endpoint-nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.75rem;
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas,
+          monospace;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        background-color: var(--bg-elev);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+      }
+
+      .endpoint-nav a:hover {
+        color: var(--text);
+        border-color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* Method badges */
+      .method {
+        display: inline-block;
+        padding: 0.15rem 0.55rem;
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas,
+          monospace;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        border-radius: 4px;
+        text-transform: uppercase;
+      }
+
+      .method.get {
+        background-color: rgba(63, 185, 80, 0.15);
+        color: var(--green);
+        border: 1px solid rgba(63, 185, 80, 0.35);
+      }
+
+      .method.post {
+        background-color: rgba(210, 153, 34, 0.15);
+        color: var(--yellow);
+        border: 1px solid rgba(210, 153, 34, 0.35);
+      }
+
+      /* Endpoint sections */
+      main {
+        padding: 3rem 0 5rem;
+      }
+
+      .endpoint {
+        margin-bottom: 4rem;
+        scroll-margin-top: 1rem;
+      }
+
+      .endpoint-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 1rem;
+      }
+
+      .endpoint-header .path {
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas,
+          monospace;
+        font-size: 1.05rem;
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .endpoint-header .title {
+        margin-left: auto;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      .description {
+        margin: 0 0 1.5rem;
+        color: var(--text-muted);
+        max-width: 760px;
+      }
+
+      .description code {
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas,
+          monospace;
+        font-size: 0.85em;
+        padding: 0.1em 0.35em;
+        background-color: var(--bg-elev);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--accent-strong);
+      }
+
+      /* Exchange grid (request | response) */
+      .exchange {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+      }
+
+      .panel {
+        background-color: var(--bg-elev);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .panel-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        background-color: var(--bg-elev-2);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .panel-header .label {
+        flex: 1;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 0.1rem 0.45rem;
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas,
+          monospace;
+        font-size: 0.7rem;
+        font-weight: 700;
+        border-radius: 4px;
+        letter-spacing: 0.04em;
+      }
+
+      .status.ok {
+        background-color: rgba(63, 185, 80, 0.15);
+        color: var(--green);
+        border: 1px solid rgba(63, 185, 80, 0.35);
+      }
+
+      .panel pre {
+        margin: 0;
+        padding: 1rem 1.1rem;
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas,
+          monospace;
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--text);
+        overflow-x: auto;
+        white-space: pre;
+      }
+
+      .panel pre code {
+        font-family: inherit;
+      }
+
+      /* Inline code coloring (manual span classes) */
+      .k {
+        color: var(--code-key);
+      }
+      .s {
+        color: var(--code-string);
+      }
+      .n {
+        color: var(--code-number);
+      }
+      .c {
+        color: var(--code-comment);
+        font-style: italic;
+      }
+      .b {
+        color: var(--code-number);
+      }
+      .red {
+        color: var(--code-redacted);
+        font-weight: 600;
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem 0 3rem;
+        color: var(--text-faint);
+        font-size: 0.85rem;
+      }
+
+      footer .container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .exchange {
+          grid-template-columns: 1fr;
+        }
+
+        .docs-header {
+          padding: 2rem 0 1rem;
+        }
+
+        .docs-header h1 {
+          font-size: 1.75rem;
+        }
+
+        .endpoint-header .title {
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="docs-header">
+      <div class="container">
+        <p class="eyebrow">RC Celta · Avísame Platform</p>
+        <h1>ONEBOX API integration</h1>
+        <p class="lead">
+          Three read-only calls power the fan-alert pipeline: authenticate
+          against the channel, list available matches, and inspect seat
+          availability per grada. All requests target
+          <code style="color: var(--accent-strong)">api.oneboxtds.net</code>.
+        </p>
+        <nav class="endpoint-nav">
+          <a href="#auth"><span class="method post">POST</span>/oauth/token</a>
+          <a href="#sessions"
+            ><span class="method get">GET</span>/catalog-api/v1/sessions</a
+          >
+          <a href="#availability"
+            ><span class="method get">GET</span
+            >/catalog-api/v1/sessions/{id}/availability</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- 1. Authentication -->
+      <section id="auth" class="endpoint">
+        <div class="endpoint-header">
+          <span class="method post">POST</span>
+          <span class="path">/oauth/token</span>
+          <span class="title">1 · Authentication</span>
+        </div>
+        <p class="description">
+          Exchanges the channel credentials for a short-lived OAuth2 bearer
+          token. Note the non-standard shape: <code>channel_id</code> and
+          <code>client_id</code> are sent as
+          <em>separate</em> form fields — <code>client_id</code> is the fixed
+          string <code>seller-channel-client</code> for every tenant, and the
+          per-tenant identifier travels in <code>channel_id</code>. Tokens
+          expire after <code>43199</code> seconds (~12 hours).
+        </p>
+        <div class="exchange">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="label">Request</span>
+            </div>
+            <pre><code><span class="k">POST</span> https://api.oneboxtds.net/oauth/token
+
+<span class="c">// Headers</span>
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+
+<span class="c">// Body (urlencoded)</span>
+<span class="k">grant_type</span>=<span class="s">client_credentials</span>
+<span class="k">client_id</span>=<span class="s">seller-channel-client</span>
+<span class="k">channel_id</span>=<span class="n">2287</span>
+<span class="k">client_secret</span>=<span class="red">&lt;REDACTED&gt;</span></code></pre>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="label">Response</span>
+              <span class="status ok">200 OK</span>
+            </div>
+            <pre><code>{
+  <span class="k">"access_token"</span>: <span class="red">"&lt;REDACTED — JWT bearer&gt;"</span>,
+  <span class="k">"token_type"</span>: <span class="s">"bearer"</span>,
+  <span class="k">"expires_in"</span>: <span class="n">43199</span>,
+  <span class="k">"scope"</span>: <span class="s">"api-channels-all api-distribution-all api-catalog-all api-external-all api-gateway api-customers-mgmt-all api-orders-mgmt-all"</span>,
+  <span class="k">"authInfo"</span>: <span class="red">"&lt;REDACTED&gt;"</span>,
+  <span class="k">"jti"</span>: <span class="red">"&lt;REDACTED&gt;"</span>
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. List sessions -->
+      <section id="sessions" class="endpoint">
+        <div class="endpoint-header">
+          <span class="method get">GET</span>
+          <span class="path">/catalog-api/v1/sessions</span>
+          <span class="title">2 · List of matches</span>
+        </div>
+        <p class="description">
+          Returns every session (match / event) currently published on the
+          channel, with full event metadata, venue, sale window, pricing, and
+          a top-level availability summary per grada under
+          <code>availability.price_types[]</code>. This is the primary feed for
+          the alert engine.
+        </p>
+        <div class="exchange">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="label">Request</span>
+            </div>
+            <pre><code><span class="k">GET</span> https://api.oneboxtds.net/catalog-api/v1/sessions
+
+<span class="c">// Headers</span>
+Authorization: Bearer <span class="red">&lt;REDACTED&gt;</span>
+Accept: application/json</code></pre>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="label">Response</span>
+              <span class="status ok">200 OK · 21 items</span>
+            </div>
+            <pre><code>[
+  {
+    <span class="k">"id"</span>: <span class="n">240895</span>,
+    <span class="k">"name"</span>: <span class="s">"NUMERADO"</span>,
+    <span class="k">"type"</span>: <span class="s">"SESSION"</span>,
+    <span class="k">"event"</span>: {
+      <span class="k">"id"</span>: <span class="n">4587</span>,
+      <span class="k">"name"</span>: <span class="s">"* API NUMBERED EVENT"</span>,
+      <span class="k">"texts"</span>: {
+        <span class="k">"title"</span>:    { <span class="k">"es-ES"</span>: <span class="s">"NUMERADO"</span> },
+        <span class="k">"subtitle"</span>: { <span class="k">"es-ES"</span>: <span class="s">"GIRA 2019"</span> }
+      },
+      <span class="k">"default_language"</span>: <span class="s">"es_ES"</span>
+    },
+    <span class="k">"venue"</span>: {
+      <span class="k">"id"</span>: <span class="n">14</span>,
+      <span class="k">"name"</span>: <span class="s">"Estadio Saprissa"</span>,
+      <span class="k">"location"</span>: { <span class="k">"city"</span>: <span class="s">"Barcelona"</span>, <span class="k">"country"</span>: { <span class="k">"code"</span>: <span class="s">"ES"</span> } }
+    },
+    <span class="k">"date"</span>: {
+      <span class="k">"start"</span>:      <span class="s">"2020-02-12T21:00:00+01:00"</span>,
+      <span class="k">"sale_start"</span>: <span class="s">"2019-05-10T10:00:00+02:00"</span>,
+      <span class="k">"sale_end"</span>:   <span class="s">"2027-02-06T21:00:00+01:00"</span>
+    },
+    <span class="k">"price"</span>: {
+      <span class="k">"min"</span>: { <span class="k">"value"</span>: <span class="n">10</span> },
+      <span class="k">"max"</span>: { <span class="k">"value"</span>: <span class="n">50</span> }
+    },
+    <span class="k">"availability"</span>: {
+      <span class="k">"price_types"</span>: [
+        { <span class="k">"id"</span>: <span class="n">32713</span>, <span class="k">"name"</span>: <span class="s">"PISTA"</span>,  <span class="k">"availability"</span>: { <span class="k">"total"</span>: <span class="n">340</span>,  <span class="k">"available"</span>: <span class="n">199</span> } },
+        { <span class="k">"id"</span>: <span class="n">32714</span>, <span class="k">"name"</span>: <span class="s">"VIP"</span>,    <span class="k">"availability"</span>: { <span class="k">"total"</span>: <span class="n">2176</span>, <span class="k">"available"</span>: <span class="n">2086</span> } },
+        { <span class="k">"id"</span>: <span class="n">32715</span>, <span class="k">"name"</span>: <span class="s">"PISO 1"</span>, <span class="k">"availability"</span>: { <span class="k">"total"</span>: <span class="n">4625</span>, <span class="k">"available"</span>: <span class="n">4442</span> } }
+        <span class="c">// … 2 more price_types</span>
+      ]
+    },
+    <span class="k">"for_sale"</span>: <span class="b">true</span>,
+    <span class="k">"on_sale"</span>:  <span class="b">true</span>,
+    <span class="k">"sold_out"</span>: <span class="b">false</span>
+  }
+  <span class="c">// … 20 more sessions</span>
+]</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Availability for one match -->
+      <section id="availability" class="endpoint">
+        <div class="endpoint-header">
+          <span class="method get">GET</span>
+          <span class="path">/catalog-api/v1/sessions/{sessionId}/availability</span>
+          <span class="title">3 · Seats per match</span>
+        </div>
+        <p class="description">
+          Drills into a single session and returns availability counts for
+          every grada (<code>price_types</code>) and every individual sector
+          (<code>sectors</code>). Useful when an alert needs sector-level
+          granularity beyond the grada totals already exposed in
+          <a href="#sessions">/sessions</a>.
+        </p>
+        <div class="exchange">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="label">Request</span>
+            </div>
+            <pre><code><span class="k">GET</span> https://api.oneboxtds.net/catalog-api/v1/sessions/<span class="n">240895</span>/availability
+
+<span class="c">// Headers</span>
+Authorization: Bearer <span class="red">&lt;REDACTED&gt;</span>
+Accept: application/json</code></pre>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="label">Response</span>
+              <span class="status ok">200 OK</span>
+            </div>
+            <pre><code>{
+  <span class="k">"id"</span>: <span class="n">240895</span>,
+  <span class="k">"name"</span>: <span class="s">"NUMERADO"</span>,
+  <span class="k">"availability"</span>: { <span class="k">"type"</span>: <span class="s">"BOUNDED"</span>, <span class="k">"total"</span>: <span class="n">14786</span>, <span class="k">"available"</span>: <span class="n">14372</span> },
+  <span class="k">"price_types"</span>: [
+    {
+      <span class="k">"id"</span>: <span class="n">32713</span>,
+      <span class="k">"name"</span>: <span class="s">"PISTA"</span>,
+      <span class="k">"code"</span>: <span class="s">"ZP1"</span>,
+      <span class="k">"availability"</span>: { <span class="k">"total"</span>: <span class="n">290</span>, <span class="k">"available"</span>: <span class="n">199</span> },
+      <span class="k">"ui_settings"</span>: { <span class="k">"order"</span>: <span class="n">2</span>, <span class="k">"color"</span>: <span class="s">"#9E4500"</span> }
+    },
+    {
+      <span class="k">"id"</span>: <span class="n">32714</span>,
+      <span class="k">"name"</span>: <span class="s">"VIP"</span>,
+      <span class="k">"availability"</span>: { <span class="k">"total"</span>: <span class="n">1616</span>, <span class="k">"available"</span>: <span class="n">1526</span> }
+    }
+    <span class="c">// … 3 more price_types (PISO 1 / 2 / 3)</span>
+  ],
+  <span class="k">"sectors"</span>: [
+    {
+      <span class="k">"id"</span>: <span class="n">224515</span>,
+      <span class="k">"name"</span>: <span class="s">"Sector 316"</span>,
+      <span class="k">"code"</span>: <span class="s">"Sector 316"</span>,
+      <span class="k">"price_types"</span>: [
+        { <span class="k">"id"</span>: <span class="n">32717</span>, <span class="k">"name"</span>: <span class="s">"PISO 3"</span>, <span class="k">"availability"</span>: { <span class="k">"total"</span>: <span class="n">88</span>, <span class="k">"available"</span>: <span class="n">83</span> } }
+      ]
+    },
+    {
+      <span class="k">"id"</span>: <span class="n">224554</span>,
+      <span class="k">"name"</span>: <span class="s">"Pista A1"</span>,
+      <span class="k">"price_types"</span>: [
+        { <span class="k">"id"</span>: <span class="n">32713</span>, <span class="k">"name"</span>: <span class="s">"PISTA"</span>, <span class="k">"availability"</span>: { <span class="k">"total"</span>: <span class="n">10</span>, <span class="k">"available"</span>: <span class="n">10</span> } }
+      ]
+    }
+    <span class="c">// … 79 more sectors</span>
+  ]
+}</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <span>RC Celta · Avísame Platform · ONEBOX integration</span>
+        <span>All credentials and bearer tokens redacted — safe to share.</span>
+      </div>
+    </footer>
+  </body>
+</html>

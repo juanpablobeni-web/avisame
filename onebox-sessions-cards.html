@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partidos · ONEBOX · RC Celta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --celta-sky: #7ab1d9;
+        --celta-sky-dark: #5a97c2;
+        --celta-navy: #0a1f44;
+        --celta-red: #e4002b;
+        --bg: #f4f6f8;
+        --surface: #ffffff;
+        --border: #e1e6ec;
+        --border-strong: #c4cdd5;
+        --text-muted: #5b6a82;
+        --green: #16a34a;
+        --green-soft: #dcfce7;
+        --amber: #d97706;
+        --amber-soft: #fef3c7;
+        --red: #dc2626;
+        --red-soft: #fee2e2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto,
+          sans-serif;
+        background-color: var(--bg);
+        color: var(--celta-navy);
+        line-height: 1.5;
+      }
+
+      .topbar {
+        background-color: var(--celta-navy);
+        color: #ffffff;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+      }
+
+      header.page-header {
+        background-color: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 1.75rem 1.5rem 1.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .header-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-title {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+      }
+
+      .header-title .eyebrow {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--celta-sky-dark);
+      }
+
+      .header-title h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 800;
+      }
+
+      .header-title .count {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 0.1rem;
+      }
+
+      .search {
+        position: relative;
+        flex: 1 1 300px;
+        max-width: 420px;
+      }
+
+      .search input {
+        width: 100%;
+        padding: 0.65rem 0.95rem 0.65rem 2.4rem;
+        font-family: inherit;
+        font-size: 0.95rem;
+        color: var(--celta-navy);
+        background-color: var(--bg);
+        border: 1px solid var(--border-strong);
+        border-radius: 6px;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease,
+          background-color 0.15s ease;
+      }
+
+      .search input::placeholder {
+        color: var(--text-muted);
+      }
+
+      .search input:focus {
+        outline: none;
+        border-color: var(--celta-sky);
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(122, 177, 217, 0.25);
+      }
+
+      .search svg {
+        position: absolute;
+        top: 50%;
+        left: 0.85rem;
+        transform: translateY(-50%);
+        width: 1rem;
+        height: 1rem;
+        color: var(--text-muted);
+        pointer-events: none;
+      }
+
+      main {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+      }
+
+      .legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .dot {
+        width: 0.65rem;
+        height: 0.65rem;
+        border-radius: 50%;
+      }
+
+      .dot.green {
+        background-color: var(--green);
+      }
+      .dot.amber {
+        background-color: var(--amber);
+      }
+      .dot.red {
+        background-color: var(--red);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .card {
+        background-color: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.15s ease, box-shadow 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(10, 31, 68, 0.08);
+        border-color: var(--celta-sky);
+      }
+
+      .card-image {
+        aspect-ratio: 16 / 9;
+        background-color: var(--celta-sky);
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .card-image.no-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+      }
+
+      .card-image .badge {
+        position: absolute;
+        top: 0.6rem;
+        left: 0.6rem;
+        padding: 0.25rem 0.55rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        background-color: rgba(255, 255, 255, 0.92);
+        color: var(--celta-navy);
+        border-radius: 4px;
+      }
+
+      .card-image .badge.sold-out {
+        background-color: var(--celta-red);
+        color: #ffffff;
+      }
+
+      .card-body {
+        padding: 1rem 1.1rem 1.1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        flex: 1;
+      }
+
+      .card-title {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .card-meta {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .card-meta strong {
+        color: var(--celta-navy);
+        font-weight: 600;
+      }
+
+      .card-footer {
+        margin-top: auto;
+        padding-top: 0.6rem;
+        border-top: 1px dashed var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .price {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .price .label {
+        font-weight: 500;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+      }
+
+      .availability {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .availability-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.78rem;
+      }
+
+      .availability-row .pct {
+        font-weight: 700;
+      }
+
+      .availability-row .pct.green {
+        color: var(--green);
+      }
+      .availability-row .pct.amber {
+        color: var(--amber);
+      }
+      .availability-row .pct.red {
+        color: var(--red);
+      }
+
+      .bar {
+        height: 6px;
+        background-color: var(--border);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        border-radius: 999px;
+        transition: width 0.25s ease;
+      }
+
+      .bar-fill.green {
+        background-color: var(--green);
+      }
+      .bar-fill.amber {
+        background-color: var(--amber);
+      }
+      .bar-fill.red {
+        background-color: var(--red);
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--text-muted);
+      }
+
+      .empty-state h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.1rem;
+        color: var(--celta-navy);
+      }
+
+      @media (max-width: 600px) {
+        header.page-header {
+          padding: 1.25rem 1rem 1rem;
+        }
+
+        .header-title h1 {
+          font-size: 1.25rem;
+        }
+
+        main {
+          padding: 1.25rem 1rem 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">RC Celta · Avísame · Internal dashboard</div>
+
+    <header class="page-header">
+      <div class="header-inner">
+        <div class="header-title">
+          <span class="eyebrow">ONEBOX · Sessions</span>
+          <h1>Partidos disponibles</h1>
+          <span class="count" id="count"></span>
+        </div>
+        <label class="search" aria-label="Filter by match or venue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <input
+            id="search"
+            type="search"
+            placeholder="Buscar por partido o estadio…"
+            autocomplete="off"
+          />
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <div class="legend" aria-label="Availability legend">
+        <span class="legend-item"><span class="dot green"></span>≥ 50 % free</span>
+        <span class="legend-item"><span class="dot amber"></span>15–50 % free</span>
+        <span class="legend-item"><span class="dot red"></span>&lt; 15 % free</span>
+      </div>
+      <div id="grid" class="grid"></div>
+      <div id="empty" class="empty-state" hidden>
+        <h2>No hay partidos que coincidan</h2>
+        <p>Prueba con otro nombre de partido o estadio.</p>
+      </div>
+    </main>
+
+    <script type="application/json" id="sessions-data">
+[{"id":240895,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2020-02-12T21:00:00+01:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":10,"price_max":50,"total":14959,"available":14372,"for_sale":true,"on_sale":true,"sold_out":false},{"id":249468,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2020-11-25T15:00:00+01:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":10,"price_max":50,"total":14958,"available":14159,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617439,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2025-07-17T12:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":8,"price_max":8,"total":17211,"available":17196,"for_sale":true,"on_sale":true,"sold_out":false},{"id":509945,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-03-29T12:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":8,"price_max":8,"total":17211,"available":16040,"for_sale":true,"on_sale":true,"sold_out":false},{"id":569823,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-03-31T12:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":8,"price_max":8,"total":17211,"available":16617,"for_sale":true,"on_sale":true,"sold_out":false},{"id":613473,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-03-31T12:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":8,"price_max":8,"total":17211,"available":16670,"for_sale":true,"on_sale":true,"sold_out":false},{"id":616004,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-01T12:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17139,"for_sale":true,"on_sale":true,"sold_out":false},{"id":616005,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-06T12:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17172,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617422,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17195,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617423,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:06:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17204,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617424,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:12:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17211,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617425,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:18:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17203,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617426,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:24:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17204,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617427,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:30:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17211,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617428,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:36:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17209,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617429,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:42:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17211,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617430,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:48:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17211,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617431,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T10:54:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17198,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617432,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T11:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":15,"price_max":15,"total":17211,"available":17210,"for_sale":true,"on_sale":true,"sold_out":false},{"id":617433,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Estadio Saprissa · Barcelona","date_start":"2026-04-07T11:06:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":0,"price_max":20,"total":17211,"available":17205,"for_sale":true,"on_sale":true,"sold_out":false},{"id":695442,"title":"NUMERADO","event_name":"* API NUMBERED EVENT","venue":"Palau Sant Jordi Recinto ejemplo · Barcelona","date_start":"2026-07-05T11:00:00+02:00","image":"https://s3.amazonaws.com/onebox-repository/pre/1/657/evento/4587/227978_229889_1739951049414.jpg","price_min":0,"price_max":0,"total":14959,"available":14956,"for_sale":true,"on_sale":true,"sold_out":false}]
+    </script>
+
+    <script>
+      const sessions = JSON.parse(
+        document.getElementById("sessions-data").textContent
+      );
+
+      sessions.sort((a, b) => {
+        const ta = a.date_start ? Date.parse(a.date_start) : Infinity;
+        const tb = b.date_start ? Date.parse(b.date_start) : Infinity;
+        return ta - tb;
+      });
+
+      const dateFmt = new Intl.DateTimeFormat("es-ES", {
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      });
+      const timeFmt = new Intl.DateTimeFormat("es-ES", {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      const priceFmt = new Intl.NumberFormat("es-ES", {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0,
+      });
+      const numFmt = new Intl.NumberFormat("es-ES");
+
+      function fmtDate(iso) {
+        if (!iso) return "Fecha por confirmar";
+        const d = new Date(iso);
+        if (isNaN(d.getTime())) return "Fecha por confirmar";
+        return `${dateFmt.format(d)} · ${timeFmt.format(d)}`;
+      }
+
+      function fmtPrice(min, max) {
+        if (min == null && max == null) return "—";
+        if (!min && !max) return "Gratis";
+        if (min === max) return priceFmt.format(min);
+        if (!min) return `Hasta ${priceFmt.format(max)}`;
+        return `${priceFmt.format(min)} – ${priceFmt.format(max)}`;
+      }
+
+      function severity(pct) {
+        if (pct >= 50) return "green";
+        if (pct >= 15) return "amber";
+        return "red";
+      }
+
+      function escapeHtml(str) {
+        return String(str ?? "").replace(/[&<>"']/g, (c) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        }[c]));
+      }
+
+      function cardHTML(s) {
+        const total = s.total || 0;
+        const available = s.available || 0;
+        const pct = total > 0 ? Math.round((available / total) * 100) : 0;
+        const sev = s.sold_out ? "red" : severity(pct);
+        const title = s.event_name || s.title || "Sin título";
+        const dateLabel = fmtDate(s.date_start);
+        const priceLabel = fmtPrice(s.price_min, s.price_max);
+        const imgStyle = s.image
+          ? `background-image: url('${escapeHtml(s.image)}')`
+          : "";
+        const badge = s.sold_out
+          ? '<span class="badge sold-out">Agotado</span>'
+          : !s.on_sale
+          ? '<span class="badge">No a la venta</span>'
+          : "";
+        const placeholder = s.image
+          ? ""
+          : '<span>Sin imagen</span>';
+
+        return `
+          <article class="card">
+            <div class="card-image ${s.image ? "" : "no-image"}" style="${imgStyle}">
+              ${badge}
+              ${placeholder}
+            </div>
+            <div class="card-body">
+              <h2 class="card-title">${escapeHtml(title)}</h2>
+              <div class="card-meta">
+                <span><strong>${escapeHtml(s.venue || "Estadio TBA")}</strong></span>
+                <span>${escapeHtml(dateLabel)}</span>
+              </div>
+              <div class="card-footer">
+                <span class="price">
+                  <span class="label">Precio</span>${escapeHtml(priceLabel)}
+                </span>
+                <div class="availability">
+                  <div class="availability-row">
+                    <span>${numFmt.format(available)} / ${numFmt.format(total)} libres</span>
+                    <span class="pct ${sev}">${pct}%</span>
+                  </div>
+                  <div class="bar"><div class="bar-fill ${sev}" style="width: ${pct}%"></div></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      const grid = document.getElementById("grid");
+      const countEl = document.getElementById("count");
+      const emptyEl = document.getElementById("empty");
+      const searchInput = document.getElementById("search");
+
+      function render(filterText) {
+        const q = filterText.trim().toLowerCase();
+        const filtered = q
+          ? sessions.filter((s) => {
+              const title = (s.event_name || s.title || "").toLowerCase();
+              const venue = (s.venue || "").toLowerCase();
+              return title.includes(q) || venue.includes(q);
+            })
+          : sessions;
+
+        grid.innerHTML = filtered.map(cardHTML).join("");
+        const total = sessions.length;
+        countEl.textContent = q
+          ? `${filtered.length} de ${total} partidos`
+          : `${total} partidos`;
+        emptyEl.hidden = filtered.length > 0;
+        grid.hidden = filtered.length === 0;
+      }
+
+      searchInput.addEventListener("input", (e) => render(e.target.value));
+      render("");
+    </script>
+  </body>
+</html>

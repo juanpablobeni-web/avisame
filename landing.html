@@ -1,0 +1,4056 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avísame · Alertas de entradas para partidos del RC Celta en Balaídos</title>
+    <meta
+      name="description"
+      content="Recibe un aviso al instante cuando se libere una entrada en tu grada favorita de Balaídos. Sin spam, gratis, en menos de 30 segundos. Para celtistas que no se rinden."
+    />
+    <meta name="keywords" content="RC Celta, entradas, Balaídos, Vigo, fútbol, avisos, alertas, celtismo, Aspas" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Avísame · RC Celta" />
+    <meta name="theme-color" content="#7ab1d9" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="canonical" href="https://avisame.example/landing.html" />
+    <link rel="alternate" hreflang="es" href="https://avisame.example/landing.html?lang=es" />
+    <link rel="alternate" hreflang="gl" href="https://avisame.example/landing.html?lang=gl" />
+    <link rel="alternate" hreflang="en" href="https://avisame.example/landing.html?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://avisame.example/landing.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Avísame · Alertas de entradas del RC Celta" />
+    <meta property="og:description" content="Te avisamos en cuanto se libere tu sitio en Balaídos. Sin estrés, sin recargar páginas." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale:alternate" content="gl_ES" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Avísame" />
+    <meta property="og:image" content="https://avisame.example/assets/og-card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://avisame.example/landing.html" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Avísame · Alertas de entradas del RC Celta" />
+    <meta name="twitter:description" content="Te avisamos en cuanto se libere tu sitio en Balaídos." />
+    <meta name="twitter:image" content="https://avisame.example/assets/og-card.png" />
+
+    <!-- Favicon set -->
+    <link rel="icon" type="image/png" href="assets/rc%20celta%20logo.png" sizes="any" />
+    <link rel="apple-touch-icon" href="assets/rc%20celta%20logo.png" />
+    <link rel="apple-touch-icon-precomposed" href="assets/rc%20celta%20logo.png" />
+    <link rel="mask-icon" href="assets/rc%20celta%20logo.png" color="#7ab1d9" />
+
+    <!-- Perf: preload + prefetch -->
+    <link rel="preload" as="image" fetchpriority="high" href="assets/spanish%20image.png?v=2" />
+    <link rel="dns-prefetch" href="https://student.us15.list-manage.com" />
+    <link rel="preconnect" href="https://student.us15.list-manage.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD structured data: WebSite + Event -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Avísame · RC Celta",
+          "url": "https://avisame.example/",
+          "description": "Alertas de entradas para partidos del RC Celta en Balaídos.",
+          "inLanguage": ["es-ES", "gl-ES", "en-US"]
+        },
+        {
+          "@type": "SportsEvent",
+          "name": "RC Celta · Próximo partido",
+          "sport": "Soccer",
+          "location": {
+            "@type": "Place",
+            "name": "Estadio de Balaídos",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Vigo",
+              "addressRegion": "Galicia",
+              "addressCountry": "ES"
+            }
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": "Real Club Celta de Vigo"
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+      :root {
+        --celta-sky: #7ab1d9;
+        --celta-sky-dark: #5a97c2;
+        --celta-navy: #0a1f44;
+        --celta-red: #e4002b;
+        --celta-grey: #f4f6f8;
+        --celta-border: #d9dee3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto,
+          sans-serif;
+        color: var(--celta-navy);
+        line-height: 1.55;
+        background:
+          radial-gradient(circle at 12% -10%, rgba(228, 0, 43, 0.10) 0, transparent 38%),
+          radial-gradient(circle at 92% 6%, rgba(255, 255, 255, 0.55) 0, transparent 32%),
+          radial-gradient(ellipse at 88% 55%, rgba(122, 177, 217, 0.22) 0, transparent 42%),
+          radial-gradient(ellipse at 8% 92%, rgba(10, 31, 68, 0.08) 0, transparent 40%),
+          linear-gradient(170deg, #c2dbed 0%, #e3eff7 45%, #f7fafc 100%);
+        background-color: #e3eff7;
+        background-attachment: fixed;
+        min-height: 100vh;
+      }
+      @supports (-webkit-touch-callout: none) {
+        /* iOS Safari fights background-attachment: fixed; fall back to
+           scrolling-with-content there. */
+        body { background-attachment: scroll; }
+      }
+
+      /* ─── Skip link (a11y) ────────────────────────────────────── */
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 1100;
+        background: var(--celta-navy);
+        color: #ffffff;
+        padding: 0.65rem 1rem;
+        border-radius: 0 0 6px 6px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-decoration: none;
+      }
+      .skip-link:focus { left: 1rem; outline: 2px solid var(--celta-sky); }
+
+      /* ─── Topbar (brand + lang + a11y) ────────────────────────── */
+      .topbar {
+        background-color: var(--celta-navy);
+        color: #ffffff;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        position: relative;
+      }
+      .topbar__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .topbar__brand { text-transform: uppercase; }
+      .topbar__controls {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .lang-switch {
+        display: inline-flex;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        padding: 2px;
+      }
+      .lang-switch button {
+        background: transparent;
+        border: 0;
+        color: rgba(255, 255, 255, 0.7);
+        font: inherit;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        padding: 0.32rem 0.6rem;
+        cursor: pointer;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: background-color 0.15s ease, color 0.15s ease;
+      }
+      .lang-switch button:hover { color: #ffffff; }
+      .lang-switch button[aria-pressed="true"] {
+        background: #ffffff;
+        color: var(--celta-navy);
+      }
+      .lang-flag {
+        width: 16px;
+        height: 12px;
+        border-radius: 2px;
+        display: inline-block;
+        box-shadow: 0 0 0 1px rgba(10, 31, 68, 0.15);
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .lang-flag svg { display: block; width: 100%; height: 100%; }
+
+      .a11y-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.08);
+        border: 0;
+        border-radius: 50%;
+        color: #ffffff;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+      }
+      .a11y-toggle:hover, .a11y-toggle[aria-expanded="true"] {
+        background: rgba(255, 255, 255, 0.18);
+      }
+      .a11y-toggle svg { width: 20px; height: 20px; }
+
+      .a11y-menu {
+        position: absolute;
+        right: 1rem;
+        top: calc(100% + 6px);
+        z-index: 999;
+        background: #ffffff;
+        color: var(--celta-navy);
+        border: 1px solid #e6ecf2;
+        border-radius: 12px;
+        padding: 1rem 1.1rem 0.85rem;
+        min-width: 240px;
+        box-shadow: 0 10px 28px rgba(10, 31, 68, 0.18);
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      .a11y-menu h2 {
+        margin: 0 0 0.65rem;
+        font-size: 0.85rem;
+        font-weight: 800;
+      }
+      .a11y-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.4rem 0;
+        font-size: 0.85rem;
+        cursor: pointer;
+      }
+      .a11y-row input[type="checkbox"] {
+        accent-color: var(--celta-sky);
+        width: 16px;
+        height: 16px;
+      }
+      .a11y-hint {
+        margin: 0.4rem 0 0;
+        font-size: 0.72rem;
+        color: #8b95a8;
+      }
+
+      /* ─── Accessibility: colorblind palette ───────────────────── */
+      /* Defaults already in :root above use traffic-light green/amber/red.
+         When .a11y-colorblind is applied to <html>, swap them to a
+         deuteranopia-safe palette (blue / orange / purple-magenta). */
+      html.a11y-colorblind {
+        --green: #0072b2;
+        --green-soft: #d6ebf7;
+        --amber: #e69f00;
+        --amber-soft: #fcefcf;
+        --red: #cc79a7;
+        --red-soft: #fbe6f0;
+      }
+      html.a11y-colorblind .match-card__bar-fill--green,
+      html.a11y-colorblind .pct--green { background-color: #0072b2; }
+      html.a11y-colorblind .pct--green { color: #0072b2; background-color: transparent; }
+      html.a11y-colorblind .match-card__bar-fill--amber { background-color: #e69f00; }
+      html.a11y-colorblind .pct--amber { color: #e69f00; background-color: transparent; }
+      html.a11y-colorblind .match-card__bar-fill--red { background-color: #cc79a7; }
+      html.a11y-colorblind .pct--red { color: #cc79a7; background-color: transparent; }
+      html.a11y-colorblind .status-pill--green {
+        background-color: #d6ebf7; color: #003a5c; border-color: rgba(0, 114, 178, 0.3);
+      }
+      html.a11y-colorblind .status-pill--amber {
+        background-color: #fcefcf; color: #6e4a00; border-color: rgba(230, 159, 0, 0.3);
+      }
+      html.a11y-colorblind .status-pill--red {
+        background-color: #fbe6f0; color: #6b2e51; border-color: rgba(204, 121, 167, 0.3);
+      }
+
+      /* Large-text accessibility mode */
+      html.a11y-large-text { font-size: 112.5%; }
+
+      /* Stronger focus rings everywhere */
+      :focus-visible {
+        outline: 2px solid var(--celta-sky);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+      .hero__cta:focus-visible,
+      button[type="submit"]:focus-visible,
+      .cookie-banner__btn--primary:focus-visible {
+        outline-color: #ffffff;
+        outline-offset: 3px;
+      }
+
+      header.hero {
+        background-color: var(--celta-sky);
+        color: #ffffff;
+        padding: 4rem 1.5rem 3.5rem;
+        text-align: center;
+        position: relative;
+      }
+
+      header.hero::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: var(--celta-red);
+        margin: 1.5rem auto 0;
+      }
+
+      header.hero section {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      header.hero section img {
+        max-width: 110px;
+        height: auto;
+        margin-bottom: 1.25rem;
+      }
+
+      header.hero h1 {
+        margin: 0 0 0.75rem;
+        color: #ffffff;
+        font-size: 2.75rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+      }
+
+      header.hero p {
+        margin: 0 auto;
+        font-size: 1.05rem;
+        max-width: 480px;
+        opacity: 0.95;
+      }
+
+      main {
+        max-width: 640px;
+        margin: 0 auto 3rem;
+        padding: 2.25rem 2.25rem 2.5rem;
+        background-color: #ffffff;
+        border: 1px solid #e6ecf2;
+        border-radius: 14px;
+        position: relative;
+        box-shadow:
+          0 1px 2px rgba(10, 31, 68, 0.04),
+          0 12px 40px rgba(10, 31, 68, 0.08);
+      }
+
+      .form-intro {
+        text-align: center;
+        margin: -0.5rem 0 1.6rem;
+      }
+      .form-intro h2 {
+        margin: 0 0 0.35rem;
+        font-size: 1.3rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: var(--celta-navy);
+      }
+      .form-intro p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #5b6a82;
+      }
+
+      .submit-row { margin-top: 0.5rem !important; }
+
+      /* ─── Interactive seat map ───────────────────────────────── */
+      .seatmap-section {
+        margin: 0 0 1.25rem;
+      }
+      .seatmap-section__label {
+        display: block;
+        margin-bottom: 0.55rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--celta-navy);
+      }
+      .seatmap {
+        background:
+          radial-gradient(circle at 50% 50%, rgba(122,177,217,0.08) 0%, rgba(122,177,217,0) 70%),
+          #f4f8fc;
+        border: 1px solid #e1eaf3;
+        border-radius: 12px;
+        padding: 1rem 1rem 0.6rem;
+      }
+      .seatmap__svg {
+        display: block;
+        width: 100%;
+        max-width: 620px;
+        height: auto;
+        margin: 0 auto;
+        filter: drop-shadow(0 8px 24px rgba(10, 31, 68, 0.10));
+      }
+      .seatmap__shell {
+        fill: rgba(10, 31, 68, 0.025);
+        stroke: rgba(10, 31, 68, 0.10);
+        stroke-width: 1;
+      }
+      .seatmap__seatrow {
+        fill: none;
+        stroke: rgba(10, 31, 68, 0.18);
+        stroke-width: 0.8;
+        stroke-dasharray: 3 5;
+      }
+      .seatmap__stand {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 9px;
+        font-weight: 700;
+        fill: rgba(10, 31, 68, 0.55);
+        letter-spacing: 0.22em;
+        pointer-events: none;
+      }
+      .seatmap__zone {
+        stroke: rgba(10, 31, 68, 0.14);
+        stroke-width: 1;
+        cursor: pointer;
+        transition:
+          fill 0.18s ease,
+          stroke 0.18s ease,
+          stroke-width 0.18s ease,
+          filter 0.18s ease;
+      }
+      /* Color hierarchy: outer rings (cheaper / farther) are lighter,
+         inner rings (pitchside / premium) are more saturated. */
+      .seatmap__zone[data-zone="piso3"] { fill: rgba(122, 177, 217, 0.18); }
+      .seatmap__zone[data-zone="piso2"] { fill: rgba(122, 177, 217, 0.32); }
+      .seatmap__zone[data-zone="piso1"] { fill: rgba(122, 177, 217, 0.50); }
+      .seatmap__zone[data-zone="pista"] { fill: rgba(122, 177, 217, 0.72); }
+
+      .seatmap__zone:hover {
+        fill: rgba(10, 31, 68, 0.18);
+        stroke: var(--celta-navy);
+        stroke-width: 1.5;
+      }
+      /* Active tier is a calm navy wash — it says "this is the area you're
+         exploring" without screaming. The picked sector inside gets the
+         brand red so it pops as the actual selection marker. */
+      .seatmap__zone[data-active="true"] {
+        fill: var(--celta-navy) !important;
+        stroke: #061331;
+        stroke-width: 1.5;
+        filter: drop-shadow(0 4px 10px rgba(10, 31, 68, 0.28));
+      }
+
+      /* Individual sector cells overlay the ring band. Three states:
+         (1) parked     → invisible
+         (2) tier active → faint outlines so user sees the subdivisions
+         (3) sector active → solid Celta red, "your seat is here" */
+      .seatmap__sector {
+        fill: rgba(255, 255, 255, 0);
+        stroke: rgba(255, 255, 255, 0);
+        stroke-width: 0.6;
+        transition: fill 0.18s ease, stroke 0.18s ease, filter 0.18s ease;
+      }
+      .seatmap__sector[data-tier-active="true"] {
+        fill: rgba(255, 255, 255, 0.08);
+        stroke: rgba(255, 255, 255, 0.42);
+      }
+      .seatmap__sector[data-active="true"] {
+        fill: var(--celta-red);
+        stroke: #fff;
+        stroke-width: 1.1;
+        filter: drop-shadow(0 0 5px rgba(228, 0, 43, 0.75))
+          drop-shadow(0 0 10px rgba(228, 0, 43, 0.35));
+      }
+      html.a11y-colorblind .seatmap__sector[data-active="true"] {
+        fill: #e69f00;
+        stroke: #fff;
+        filter: drop-shadow(0 0 5px rgba(230, 159, 0, 0.85))
+          drop-shadow(0 0 10px rgba(230, 159, 0, 0.4));
+      }
+
+      .seatmap__pitch {
+        fill: #1d6b29;
+        stroke: rgba(255, 255, 255, 0.85);
+        stroke-width: 1;
+      }
+      .seatmap__pitch-line {
+        stroke: rgba(255, 255, 255, 0.85);
+        stroke-width: 1;
+        fill: none;
+      }
+      .seatmap__pitch-dot {
+        fill: rgba(255, 255, 255, 0.92);
+      }
+      .seatmap__pitch-goal {
+        stroke: rgba(255, 255, 255, 0.95);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+      }
+      .seatmap__label {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+        fill: var(--celta-navy);
+        pointer-events: none;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        transition: fill 0.18s ease;
+      }
+      .seatmap__label--sm { font-size: 10px; }
+      .seatmap__label[data-zone-active="true"] {
+        fill: #fff;
+      }
+      .seatmap__count[data-zone-active="true"] {
+        fill: #fff;
+        opacity: 0.92;
+      }
+      html.a11y-colorblind .seatmap__label[data-zone-active="true"],
+      html.a11y-colorblind .seatmap__count[data-zone-active="true"] {
+        fill: #1a1a1a;
+      }
+      .seatmap__hint {
+        margin: 0.4rem 0 0;
+        text-align: center;
+        font-size: 0.78rem;
+        color: #5b6a82;
+        line-height: 1.4;
+      }
+      html.a11y-colorblind .seatmap__zone {
+        stroke: rgba(0, 114, 178, 0.4);
+      }
+      html.a11y-colorblind .seatmap__zone[data-zone="piso3"] { fill: rgba(0, 114, 178, 0.12); }
+      html.a11y-colorblind .seatmap__zone[data-zone="piso2"] { fill: rgba(0, 114, 178, 0.22); }
+      html.a11y-colorblind .seatmap__zone[data-zone="piso1"] { fill: rgba(0, 114, 178, 0.36); }
+      html.a11y-colorblind .seatmap__zone[data-zone="pista"] { fill: rgba(0, 114, 178, 0.55); }
+      html.a11y-colorblind .seatmap__zone:hover {
+        fill: rgba(0, 114, 178, 0.30);
+        stroke: #003a5c;
+      }
+      html.a11y-colorblind .seatmap__zone[data-active="true"] {
+        fill: #003a5c !important;
+        stroke: #00264a;
+        filter: drop-shadow(0 4px 10px rgba(0, 58, 92, 0.4));
+      }
+      @media (max-width: 480px) {
+        .seatmap__svg { max-width: 100%; }
+        .seatmap__label { font-size: 12px; }
+        .seatmap__label--sm { font-size: 9px; }
+        .seatmap__stand { font-size: 8px; letter-spacing: 0.15em; }
+      }
+
+      /* ─── Chip picker (visual replacement for huge <select>) ──── */
+      .chip-picker {
+        margin: 0 0 1.25rem;
+      }
+      .chip-picker__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .chip-picker__title {
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--celta-navy);
+        margin: 0;
+      }
+      .chip-picker__title-tier {
+        font-weight: 700;
+        color: var(--celta-red);
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      .chip-picker__pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.3rem 0.4rem 0.3rem 0.75rem;
+        background: var(--celta-red);
+        color: #fff;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        max-width: 100%;
+        box-shadow: 0 4px 12px rgba(228, 0, 43, 0.28);
+      }
+      .chip-picker__pill[hidden] { display: none; }
+      .chip-picker__pill-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 220px;
+      }
+      .chip-picker__pill-clear {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.22);
+        border: 0;
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        padding: 0;
+        font-size: 14px;
+        line-height: 1;
+        font-weight: 700;
+      }
+      .chip-picker__pill-clear:hover,
+      .chip-picker__pill-clear:focus-visible {
+        background: rgba(255, 255, 255, 0.45);
+        outline: none;
+      }
+      .chip-picker__chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        max-height: 220px;
+        overflow-y: auto;
+        padding: 0.7rem;
+        background: #f4f8fc;
+        border: 1px solid #e1eaf3;
+        border-radius: 10px;
+      }
+      .chip-picker__empty {
+        width: 100%;
+        text-align: center;
+        font-size: 0.82rem;
+        color: #5b6a82;
+        padding: 0.6rem 0.5rem;
+        margin: 0;
+      }
+      .chip-picker__chip {
+        appearance: none;
+        background: #fff;
+        border: 1px solid #d4e1ee;
+        border-radius: 999px;
+        padding: 0.4rem 0.85rem;
+        font-family: inherit;
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--celta-navy);
+        cursor: pointer;
+        transition: transform 0.12s ease, background 0.15s ease,
+          border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+      }
+      .chip-picker__chip:hover,
+      .chip-picker__chip:focus-visible {
+        border-color: var(--celta-celeste);
+        background: rgba(122, 177, 217, 0.18);
+        outline: none;
+        transform: translateY(-1px);
+      }
+      .chip-picker__chip[aria-pressed="true"] {
+        background: var(--celta-red);
+        border-color: var(--celta-red);
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(228, 0, 43, 0.28);
+      }
+      .chip-picker__error {
+        margin: 0.45rem 0 0;
+        font-size: 0.8rem;
+        color: var(--celta-red);
+        font-weight: 500;
+        display: none;
+      }
+      .chip-picker__error[data-visible="true"] { display: block; }
+
+      html.a11y-colorblind .chip-picker__chip[aria-pressed="true"] {
+        background: #e69f00;
+        border-color: #6e4a00;
+        color: #1a1a1a;
+      }
+      html.a11y-colorblind .chip-picker__pill {
+        background: #e69f00;
+        color: #1a1a1a;
+        box-shadow: 0 4px 12px rgba(230, 159, 0, 0.32);
+      }
+      html.a11y-colorblind .chip-picker__pill-clear {
+        background: rgba(0, 0, 0, 0.2);
+        color: #1a1a1a;
+      }
+      html.a11y-colorblind .chip-picker__title-tier { color: #6e4a00; }
+
+      /* Visually hidden but still in DOM (form posts the value). */
+      .sr-only {
+        position: absolute;
+        width: 1px; height: 1px;
+        padding: 0; margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Tier counts inline next to each PISO/PISTA label */
+      .seatmap__count {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        fill: var(--celta-navy);
+        opacity: 0.6;
+        pointer-events: none;
+        letter-spacing: 0.06em;
+        transition: fill 0.18s ease, opacity 0.18s ease;
+      }
+
+      form p {
+        margin: 0 0 1.25rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--celta-navy);
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select {
+        width: 100%;
+        padding: 0.7rem 0.85rem;
+        font-size: 1rem;
+        font-family: inherit;
+        border: 1px solid var(--celta-border);
+        border-radius: 4px;
+        color: var(--celta-navy);
+        background-color: #ffffff;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      select:focus {
+        outline: none;
+        border-color: var(--celta-sky);
+        box-shadow: 0 0 0 3px rgba(122, 177, 217, 0.25);
+      }
+
+      input[type="checkbox"] {
+        margin-right: 0.55rem;
+        accent-color: var(--celta-sky);
+        transform: translateY(1px);
+      }
+
+      form p:has(input[type="checkbox"]) label {
+        display: inline-flex;
+        align-items: flex-start;
+        font-weight: 400;
+        font-size: 0.9rem;
+        text-transform: none;
+        letter-spacing: 0;
+        line-height: 1.45;
+      }
+
+      #avisame-form button[type="submit"] {
+        width: 100%;
+        padding: 0.95rem 1rem;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #ffffff;
+        background-color: var(--celta-red);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.15s ease, transform 0.05s ease;
+      }
+
+      #avisame-form button[type="submit"]:hover {
+        background-color: #c20025;
+      }
+
+      #avisame-form button[type="submit"]:active {
+        transform: translateY(1px);
+      }
+
+      #avisame-form button[type="submit"]:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .form-error {
+        margin: 0.75rem 0 0;
+        padding: 0.65rem 0.85rem;
+        font-size: 0.9rem;
+        color: #991b1b;
+        background-color: #fee2e2;
+        border: 1px solid rgba(153, 27, 27, 0.2);
+        border-radius: 4px;
+      }
+
+      .form-status {
+        text-align: center;
+        padding: 0.75rem 0.5rem;
+      }
+
+      .form-status h2 {
+        margin: 0 0 0.5rem;
+        color: var(--celta-navy);
+        font-size: 1.4rem;
+        font-weight: 800;
+      }
+
+      .form-status p {
+        margin: 0;
+        color: #5b6a82;
+      }
+
+      /* ─── Hero polish ─────────────────────────────────────────── */
+      header.hero {
+        background: linear-gradient(
+          155deg,
+          #6ea7d3 0%,
+          var(--celta-sky) 55%,
+          #8fbfe1 100%
+        );
+        overflow: hidden;
+      }
+      header.hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 18% 20%, rgba(255,255,255,0.18) 0, transparent 35%),
+          radial-gradient(circle at 82% 80%, rgba(228, 0, 43, 0.12) 0, transparent 40%);
+        pointer-events: none;
+      }
+      .hero__decor {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .hero__decor span {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.45);
+        animation: float 9s ease-in-out infinite;
+      }
+      .hero__decor span:nth-child(1)  { top: 12%; left: 8%;  animation-delay: 0s;   }
+      .hero__decor span:nth-child(2)  { top: 28%; left: 84%; animation-delay: 1.2s; width: 6px; height: 6px; }
+      .hero__decor span:nth-child(3)  { top: 65%; left: 12%; animation-delay: 2.5s; background: rgba(228,0,43,0.55); }
+      .hero__decor span:nth-child(4)  { top: 82%; left: 78%; animation-delay: 0.8s; width: 5px; height: 5px; }
+      .hero__decor span:nth-child(5)  { top: 40%; left: 50%; animation-delay: 3.4s; width: 4px; height: 4px; }
+      .hero__decor span:nth-child(6)  { top: 18%; left: 40%; animation-delay: 4.1s; }
+      .hero__decor span:nth-child(7)  { top: 70%; left: 38%; animation-delay: 1.8s; width: 5px; height: 5px; background: rgba(255,255,255,0.65);}
+      .hero__decor span:nth-child(8)  { top: 50%; left: 90%; animation-delay: 2.0s; }
+      .hero__decor span:nth-child(9)  { top: 88%; left: 26%; animation-delay: 5.0s; width: 6px; height: 6px; }
+      .hero__decor span:nth-child(10) { top: 32%; left: 22%; animation-delay: 3.0s; width: 5px; height: 5px; background: rgba(228,0,43,0.5); }
+      @keyframes float {
+        0%, 100% { transform: translateY(0) scale(1);   opacity: 0.55; }
+        50%      { transform: translateY(-14px) scale(1.15); opacity: 1; }
+      }
+      header.hero section { position: relative; z-index: 2; }
+
+      .hero__stadium {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 40%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* ─── Photo hero variant ──────────────────────────────────── */
+      .hero--photo {
+        padding: 0 0 2.5rem !important;
+        background:
+          linear-gradient(180deg, #0a1f44 0%, #11305a 45%, var(--celta-sky) 100%) !important;
+      }
+      .hero--photo::before, .hero--photo::after { display: none; }
+      .hero__photo {
+        display: block;
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        margin: 0 auto;
+        max-height: 460px;
+        object-fit: cover;
+        object-position: center 35%;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+      .hero--photo section {
+        padding: 2.25rem 1.5rem 0;
+      }
+      .hero--photo h1 {
+        font-size: 2.3rem;
+        text-transform: none;
+        letter-spacing: -0.01em;
+      }
+      .hero--photo .hero__eyebrow {
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .hero--photo .hero__lead {
+        color: rgba(255, 255, 255, 0.92);
+      }
+      @media (max-width: 600px) {
+        .hero__photo { max-height: 280px; }
+        .hero--photo h1 { font-size: 1.7rem; }
+        .hero--photo section { padding-top: 1.5rem; }
+      }
+      .hero__eyebrow {
+        margin: 0 0 0.6rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      header.hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        text-transform: none;
+        letter-spacing: -0.01em;
+      }
+      .hero__lead {
+        margin: 0 auto 1.5rem !important;
+        font-size: 1.05rem;
+        max-width: 520px;
+      }
+      .hero__cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.6rem;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--celta-navy);
+        background-color: #ffffff;
+        border-radius: 999px;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(10, 31, 68, 0.15);
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .hero__cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(10, 31, 68, 0.22);
+      }
+      .hero__cta svg {
+        width: 1rem;
+        height: 1rem;
+        animation: bob 1.6s ease-in-out infinite;
+      }
+      @keyframes bob {
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(3px); }
+      }
+
+      /* ─── Multi-step form ─────────────────────────────────────── */
+      main { scroll-margin-top: 1rem; }
+      .form-progress {
+        margin: 0 0 1.5rem;
+      }
+      .form-progress__track {
+        height: 6px;
+        background: var(--celta-grey);
+        border: 1px solid var(--celta-border);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .form-progress__fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--celta-sky), var(--celta-sky-dark));
+        border-radius: 999px;
+        transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .form-progress__label {
+        display: block;
+        margin-top: 0.4rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--celta-sky-dark);
+      }
+
+      .form-step {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        display: none;
+        animation: stepIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .form-step.is-active { display: block; }
+      @keyframes stepIn {
+        from { opacity: 0; transform: translateX(12px); }
+        to   { opacity: 1; transform: translateX(0); }
+      }
+
+      .form-step__title {
+        margin: 0 0 0.4rem;
+        font-size: 1.35rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: var(--celta-navy);
+      }
+      .form-step__hint {
+        margin: 0 0 1.4rem;
+        color: #5b6a82;
+        font-size: 0.92rem;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 1rem;
+      }
+      .form-row > p { margin-bottom: 1.25rem; }
+      @media (max-width: 480px) {
+        .form-row { grid-template-columns: 1fr; }
+      }
+
+      input[type="text"], input[type="email"], select {
+        font-size: 1.05rem;
+      }
+      input[type="text"]:focus, input[type="email"]:focus, select:focus {
+        transform: translateY(-1px);
+      }
+
+      .checkbox-label {
+        display: flex !important;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 0.7rem 0.85rem;
+        background: var(--celta-grey);
+        border: 1px solid var(--celta-border);
+        border-radius: 6px;
+        font-size: 0.92rem !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+        font-weight: 400 !important;
+        line-height: 1.45;
+        cursor: pointer;
+      }
+      .checkbox-label:has(input:checked) {
+        background: rgba(122, 177, 217, 0.15);
+        border-color: var(--celta-sky);
+      }
+      .text-link {
+        color: var(--celta-sky-dark);
+        text-decoration: underline;
+      }
+
+      #avisame-form button[type="submit"] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 14px rgba(228, 0, 43, 0.25);
+      }
+      #avisame-form button[type="submit"] svg { width: 1.05rem; height: 1.05rem; }
+      #avisame-form button[type="submit"]:hover {
+        box-shadow: 0 6px 18px rgba(228, 0, 43, 0.4);
+      }
+
+      .form-error {
+        margin-top: 0.85rem;
+      }
+
+      /* ─── Confetti canvas ─────────────────────────────────────── */
+      #confetti {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1000;
+        display: none;
+      }
+      #confetti.is-active { display: block; }
+
+      /* ─── Sections (how + faq) ────────────────────────────────── */
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .container--narrow { max-width: 680px; }
+
+      .section-title {
+        margin: 0 0 0.5rem;
+        text-align: center;
+        font-size: 1.85rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        color: var(--celta-navy);
+      }
+      .section-lead {
+        margin: 0 auto 2.25rem;
+        max-width: 540px;
+        text-align: center;
+        color: #5b6a82;
+        font-size: 1rem;
+      }
+
+      .how {
+        padding: 3.5rem 0 1rem;
+      }
+      .how__steps {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .how__step {
+        background: #ffffff;
+        border: 1px solid #e6ecf2;
+        border-radius: 14px;
+        padding: 1.75rem 1.5rem;
+        text-align: left;
+        box-shadow:
+          0 1px 2px rgba(10, 31, 68, 0.04),
+          0 8px 28px rgba(10, 31, 68, 0.06);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .how__step:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 1px 2px rgba(10, 31, 68, 0.06),
+          0 14px 36px rgba(10, 31, 68, 0.1);
+      }
+      .how__icon {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--celta-sky) 0%, var(--celta-sky-dark) 100%);
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+      .how__icon svg { width: 22px; height: 22px; }
+      .how__step h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--celta-navy);
+      }
+      .how__step p {
+        margin: 0;
+        font-size: 0.92rem;
+        color: #5b6a82;
+        line-height: 1.5;
+      }
+      @media (max-width: 720px) {
+        .how__steps { grid-template-columns: 1fr; }
+      }
+
+      .faq {
+        padding: 3.5rem 0 4rem;
+      }
+      .faq__grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        margin: 0 auto;
+        max-width: 640px;
+      }
+      .faq__item {
+        background: #ffffff;
+        border: 1px solid #e6ecf2;
+        border-radius: 14px;
+        box-shadow: 0 1px 2px rgba(10, 31, 68, 0.04);
+        overflow: hidden;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease,
+                    transform 0.2s ease;
+      }
+      .faq__item:hover {
+        border-color: var(--celta-sky);
+        box-shadow:
+          0 1px 2px rgba(10, 31, 68, 0.04),
+          0 10px 28px rgba(10, 31, 68, 0.08);
+        transform: translateY(-2px);
+      }
+      .faq__item[open] {
+        border-color: var(--celta-sky);
+        box-shadow:
+          0 1px 2px rgba(10, 31, 68, 0.04),
+          0 12px 32px rgba(10, 31, 68, 0.1);
+      }
+      .faq__item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 1.05rem 1.15rem;
+        font-weight: 600;
+        font-size: 0.98rem;
+        color: var(--celta-navy);
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 0.85rem;
+        user-select: none;
+      }
+      .faq__item summary::-webkit-details-marker { display: none; }
+      .faq__item summary::marker { display: none; }
+
+      .faq__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, rgba(122, 177, 217, 0.18) 0%, rgba(122, 177, 217, 0.08) 100%);
+        color: var(--celta-sky-dark);
+        transition: background-color 0.25s ease, color 0.25s ease;
+      }
+      .faq__icon svg { width: 18px; height: 18px; }
+      .faq__item[open] .faq__icon {
+        background: linear-gradient(135deg, var(--celta-sky) 0%, var(--celta-sky-dark) 100%);
+        color: #ffffff;
+      }
+
+      .faq__q { line-height: 1.4; }
+
+      .faq__chevron {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        color: #8b95a8;
+        flex-shrink: 0;
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                    color 0.2s ease;
+      }
+      .faq__chevron svg { width: 18px; height: 18px; }
+      .faq__item[open] .faq__chevron {
+        transform: rotate(180deg);
+        color: var(--celta-sky-dark);
+      }
+
+      /* Smooth open/close via grid-template-rows trick (no JS). */
+      .faq__body {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .faq__item[open] .faq__body {
+        grid-template-rows: 1fr;
+      }
+      .faq__body-inner { overflow: hidden; }
+      .faq__body-inner p {
+        margin: 0;
+        padding: 0 1.15rem 1.15rem calc(1.15rem + 36px + 0.85rem);
+        color: #5b6a82;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+      @media (max-width: 480px) {
+        .faq__body-inner p {
+          padding-left: 1.15rem;
+        }
+      }
+
+      .faq__cta {
+        margin: 2.25rem auto 0;
+        max-width: 640px;
+        background: linear-gradient(135deg, rgba(122, 177, 217, 0.12) 0%, rgba(122, 177, 217, 0.04) 100%);
+        border: 1px dashed rgba(122, 177, 217, 0.45);
+        border-radius: 14px;
+        padding: 1.1rem 1.35rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .faq__cta p {
+        margin: 0;
+        font-weight: 600;
+        color: var(--celta-navy);
+      }
+      .faq__cta-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 700;
+        color: #ffffff;
+        background: var(--celta-navy);
+        padding: 0.55rem 0.95rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 0.88rem;
+        transition: background-color 0.15s ease, transform 0.05s ease;
+      }
+      .faq__cta-link:hover { background: #122a59; }
+      .faq__cta-link:active { transform: translateY(1px); }
+      .faq__cta-link svg { width: 1rem; height: 1rem; }
+
+      /* ─── Footer ──────────────────────────────────────────────── */
+      .footer {
+        background: var(--celta-navy);
+        color: rgba(255, 255, 255, 0.85);
+        padding: 2.5rem 0 1.75rem;
+      }
+      .footer__row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer__brand {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+      }
+      .footer__brand img {
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        padding: 4px;
+      }
+      .footer__title {
+        margin: 0 0 0.15rem;
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #ffffff;
+      }
+      .footer__hint {
+        margin: 0;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .footer__links {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+      }
+      .footer__links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+      .footer__links a:hover { color: #ffffff; }
+      .footer__copy {
+        margin: 1.25rem 0 0;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+      }
+
+      /* ─── Scroll-fade-in ───────────────────────────────────────── */
+      [data-fade] {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      [data-fade].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-fade] { opacity: 1; transform: none; transition: none; }
+      }
+
+      /* ─── Chatbot (rule-based FAQ helper) ─────────────────────── */
+      .chatbot {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 1001;
+        font-family: inherit;
+      }
+      body.cookie-active .chatbot { bottom: 9rem; }
+
+      .chatbot__launcher {
+        appearance: none;
+        background: var(--celta-red);
+        color: #fff;
+        border: 0;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow:
+          0 10px 24px rgba(228, 0, 43, 0.32),
+          0 2px 6px rgba(10, 31, 68, 0.12);
+        transition: transform 0.18s ease, box-shadow 0.18s ease,
+          background-color 0.18s ease;
+        position: relative;
+      }
+      .chatbot__launcher:hover,
+      .chatbot__launcher:focus-visible {
+        transform: translateY(-2px) scale(1.04);
+        outline: none;
+      }
+      .chatbot__launcher:focus-visible {
+        box-shadow:
+          0 10px 24px rgba(228, 0, 43, 0.32),
+          0 0 0 4px rgba(228, 0, 43, 0.28);
+      }
+      .chatbot__launcher svg {
+        width: 26px;
+        height: 26px;
+        transition: opacity 0.15s ease, transform 0.15s ease;
+      }
+      .chatbot__launcher .chatbot__launcher--close { display: none; }
+      .chatbot[data-open="true"] .chatbot__launcher .chatbot__launcher--chat { display: none; }
+      .chatbot[data-open="true"] .chatbot__launcher .chatbot__launcher--close { display: block; }
+      .chatbot__launcher-dot {
+        position: absolute;
+        top: 8px; right: 8px;
+        width: 10px; height: 10px;
+        background: #00ff7f;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 0 0 0 rgba(0, 255, 127, 0.6);
+        animation: chatbot-pulse 2.2s ease-out infinite;
+      }
+      @keyframes chatbot-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0.45); }
+        70% { box-shadow: 0 0 0 8px rgba(0, 255, 127, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0); }
+      }
+      .chatbot[data-open="true"] .chatbot__launcher-dot { display: none; }
+      @media (prefers-reduced-motion: reduce) {
+        .chatbot__launcher-dot { animation: none; }
+      }
+
+      .chatbot__panel {
+        position: absolute;
+        bottom: 72px;
+        right: 0;
+        width: 380px;
+        max-width: calc(100vw - 2rem);
+        height: 600px;
+        max-height: calc(100vh - 6rem);
+        background: #fff;
+        border-radius: 18px;
+        box-shadow:
+          0 24px 60px rgba(10, 31, 68, 0.22),
+          0 2px 8px rgba(10, 31, 68, 0.08);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform-origin: bottom right;
+        transform: translateY(8px) scale(0.96);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.2s ease;
+      }
+      .chatbot[data-open="true"] .chatbot__panel {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .chatbot__header {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.85rem 1rem;
+        background: linear-gradient(135deg, var(--celta-navy) 0%, #122a59 100%);
+        color: #fff;
+      }
+      .chatbot__avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.18);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .chatbot__avatar img {
+        width: 26px;
+        height: 26px;
+        object-fit: contain;
+      }
+      .chatbot__header-text { flex: 1; min-width: 0; }
+      .chatbot__title {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .chatbot__subtitle {
+        margin: 0;
+        font-size: 0.75rem;
+        opacity: 0.7;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+      }
+      .chatbot__subtitle::before {
+        content: "";
+        width: 7px; height: 7px;
+        background: #00ff7f;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .chatbot__close {
+        appearance: none;
+        background: rgba(255, 255, 255, 0.12);
+        border: 0;
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.15s ease;
+      }
+      .chatbot__close:hover,
+      .chatbot__close:focus-visible {
+        background: rgba(255, 255, 255, 0.24);
+        outline: none;
+      }
+
+      .chatbot__messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        background: linear-gradient(180deg, #f7f9fc 0%, #eef3f9 100%);
+        scrollbar-width: thin;
+        scroll-behavior: smooth;
+      }
+      .chatbot__messages::-webkit-scrollbar { width: 5px; }
+      .chatbot__messages::-webkit-scrollbar-thumb {
+        background: #c5d0de;
+        border-radius: 4px;
+      }
+      .chatbot__row {
+        display: flex;
+        align-items: flex-end;
+        gap: 0.4rem;
+        max-width: 100%;
+        animation: chatbot-msg-in 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .chatbot__row--bot { align-self: flex-start; }
+      .chatbot__row--user {
+        align-self: flex-end;
+        flex-direction: row-reverse;
+      }
+      .chatbot__msg-avatar {
+        flex-shrink: 0;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--celta-navy);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2px;
+        box-shadow: 0 2px 6px rgba(10, 31, 68, 0.18);
+      }
+      .chatbot__msg-avatar img {
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+      }
+      .chatbot__row--user .chatbot__msg-avatar {
+        background: var(--celta-celeste-dark, var(--celta-celeste));
+      }
+      .chatbot__msg {
+        max-width: calc(100% - 34px);
+        padding: 0.6rem 0.9rem;
+        border-radius: 16px;
+        font-size: 0.92rem;
+        line-height: 1.45;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
+      }
+      @keyframes chatbot-msg-in {
+        from { opacity: 0; transform: translateY(6px) scale(0.98); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .chatbot__msg--bot {
+        background: #fff;
+        color: var(--celta-navy);
+        border: 1px solid #e1eaf3;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 1px 2px rgba(10, 31, 68, 0.04);
+      }
+      .chatbot__msg--user {
+        background: var(--celta-navy);
+        color: #fff;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0 2px 8px rgba(10, 31, 68, 0.18);
+      }
+      html.a11y-colorblind .chatbot__msg--user {
+        background: #003a5c;
+      }
+      .chatbot__typing {
+        align-self: flex-start;
+        display: inline-flex;
+        gap: 3px;
+        background: #fff;
+        border: 1px solid #e1eaf3;
+        border-radius: 16px;
+        border-bottom-left-radius: 4px;
+        padding: 0.65rem 0.9rem;
+        margin-left: 32px;
+        animation: chatbot-msg-in 0.22s ease-out;
+      }
+      .chatbot__typing span {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: #b7c1d1;
+        animation: chatbot-typing 1.1s infinite ease-in-out;
+      }
+      .chatbot__typing span:nth-child(2) { animation-delay: 0.18s; }
+      .chatbot__typing span:nth-child(3) { animation-delay: 0.36s; }
+      @keyframes chatbot-typing {
+        0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+        30%           { transform: translateY(-4px); opacity: 1; }
+      }
+
+      .chatbot__suggestions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        padding: 0.55rem 0.85rem;
+        background: #f7f9fc;
+        border-top: 1px solid #e6ecf2;
+        max-height: 120px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+      }
+      .chatbot__suggestions::-webkit-scrollbar { width: 4px; }
+      .chatbot__suggestions::-webkit-scrollbar-thumb {
+        background: #d4dde8;
+        border-radius: 4px;
+      }
+      .chatbot__chip {
+        appearance: none;
+        background: #fff;
+        border: 1px solid #d4e1ee;
+        border-radius: 999px;
+        padding: 0.35rem 0.75rem;
+        font-family: inherit;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--celta-navy);
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background-color 0.15s ease, border-color 0.15s ease,
+          transform 0.1s ease;
+      }
+      .chatbot__chip:hover,
+      .chatbot__chip:focus-visible {
+        background: rgba(122, 177, 217, 0.15);
+        border-color: var(--celta-celeste);
+        outline: none;
+      }
+      .chatbot__chip:active { transform: translateY(1px); }
+
+      .chatbot__form {
+        display: flex;
+        gap: 0.5rem;
+        align-items: flex-end;
+        padding: 0.75rem 0.85rem 0.9rem;
+        background: #fff;
+        border-top: 1px solid #e6ecf2;
+      }
+      .chatbot__input {
+        flex: 1;
+        appearance: none;
+        background: #f4f8fc;
+        border: 1px solid #e1eaf3;
+        border-radius: 18px;
+        padding: 0.6rem 0.95rem;
+        font-family: inherit;
+        font-size: 0.92rem;
+        line-height: 1.4;
+        color: var(--celta-navy);
+        resize: none;
+        max-height: 110px;
+        min-height: 38px;
+        overflow-y: auto;
+        transition: border-color 0.15s ease, background-color 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+      .chatbot__input::placeholder {
+        color: #8b95a8;
+      }
+      .chatbot__input:focus {
+        outline: none;
+        background: #fff;
+        border-color: var(--celta-celeste);
+        box-shadow: 0 0 0 3px rgba(122, 177, 217, 0.22);
+      }
+      .chatbot__send {
+        appearance: none;
+        background: var(--celta-red);
+        border: 0;
+        color: #fff;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: background-color 0.15s ease, transform 0.1s ease,
+          opacity 0.2s ease;
+      }
+      .chatbot__send:hover:not(:disabled) {
+        background: #c40026;
+        transform: translateY(-1px);
+      }
+      .chatbot__send:active:not(:disabled) { transform: translateY(1px); }
+      .chatbot__send svg { width: 16px; height: 16px; }
+      .chatbot__send:disabled {
+        background: #d4dde8;
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+
+      @media (max-width: 480px) {
+        .chatbot { bottom: 1rem; right: 1rem; }
+        body.cookie-active .chatbot { bottom: 11rem; }
+        .chatbot__launcher { width: 52px; height: 52px; }
+        .chatbot__launcher svg { width: 22px; height: 22px; }
+        .chatbot__panel {
+          width: calc(100vw - 2rem);
+          height: calc(100vh - 7rem);
+          max-height: 600px;
+          bottom: 66px;
+        }
+      }
+      html.a11y-colorblind .chatbot__launcher,
+      html.a11y-colorblind .chatbot__send { background: #e69f00; color: #1a1a1a; }
+      html.a11y-colorblind .chatbot__msg--user { background: #0072b2; }
+
+      /* ─── Cookie banner ───────────────────────────────────────── */
+      .cookie-banner {
+        position: fixed;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 999;
+        background: #ffffff;
+        border: 1px solid #e6ecf2;
+        border-radius: 14px;
+        box-shadow:
+          0 2px 6px rgba(10, 31, 68, 0.08),
+          0 16px 48px rgba(10, 31, 68, 0.18);
+        transform: translateY(140%);
+        opacity: 0;
+        transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                    opacity 0.35s ease;
+      }
+      .cookie-banner.is-visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .cookie-banner__inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.1rem 1.35rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .cookie-banner__copy {
+        flex: 1 1 320px;
+        min-width: 0;
+      }
+      .cookie-banner__copy h2 {
+        margin: 0 0 0.25rem;
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: var(--celta-navy);
+      }
+      .cookie-banner__copy p {
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.45;
+        color: #5b6a82;
+      }
+      .cookie-banner__link {
+        color: var(--celta-sky-dark);
+        text-decoration: underline;
+      }
+      .cookie-banner__actions {
+        display: flex;
+        gap: 0.6rem;
+        flex-shrink: 0;
+      }
+      .cookie-banner__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 1.15rem;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        border-radius: 6px;
+        cursor: pointer;
+        border: none;
+        transition: transform 0.05s ease, background-color 0.15s ease,
+                    box-shadow 0.15s ease;
+      }
+      .cookie-banner__btn:active { transform: translateY(1px); }
+      .cookie-banner__btn--primary {
+        color: #ffffff;
+        background-color: var(--celta-red);
+        box-shadow: 0 3px 10px rgba(228, 0, 43, 0.25);
+      }
+      .cookie-banner__btn--primary:hover {
+        background-color: #c20025;
+        box-shadow: 0 5px 14px rgba(228, 0, 43, 0.35);
+      }
+      .cookie-banner__btn--ghost {
+        background-color: transparent;
+        color: var(--celta-navy);
+        border: 1px solid #d9dee3 !important;
+      }
+      .cookie-banner__btn--ghost:hover {
+        background-color: var(--celta-grey);
+      }
+      @media (max-width: 600px) {
+        .cookie-banner {
+          left: 0.5rem;
+          right: 0.5rem;
+          bottom: 0.5rem;
+        }
+        .cookie-banner__inner {
+          padding: 1rem 1.1rem;
+          gap: 0.85rem;
+        }
+        .cookie-banner__actions {
+          width: 100%;
+          justify-content: stretch;
+        }
+        .cookie-banner__btn { flex: 1; }
+      }
+
+      .form-status--success h2::after {
+        content: "";
+        display: block;
+        width: 56px;
+        height: 56px;
+        margin: 0.5rem auto 0.75rem;
+        border-radius: 50%;
+        background:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center/22px no-repeat,
+          linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+        animation: pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+      }
+      @keyframes pop {
+        from { transform: scale(0); opacity: 0; }
+        to   { transform: scale(1); opacity: 1; }
+      }
+
+      .match-info {
+        max-width: 640px;
+        margin: -2rem auto 0.75rem;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .match-card {
+        background-color: #ffffff;
+        border: 1px solid var(--celta-border);
+        border-radius: 6px;
+        box-shadow: 0 4px 24px rgba(10, 31, 68, 0.06);
+        padding: 1.5rem 1.5rem 1.25rem;
+      }
+
+      .match-card__head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .match-card__title {
+        margin: 0 0 0.25rem;
+        font-size: 1.1rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        color: var(--celta-navy);
+      }
+
+      .match-card__subtitle {
+        margin: 0;
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #5b6a82;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.65rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        white-space: nowrap;
+      }
+
+      .status-pill--green {
+        background-color: #dcfce7;
+        color: #166534;
+        border-color: rgba(22, 101, 52, 0.2);
+      }
+
+      .status-pill--amber {
+        background-color: #fef3c7;
+        color: #92400e;
+        border-color: rgba(146, 64, 14, 0.2);
+      }
+
+      .status-pill--red {
+        background-color: #fee2e2;
+        color: #991b1b;
+        border-color: rgba(153, 27, 27, 0.2);
+      }
+
+      .status-pill--neutral {
+        background-color: #f1f3f5;
+        color: #5b6a82;
+        border-color: var(--celta-border);
+      }
+
+      .match-card__meta {
+        list-style: none;
+        margin: 0 0 1rem;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.25rem;
+        font-size: 0.85rem;
+        color: var(--celta-navy);
+      }
+
+      .match-card__meta li {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .match-card__meta svg {
+        width: 1rem;
+        height: 1rem;
+        color: var(--celta-sky-dark);
+        flex-shrink: 0;
+      }
+
+      .match-card__avail {
+        background-color: #f4f8fc;
+        border: 1px solid #e1eaf3;
+        border-radius: 4px;
+        padding: 0.7rem 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .match-card__avail-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.85rem;
+      }
+
+      .match-card__avail-label {
+        color: #5b6a82;
+      }
+
+      .match-card__avail-value {
+        font-weight: 700;
+        color: var(--celta-navy);
+      }
+
+      .match-card__avail-value .pct {
+        margin-left: 0.4rem;
+      }
+
+      .match-card__avail-value .pct--green {
+        color: #16a34a;
+      }
+      .match-card__avail-value .pct--amber {
+        color: #d97706;
+      }
+      .match-card__avail-value .pct--red {
+        color: #dc2626;
+      }
+
+      .match-card__bar {
+        height: 5px;
+        background-color: #e1eaf3;
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .match-card__bar-fill {
+        height: 100%;
+        border-radius: 999px;
+        transition: width 0.25s ease;
+      }
+
+      .match-card__bar-fill--green {
+        background-color: #16a34a;
+      }
+      .match-card__bar-fill--amber {
+        background-color: #d97706;
+      }
+      .match-card__bar-fill--red {
+        background-color: #dc2626;
+      }
+
+      @media (max-width: 480px) {
+        header.hero {
+          padding: 2.5rem 1rem 2rem;
+        }
+
+        header.hero h1 {
+          font-size: 2rem;
+        }
+
+        .match-info {
+          margin: -1.5rem 1rem 1rem;
+          padding: 0;
+        }
+
+        main {
+          margin: 0 1.5rem 2rem;
+          padding: 1.75rem 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link" data-i18n="skip">Saltar al contenido</a>
+
+    <div class="topbar" role="banner">
+      <div class="topbar__inner">
+        <span class="topbar__brand" data-i18n="topbar.brand">RC Celta · Celtismo</span>
+        <div class="topbar__controls">
+          <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-attr="aria-label:a11y.langGroup">
+            <button type="button" data-lang="es" aria-pressed="true">
+              <span class="lang-flag" aria-hidden="true">
+                <svg viewBox="0 0 6 4" preserveAspectRatio="none"><rect width="6" height="1" fill="#aa151b"/><rect y="1" width="6" height="2" fill="#f1bf00"/><rect y="3" width="6" height="1" fill="#aa151b"/></svg>
+              </span>
+              <span>ES</span>
+            </button>
+            <button type="button" data-lang="gl" aria-pressed="false">
+              <span class="lang-flag" aria-hidden="true">
+                <svg viewBox="0 0 6 4" preserveAspectRatio="none"><rect width="6" height="4" fill="#ffffff"/><path d="M 0 0 L 6 4" stroke="#0179c8" stroke-width="1.1" fill="none"/></svg>
+              </span>
+              <span>GL</span>
+            </button>
+            <button type="button" data-lang="en" aria-pressed="false">
+              <span class="lang-flag" aria-hidden="true">
+                <svg viewBox="0 0 6 4" preserveAspectRatio="none"><rect width="6" height="4" fill="#012169"/><path d="M 0 0 L 6 4 M 6 0 L 0 4" stroke="#ffffff" stroke-width="0.8"/><path d="M 0 0 L 6 4 M 6 0 L 0 4" stroke="#c8102e" stroke-width="0.32"/><rect x="2.4" width="1.2" height="4" fill="#ffffff"/><rect y="1.4" width="6" height="1.2" fill="#ffffff"/><rect x="2.7" width="0.6" height="4" fill="#c8102e"/><rect y="1.7" width="6" height="0.6" fill="#c8102e"/></svg>
+              </span>
+              <span>EN</span>
+            </button>
+          </div>
+          <button
+            type="button"
+            class="a11y-toggle"
+            id="a11y-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="a11y-menu"
+            data-i18n-attr="aria-label:a11y.button"
+            aria-label="Opciones de accesibilidad"
+            title="Accesibilidad"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="7.3" r="1.4" fill="currentColor" stroke="none"/>
+              <path d="M6.8 10.5h10.4"/>
+              <path d="M9 18.5l3-6 3 6M12 10.6v2.2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="a11y-menu"
+        id="a11y-menu"
+        role="dialog"
+        aria-labelledby="a11y-menu-title"
+        hidden
+      >
+        <h2 id="a11y-menu-title" data-i18n="a11y.title">Accesibilidad</h2>
+        <label class="a11y-row">
+          <span data-i18n="a11y.colorblind">Modo daltónico</span>
+          <input type="checkbox" data-a11y="colorblind" />
+        </label>
+        <label class="a11y-row">
+          <span data-i18n="a11y.largeText">Texto más grande</span>
+          <input type="checkbox" data-a11y="large-text" />
+        </label>
+        <p class="a11y-hint" data-i18n="a11y.hint">
+          Tus preferencias se guardan en este dispositivo.
+        </p>
+      </div>
+    </div>
+    <header class="hero hero--photo">
+      <img
+        id="main-content"
+        class="hero__photo"
+        src="assets/spanish%20image.png?v=2"
+        alt="Aficionados del RC Celta animando en Balaídos con la bandera del club"
+        width="1200"
+        height="630"
+        fetchpriority="high"
+        decoding="async"
+        data-i18n-attr="alt:hero.imageAlt;src:hero.image"
+      />
+      <section>
+        <p class="hero__eyebrow" data-i18n="hero.eyebrow">Avísame · Para celtistas que no se rinden</p>
+        <h1 data-i18n="hero.title">Tu sitio en Balaídos te está esperando</h1>
+        <p class="hero__lead" data-i18n="hero.lead">
+          Cuando se libere una entrada en tu grada, te lo decimos al instante.
+          Tú a lo tuyo: nosotros vigilamos por ti. ⚽
+        </p>
+        <a class="hero__cta" href="#avisame-form-anchor">
+          <span data-i18n="hero.cta">Apúntame</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </section>
+    </header>
+
+    <section class="match-info" aria-label="Partido seleccionado" data-i18n-attr="aria-label:matchCard.sectionAria">
+      <article class="match-card">
+        <!-- match-info:start -->
+        <header class="match-card__head">
+          <div>
+            <h2 class="match-card__title">NUMERADO</h2>
+            <p class="match-card__subtitle">GIRA 2019</p>
+          </div>
+          <span class="status-pill status-pill--green" data-i18n="matchCard.statusOnSale">A la venta</span>
+        </header>
+        <ul class="match-card__meta">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-match-date="2020-02-12T21:00:00">12 de febrero de 2020, 21:00</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Estadio Saprissa, Barcelona</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z"/><circle cx="7" cy="7" r="1.5" fill="currentColor"/></svg><span>€10 – €50</span></li>
+        </ul>
+        <div class="match-card__avail">
+          <div class="match-card__avail-row">
+            <span class="match-card__avail-label" data-i18n="matchCard.availability">Disponibilidad</span>
+            <span class="match-card__avail-value">14.372 / 14.786<span class="pct pct--green">(97%)</span></span>
+          </div>
+          <div class="match-card__bar"><div class="match-card__bar-fill match-card__bar-fill--green" style="width: 97%"></div></div>
+        </div>
+        <!-- match-info:end -->
+      </article>
+    </section>
+
+    <main id="avisame-form-anchor">
+      <div class="form-intro">
+        <h2><span data-i18n="form.introTitle">Solo 4 campos y listo</span> <span aria-hidden="true">⚡</span></h2>
+        <p data-i18n="form.introHint">Te ponemos en la lista en menos de 30 segundos.</p>
+      </div>
+
+      <form id="avisame-form" method="POST" target="mailchimp-target" novalidate>
+        <div class="form-row">
+          <p>
+            <label for="nombre" data-i18n="form.firstName">Nombre</label>
+            <input type="text" id="nombre" name="FNAME" required autocomplete="given-name" placeholder="Iago" data-i18n-attr="placeholder:form.firstNamePh" />
+          </p>
+          <p>
+            <label for="apellido" data-i18n="form.lastName">Apellido</label>
+            <input type="text" id="apellido" name="LNAME" required autocomplete="family-name" placeholder="Aspas" data-i18n-attr="placeholder:form.lastNamePh" />
+          </p>
+        </div>
+
+        <p>
+          <label for="email" data-i18n="form.email">Tu email</label>
+          <input
+            type="email"
+            id="email"
+            name="EMAIL"
+            required
+            autocomplete="email"
+            placeholder="tu@email.com"
+            data-i18n-attr="placeholder:form.emailPh"
+          />
+        </p>
+
+        <div class="seatmap-section">
+          <span class="seatmap-section__label" data-i18n="seatmap.label">
+            ¿Dónde quieres sentarte?
+          </span>
+          <div class="seatmap" id="seatmap">
+            <svg
+              class="seatmap__svg"
+              viewBox="0 0 640 420"
+              role="img"
+              aria-labelledby="seatmap-title"
+            >
+              <title id="seatmap-title" data-i18n="seatmap.svgTitle">Mapa del Estadio de Balaídos</title>
+
+              <!-- Decorative outer "concrete" shell -->
+              <rect class="seatmap__shell" x="4" y="4" width="632" height="412"
+                rx="14" ry="14" pointer-events="none" />
+
+              <!-- 4 nested rectangular ring donuts. fill-rule:evenodd carves
+                   out the inner rect, leaving a clickable band. -->
+              <path class="seatmap__zone" data-zone="piso3" fill-rule="evenodd"
+                d="M 24,24 H 616 V 396 H 24 Z
+                   M 56,44 H 584 V 376 H 56 Z" />
+              <path class="seatmap__zone" data-zone="piso2" fill-rule="evenodd"
+                d="M 56,44 H 584 V 376 H 56 Z
+                   M 88,64 H 552 V 356 H 88 Z" />
+              <path class="seatmap__zone" data-zone="piso1" fill-rule="evenodd"
+                d="M 88,64 H 552 V 356 H 88 Z
+                   M 124,86 H 516 V 334 H 124 Z" />
+              <path class="seatmap__zone" data-zone="pista" fill-rule="evenodd"
+                d="M 124,86 H 516 V 334 H 124 Z
+                   M 160,110 H 480 V 310 H 160 Z" />
+
+              <!-- Decorative dashed "seat row" rectangles inside each ring -->
+              <rect class="seatmap__seatrow" x="40" y="34" width="560" height="352" pointer-events="none" />
+              <rect class="seatmap__seatrow" x="72" y="54" width="496" height="312" pointer-events="none" />
+              <rect class="seatmap__seatrow" x="106" y="75" width="428" height="270" pointer-events="none" />
+              <rect class="seatmap__seatrow" x="142" y="98" width="356" height="224" pointer-events="none" />
+
+              <!-- Sector cells (one rect per stand, generated by JS at init.
+                   Invisible by default; lit up when their tier is active and
+                   solid-glowing when the user picks that sector's chip). -->
+              <g class="seatmap__sectors" id="seatmap-sectors" pointer-events="none"></g>
+
+              <!-- Pitch + soccer markings (corner arcs, penalty spots, etc.) -->
+              <g class="seatmap__pitch-group" pointer-events="none">
+                <rect class="seatmap__pitch" x="160" y="110" width="320" height="200" rx="2" />
+                <!-- Halfway line -->
+                <line class="seatmap__pitch-line" x1="320" y1="110" x2="320" y2="310" />
+                <!-- Center circle + dot -->
+                <circle class="seatmap__pitch-line" cx="320" cy="210" r="24" fill="none" />
+                <circle class="seatmap__pitch-dot" cx="320" cy="210" r="2.5" />
+                <!-- Penalty areas -->
+                <rect class="seatmap__pitch-line" x="160" y="170" width="44" height="80" fill="none" />
+                <rect class="seatmap__pitch-line" x="436" y="170" width="44" height="80" fill="none" />
+                <!-- Goal areas -->
+                <rect class="seatmap__pitch-line" x="160" y="190" width="18" height="40" fill="none" />
+                <rect class="seatmap__pitch-line" x="462" y="190" width="18" height="40" fill="none" />
+                <!-- Penalty spots -->
+                <circle class="seatmap__pitch-dot" cx="190" cy="210" r="1.5" />
+                <circle class="seatmap__pitch-dot" cx="450" cy="210" r="1.5" />
+                <!-- Goal nets (thick stroke segments) -->
+                <line class="seatmap__pitch-goal" x1="158" y1="200" x2="158" y2="220" />
+                <line class="seatmap__pitch-goal" x1="482" y1="200" x2="482" y2="220" />
+                <!-- Corner flag arcs -->
+                <path class="seatmap__pitch-line" d="M 168 110 A 8 8 0 0 0 160 118" />
+                <path class="seatmap__pitch-line" d="M 480 118 A 8 8 0 0 0 472 110" />
+                <path class="seatmap__pitch-line" d="M 160 302 A 8 8 0 0 0 168 310" />
+                <path class="seatmap__pitch-line" d="M 472 310 A 8 8 0 0 0 480 302" />
+              </g>
+
+              <!-- Tier labels (top band of each ring) + count badges -->
+              <text class="seatmap__label" data-zone-label="piso3" x="320" y="37" text-anchor="middle">PISO 3</text>
+              <text class="seatmap__count" data-count-for="piso3" x="362" y="37" text-anchor="start"></text>
+              <text class="seatmap__label" data-zone-label="piso2" x="320" y="57" text-anchor="middle">PISO 2</text>
+              <text class="seatmap__count" data-count-for="piso2" x="362" y="57" text-anchor="start"></text>
+              <text class="seatmap__label" data-zone-label="piso1" x="320" y="78" text-anchor="middle">PISO 1</text>
+              <text class="seatmap__count" data-count-for="piso1" x="362" y="78" text-anchor="start"></text>
+              <text class="seatmap__label seatmap__label--sm" data-zone-label="pista" x="320" y="101" text-anchor="middle">PISTA</text>
+              <text class="seatmap__count" data-count-for="pista" x="358" y="101" text-anchor="start"></text>
+
+              <!-- Cardinal stand names around the outside of the outer ring -->
+              <text class="seatmap__stand" x="320" y="16" text-anchor="middle" data-i18n="seatmap.standTribuna">TRIBUNA</text>
+              <text class="seatmap__stand" x="320" y="412" text-anchor="middle" data-i18n="seatmap.standMarcador">MARCADOR</text>
+              <text class="seatmap__stand" x="14" y="210" text-anchor="middle" transform="rotate(-90 14 210)" data-i18n="seatmap.standGol">GOL</text>
+              <text class="seatmap__stand" x="626" y="210" text-anchor="middle" transform="rotate(90 626 210)" data-i18n="seatmap.standRio">RÍO</text>
+            </svg>
+            <p class="seatmap__hint" id="seatmap-hint" aria-live="polite" data-i18n="seatmap.hint">
+              Toca una zona para filtrar los sectores.
+            </p>
+          </div>
+        </div>
+
+        <div class="chip-picker" id="chip-picker">
+          <div class="chip-picker__header">
+            <p class="chip-picker__title" id="chip-picker-title" data-i18n="form.grada">
+              Tu grada favorita
+            </p>
+            <span
+              class="chip-picker__pill"
+              id="chip-picker-pill"
+              hidden
+              aria-live="polite"
+            >
+              <span class="chip-picker__pill-text" id="chip-picker-pill-text"></span>
+              <button
+                type="button"
+                class="chip-picker__pill-clear"
+                id="chip-picker-clear"
+                aria-label="Quitar grada seleccionada"
+                data-i18n-attr="aria-label:chipPicker.clearAria"
+              >×</button>
+            </span>
+          </div>
+          <div
+            class="chip-picker__chips"
+            id="chip-picker-chips"
+            role="listbox"
+            aria-label="Sectores disponibles"
+            data-i18n-attr="aria-label:chipPicker.listAria"
+          >
+            <p class="chip-picker__empty" id="chip-picker-empty" data-i18n="chipPicker.empty">
+              Toca una zona del mapa para ver los sectores.
+            </p>
+          </div>
+          <p
+            class="chip-picker__error"
+            id="chip-picker-error"
+            data-i18n="chipPicker.error"
+            role="alert"
+          >
+            Elige una grada para que podamos avisarte.
+          </p>
+        </div>
+
+        <label for="grada" class="sr-only" data-i18n="form.grada">Tu grada favorita</label>
+        <select id="grada" name="GRADA_ID" class="sr-only" tabindex="-1" aria-hidden="true">
+          <option value="" disabled selected>Selecciona una grada</option>
+            <option value="224563">Minusvalidos A</option>
+            <option value="224562">Minusvalidos B</option>
+            <option value="224549">Pista - B1</option>
+            <option value="224550">Pista - B2</option>
+            <option value="224551">Pista - B3</option>
+            <option value="224560">Pista - C1</option>
+            <option value="224561">Pista - C2</option>
+            <option value="224554">Pista A1</option>
+            <option value="224555">Pista A2</option>
+            <option value="224556">Pista A3</option>
+            <option value="224557">Pista B1</option>
+            <option value="224558">Pista B2</option>
+            <option value="224559">Pista B3</option>
+            <option value="224552">Pista C1</option>
+            <option value="224553">Pista C2</option>
+            <option value="224453">Sector 105</option>
+            <option value="224529">Sector 105 E</option>
+            <option value="224454">Sector 106</option>
+            <option value="224530">Sector 106 E</option>
+            <option value="224455">Sector 107</option>
+            <option value="224531">Sector 107 E</option>
+            <option value="224456">Sector 108</option>
+            <option value="224532">Sector 108 E</option>
+            <option value="224457">Sector 109</option>
+            <option value="224533">Sector 109 E</option>
+            <option value="224458">Sector 110</option>
+            <option value="224459">Sector 111</option>
+            <option value="224460">Sector 112</option>
+            <option value="224534">Sector 112 D</option>
+            <option value="224461">Sector 113</option>
+            <option value="224535">Sector 113 D</option>
+            <option value="224462">Sector 114</option>
+            <option value="224536">Sector 114 D</option>
+            <option value="224464">Sector 115</option>
+            <option value="224537">Sector 115 D</option>
+            <option value="224463">Sector 116</option>
+            <option value="224465">Sector 117</option>
+            <option value="224466">Sector 118</option>
+            <option value="224538">Sector 118 E</option>
+            <option value="224467">Sector 119</option>
+            <option value="224539">Sector 119 E</option>
+            <option value="224468">Sector 120</option>
+            <option value="224540">Sector 120 E</option>
+            <option value="224469">Sector 121</option>
+            <option value="224541">Sector 121 E</option>
+            <option value="224470">Sector 122</option>
+            <option value="224542">Sector 122 E</option>
+            <option value="224480">Sector 207</option>
+            <option value="224481">Sector 208</option>
+            <option value="224482">Sector 209</option>
+            <option value="224483">Sector 210</option>
+            <option value="224484">Sector 211</option>
+            <option value="224485">Sector 212</option>
+            <option value="224486">Sector 213</option>
+            <option value="224487">Sector 214</option>
+            <option value="224488">Sector 215</option>
+            <option value="224489">Sector 216</option>
+            <option value="224490">Sector 217</option>
+            <option value="224491">Sector 218</option>
+            <option value="224492">Sector 219</option>
+            <option value="224493">Sector 220</option>
+            <option value="224494">Sector 221</option>
+            <option value="224495">Sector 222</option>
+            <option value="224504">Sector 305</option>
+            <option value="224505">Sector 306</option>
+            <option value="224506">Sector 307</option>
+            <option value="224507">Sector 308</option>
+            <option value="224508">Sector 309</option>
+            <option value="224509">Sector 310</option>
+            <option value="224510">Sector 311</option>
+            <option value="224511">Sector 312</option>
+            <option value="224512">Sector 313</option>
+            <option value="224513">Sector 314</option>
+            <option value="224514">Sector 315</option>
+            <option value="224515">Sector 316</option>
+            <option value="224516">Sector 317</option>
+            <option value="224517">Sector 318</option>
+            <option value="224518">Sector 319</option>
+            <option value="224519">Sector 320</option>
+            <option value="224520">Sector 321</option>
+            <option value="224521">Sector 322</option>
+            <option value="224479">Sector Palco / Llotja</option>
+          </select>
+
+        <p>
+          <label class="checkbox-label">
+            <input type="checkbox" required />
+            <span data-i18n="form.privacy" data-i18n-html="1">
+              He leído y acepto la <a href="#" class="text-link">política de privacidad</a>.
+            </span>
+          </label>
+        </p>
+
+        <!-- match-data:start -->
+        <input type="hidden" name="SESSION" value="NUMERADO" />
+        <input type="hidden" name="SESSION_ID" value="240895" />
+        <input type="hidden" name="VENUE" value="Estadio Saprissa, Barcelona" />
+        <input type="hidden" name="MATCHDATE" value="2020-02-12" />
+        <input type="text" name="b_3a69ea84e0e27b019e98a37fc_e0ce6a74d5" tabindex="-1" value="" aria-hidden="true" style="position:absolute;left:-5000px" />
+        <!-- match-data:end -->
+
+        <p class="submit-row">
+          <button type="submit">
+            <span data-i18n="form.submit">¡Avísame!</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>
+          </button>
+        </p>
+      </form>
+      <iframe
+        name="mailchimp-target"
+        title="Mailchimp"
+        style="display: none"
+        aria-hidden="true"
+      ></iframe>
+      <canvas id="confetti" aria-hidden="true"></canvas>
+    </main>
+
+    <section class="how" aria-labelledby="how-title" data-fade>
+      <div class="container">
+        <h2 id="how-title" class="section-title" data-i18n="how.title">Cómo funciona</h2>
+        <p class="section-lead" data-i18n="how.lead">
+          Sin recargar la web, sin estrés. Tres pasos y a por la entrada.
+        </p>
+        <ol class="how__steps">
+          <li class="how__step">
+            <div class="how__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+            </div>
+            <h3 data-i18n="how.step1Title">Apúntate en 30 segundos</h3>
+            <p data-i18n="how.step1Body">Eliges tu grada y nos dejas tu email. Eso es todo.</p>
+          </li>
+          <li class="how__step">
+            <div class="how__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </div>
+            <h3 data-i18n="how.step2Title">Vigilamos por ti 24/7</h3>
+            <p data-i18n="how.step2Body">Comprobamos la disponibilidad de Balaídos cada pocos minutos.</p>
+          </li>
+          <li class="how__step">
+            <div class="how__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a1 1 0 0 1-1.11 1 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.67A1 1 0 0 1 4.18 3h4.09a1 1 0 0 1 1 .75 12.84 12.84 0 0 0 .7 2.81 1 1 0 0 1-.23 1L8.09 9.91a16 16 0 0 0 6 6l2.35-1.65a1 1 0 0 1 1-.23 12.84 12.84 0 0 0 2.81.7 1 1 0 0 1 .75 1.04Z"/></svg>
+            </div>
+            <h3 data-i18n="how.step3Title">Te avisamos al instante</h3>
+            <p data-i18n="how.step3Body">En cuanto se libera una entrada en tu grada, recibes un email con el enlace de compra.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-title" data-fade>
+      <div class="container">
+        <h2 id="faq-title" class="section-title" data-i18n="faq.title">Preguntas frecuentes</h2>
+        <p class="section-lead" data-i18n="faq.lead">
+          Lo que casi todos los celtistas nos preguntan antes de apuntarse.
+        </p>
+
+        <div class="faq__grid">
+          <details class="faq__item" name="faq">
+            <summary>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg>
+              </span>
+              <span class="faq__q" data-i18n="faq.q1">¿En cuánto tiempo me llega el aviso?</span>
+              <span class="faq__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq__body"><div class="faq__body-inner">
+              <p data-i18n="faq.a1">En cuanto detectamos que la entrada se ha liberado. Habitualmente, en menos de 2 minutos desde que el club la publica.</p>
+            </div></div>
+          </details>
+
+          <details class="faq__item" name="faq">
+            <summary>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 9 4-9 4-9-4 9-4z"/><path d="m3 12 9 4 9-4"/><path d="m3 17 9 4 9-4"/></svg>
+              </span>
+              <span class="faq__q" data-i18n="faq.q2">¿Puedo seguir más de una grada a la vez?</span>
+              <span class="faq__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq__body"><div class="faq__body-inner">
+              <p data-i18n="faq.a2">Sí. Vuelve a apuntarte con el mismo email eligiendo otra grada. Te avisaremos de todas las que sigas, sin emails de más.</p>
+            </div></div>
+          </details>
+
+          <details class="faq__item" name="faq">
+            <summary>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <span class="faq__q" data-i18n="faq.q3">¿Y si la entrada se agota antes de que pueda comprarla?</span>
+              <span class="faq__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq__body"><div class="faq__body-inner">
+              <p data-i18n="faq.a3">El aviso llega al instante, pero hay otros celtistas atentos. Cuanto antes hagas clic, mejor — y si llegas tarde, sigues en la lista para la próxima.</p>
+            </div></div>
+          </details>
+
+          <details class="faq__item" name="faq">
+            <summary>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              <span class="faq__q" data-i18n="faq.q4">¿De dónde sacáis la disponibilidad?</span>
+              <span class="faq__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq__body"><div class="faq__body-inner">
+              <p data-i18n="faq.a4">Consultamos directamente el sistema oficial de venta del club cada pocos minutos. No prometemos nada que el club no esté ofreciendo de verdad.</p>
+            </div></div>
+          </details>
+
+          <details class="faq__item" name="faq">
+            <summary>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span class="faq__q" data-i18n="faq.q5">¿Quién está detrás de Avísame?</span>
+              <span class="faq__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq__body"><div class="faq__body-inner">
+              <p data-i18n="faq.a5">Un grupo pequeño de celtistas, en su tiempo libre. Sin afiliación oficial con el club, sin inversores ni patrocinadores. No vendemos tus datos, no hay publicidad. Si el proyecto crece, pediremos ayuda al celtismo — no al mejor postor.</p>
+            </div></div>
+          </details>
+
+          <details class="faq__item" name="faq">
+            <summary>
+              <span class="faq__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <span class="faq__q" data-i18n="faq.q6">¿Dónde guardáis mi email? ¿Lo compartís?</span>
+              <span class="faq__chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+              </span>
+            </summary>
+            <div class="faq__body"><div class="faq__body-inner">
+              <p data-i18n="faq.a6">Tu email vive en Mailchimp (servidores en la UE) solo para enviarte avisos. No lo compartimos con nadie. Darte de baja es un clic en cualquier correo.</p>
+            </div></div>
+          </details>
+        </div>
+
+        <div class="faq__cta" data-fade>
+          <p data-i18n="faq.ctaText">¿Tu pregunta no está aquí?</p>
+          <a class="faq__cta-link" href="mailto:hola@avisame.example">
+            <span data-i18n="faq.ctaLink">Escríbenos</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__row">
+          <div class="footer__brand">
+            <img
+              src="assets/rc%20celta%20logo.png"
+              alt="Escudo del RC Celta"
+              width="36"
+              height="36"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <p class="footer__title" data-i18n="footer.title">RC Celta · Avísame</p>
+              <p class="footer__hint" data-i18n="footer.hint">Alertas de entradas hechas por y para celtistas.</p>
+            </div>
+          </div>
+          <nav class="footer__links" aria-label="Enlaces legales" data-i18n-attr="aria-label:footer.linksAria">
+            <a href="#" data-i18n="footer.privacy">Política de privacidad</a>
+            <a href="#" data-i18n="footer.legal">Aviso legal</a>
+            <a href="mailto:hola@avisame.example" data-i18n="footer.contact">Contacto</a>
+          </nav>
+        </div>
+        <p class="footer__copy"
+          data-i18n="footer.copy"
+          data-i18n-html="1">
+          © <span id="footer-year"></span> Avísame. Proyecto independiente — no afiliado oficialmente a RC Celta. ¡Aúpa Celta!
+        </p>
+      </div>
+    </footer>
+
+    <div
+      id="cookie-banner"
+      class="cookie-banner"
+      role="dialog"
+      aria-labelledby="cookie-banner-title"
+      aria-describedby="cookie-banner-desc"
+      hidden
+    >
+      <div class="cookie-banner__inner">
+        <div class="cookie-banner__copy">
+          <h2 id="cookie-banner-title">
+            <span aria-hidden="true">🍪</span>
+            <span data-i18n="cookie.title">Cookies, lo justas</span>
+          </h2>
+          <p
+            id="cookie-banner-desc"
+            data-i18n="cookie.body"
+            data-i18n-html="1"
+          >
+            Usamos cookies imprescindibles para que el formulario funcione y
+            para entender qué partidos interesan más a los celtistas. Sin
+            publicidad ni venta de datos a terceros.
+            <a href="#" class="cookie-banner__link">Política de privacidad</a>.
+          </p>
+        </div>
+        <div class="cookie-banner__actions">
+          <button
+            type="button"
+            class="cookie-banner__btn cookie-banner__btn--ghost"
+            data-cookie-action="reject"
+            data-i18n="cookie.reject"
+          >
+            Rechazar
+          </button>
+          <button
+            type="button"
+            class="cookie-banner__btn cookie-banner__btn--primary"
+            data-cookie-action="accept"
+            data-i18n="cookie.accept"
+          >
+            Aceptar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- runtime-config:start -->
+        <script type="application/json" id="runtime-config">{"mailchimp": {"formUrl": "https://student.us15.list-manage.com/subscribe/post?u=3a69ea84e0e27b019e98a37fc&id=e0ce6a74d5", "honeypot": "b_3a69ea84e0e27b019e98a37fc_e0ce6a74d5"}, "session": {"id": 240895, "name": "NUMERADO", "venue": "Estadio Saprissa, Barcelona", "date": "2020-02-12"}}</script>
+    <!-- runtime-config:end -->
+
+    <script>
+      (function () {
+        const form = document.getElementById("avisame-form");
+        const iframe = document.querySelector(
+          'iframe[name="mailchimp-target"]'
+        );
+        const config = JSON.parse(
+          document.getElementById("runtime-config").textContent
+        );
+
+        if (config.mailchimp && config.mailchimp.formUrl) {
+          form.action = config.mailchimp.formUrl;
+        }
+
+        function injectHidden(name, value) {
+          let input = form.querySelector(
+            'input[type="hidden"][data-runtime="' + name + '"]'
+          );
+          if (!input) {
+            input = document.createElement("input");
+            input.type = "hidden";
+            input.name = name;
+            input.dataset.runtime = name;
+            form.appendChild(input);
+          }
+          input.value = value;
+        }
+
+        function fireConfetti() {
+          const canvas = document.getElementById("confetti");
+          canvas.classList.add("is-active");
+          const ctx = canvas.getContext("2d");
+          function size() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+          }
+          size();
+          window.addEventListener("resize", size);
+          const colors = ["#7ab1d9", "#0a1f44", "#e4002b", "#ffd166", "#ffffff"];
+          const particles = Array.from({ length: 140 }, () => ({
+            x: Math.random() * canvas.width,
+            y: -20 - Math.random() * canvas.height * 0.3,
+            r: 4 + Math.random() * 4,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            vx: -2 + Math.random() * 4,
+            vy: 2 + Math.random() * 4,
+            rot: Math.random() * Math.PI * 2,
+            vr: -0.2 + Math.random() * 0.4,
+          }));
+          let frame = 0;
+          (function tick() {
+            frame += 1;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (const p of particles) {
+              p.x += p.vx;
+              p.y += p.vy;
+              p.vy += 0.05;
+              p.rot += p.vr;
+              ctx.save();
+              ctx.translate(p.x, p.y);
+              ctx.rotate(p.rot);
+              ctx.fillStyle = p.color;
+              ctx.fillRect(-p.r, -p.r * 0.4, p.r * 2, p.r * 0.8);
+              ctx.restore();
+            }
+            if (frame < 220) {
+              requestAnimationFrame(tick);
+            } else {
+              canvas.classList.remove("is-active");
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+          })();
+        }
+
+        function showSuccess() {
+          const card = form.closest("main");
+          const status = document.createElement("div");
+          status.className = "form-status form-status--success";
+          const heading = document.createElement("h2");
+          heading.textContent = "¡Estás dentro!";
+          const para = document.createElement("p");
+          para.textContent =
+            "Te avisaremos en cuanto se libere una entrada en tu grada. ¡Aúpa Celta!";
+          status.appendChild(heading);
+          status.appendChild(para);
+          // Replace form + progress + iframe with the celebration block.
+          const progress = card.querySelector(".form-progress");
+          if (progress) progress.remove();
+          card.replaceChild(status, form);
+          fireConfetti();
+        }
+
+        function showError(message) {
+          let err = form.querySelector(".form-error");
+          if (!err) {
+            err = document.createElement("p");
+            err.className = "form-error";
+            err.setAttribute("role", "alert");
+            form.appendChild(err);
+          }
+          err.textContent = message;
+        }
+
+        let submittedAt = 0;
+        iframe.addEventListener("load", function () {
+          if (submittedAt && Date.now() - submittedAt > 200) showSuccess();
+        });
+
+        form.addEventListener("submit", function (event) {
+          if (!form.action) {
+            event.preventDefault();
+            showError("El formulario aún no está configurado.");
+            return;
+          }
+          // The grada <select> is visually hidden behind the chip picker, so
+          // native `required` would surface a tooltip on a hidden element.
+          // Surface our own inline message in the chip-picker instead.
+          if (window.__chipPicker && window.__chipPicker.isEmpty()) {
+            event.preventDefault();
+            window.__chipPicker.showError();
+            return;
+          }
+          // Native HTML5 validation runs first because the form has `required`
+          // attributes; novalidate is off, so an invalid form blocks here.
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            form.reportValidity();
+            return;
+          }
+
+          const select = form.elements.GRADA_ID;
+          const gradaName =
+            (select && select.options[select.selectedIndex] &&
+              select.options[select.selectedIndex].text) || "";
+          injectHidden("GRADA", gradaName);
+          injectHidden("PRIVACY", new Date().toISOString());
+
+          submittedAt = Date.now();
+          const submitBtn = form.querySelector('button[type="submit"]');
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando…";
+          // Safety net if the iframe load event never fires.
+          setTimeout(function () {
+            if (form.parentNode) showSuccess();
+          }, 5000);
+        });
+      })();
+    </script>
+    <script>
+      // ─── i18n (ES default · GL · EN) ─────────────────────────────
+      (function () {
+        const DICT = {
+          es: {
+            "skip": "Saltar al contenido",
+            "topbar.brand": "RC Celta · Celtismo",
+            "a11y.button": "Opciones de accesibilidad",
+            "a11y.title": "Accesibilidad",
+            "a11y.colorblind": "Modo daltónico",
+            "a11y.largeText": "Texto más grande",
+            "a11y.hint": "Tus preferencias se guardan en este dispositivo.",
+            "hero.eyebrow": "Avísame · Para celtistas que no se rinden",
+            "hero.title": "Tu sitio en Balaídos te está esperando",
+            "hero.lead": "Cuando se libere una entrada en tu grada, te lo decimos al instante. Tú a lo tuyo: nosotros vigilamos por ti. ⚽",
+            "hero.cta": "Apúntame",
+            "hero.image": "assets/spanish%20image.png?v=2",
+            "hero.imageAlt": "Aficionados del RC Celta animando en Balaídos con la bandera del club",
+            "form.introTitle": "Solo 4 campos y listo",
+            "form.introHint": "Te ponemos en la lista en menos de 30 segundos.",
+            "form.firstName": "Nombre",
+            "form.firstNamePh": "Iago",
+            "form.lastName": "Apellido",
+            "form.lastNamePh": "Aspas",
+            "form.email": "Tu email",
+            "form.emailPh": "tu@email.com",
+            "form.grada": "Tu grada favorita",
+            "matchCard.sectionAria": "Partido seleccionado",
+            "matchCard.availability": "Disponibilidad",
+            "matchCard.statusOnSale": "A la venta",
+            "matchCard.statusSoldOut": "Agotado",
+            "matchCard.statusSoon": "Próximamente",
+            "matchCard.statusUnavailable": "No a la venta",
+            "a11y.langGroup": "Idioma",
+            "footer.linksAria": "Enlaces legales",
+            "seatmap.label": "¿Dónde quieres sentarte?",
+            "seatmap.svgTitle": "Mapa del Estadio de Balaídos",
+            "seatmap.hint": "Toca una zona del estadio para filtrar los sectores.",
+            "chipPicker.empty": "Toca una zona del mapa para ver los sectores.",
+            "chipPicker.error": "Elige una grada para que podamos avisarte.",
+            "chipPicker.clearAria": "Quitar grada seleccionada",
+            "chipPicker.listAria": "Sectores disponibles",
+            "chipPicker.activeHint": "{count} sectores en {zone}. Toca la zona otra vez para ver todos.",
+            "seatmap.standTribuna": "TRIBUNA",
+            "seatmap.standMarcador": "MARCADOR",
+            "seatmap.standGol": "GOL",
+            "seatmap.standRio": "RÍO",
+            "form.privacy": 'He leído y acepto la <a href="#" class="text-link">política de privacidad</a>.',
+            "form.submit": "¡Avísame!",
+            "how.title": "Cómo funciona",
+            "how.lead": "Sin recargar la web, sin estrés. Tres pasos y a por la entrada.",
+            "how.step1Title": "Apúntate en 30 segundos",
+            "how.step1Body": "Eliges tu grada y nos dejas tu email. Eso es todo.",
+            "how.step2Title": "Vigilamos por ti 24/7",
+            "how.step2Body": "Comprobamos la disponibilidad de Balaídos cada pocos minutos.",
+            "how.step3Title": "Te avisamos al instante",
+            "how.step3Body": "En cuanto se libera una entrada en tu grada, recibes un email con el enlace de compra.",
+            "faq.title": "Preguntas frecuentes",
+            "faq.lead": "Lo que casi todos los celtistas nos preguntan antes de apuntarse.",
+            "faq.q1": "¿En cuánto tiempo me llega el aviso?",
+            "faq.a1": "En cuanto detectamos que la entrada se ha liberado. Habitualmente, en menos de 2 minutos desde que el club la publica.",
+            "faq.q2": "¿Puedo seguir más de una grada a la vez?",
+            "faq.a2": "Sí. Vuelve a apuntarte con el mismo email eligiendo otra grada. Te avisaremos de todas las que sigas, sin emails de más.",
+            "faq.q3": "¿Y si la entrada se agota antes de que pueda comprarla?",
+            "faq.a3": "El aviso llega al instante, pero hay otros celtistas atentos. Cuanto antes hagas clic, mejor — y si llegas tarde, sigues en la lista para la próxima.",
+            "faq.q4": "¿De dónde sacáis la disponibilidad?",
+            "faq.a4": "Consultamos directamente el sistema oficial de venta del club cada pocos minutos. No prometemos nada que el club no esté ofreciendo de verdad.",
+            "faq.q5": "¿Quién está detrás de Avísame?",
+            "faq.a5": "Un grupo pequeño de celtistas, en su tiempo libre. Sin afiliación oficial con el club, sin inversores ni patrocinadores. No vendemos tus datos, no hay publicidad. Si el proyecto crece, pediremos ayuda al celtismo — no al mejor postor.",
+            "faq.q6": "¿Dónde guardáis mi email? ¿Lo compartís?",
+            "faq.a6": "Tu email vive en Mailchimp (servidores en la UE) solo para enviarte avisos. No lo compartimos con nadie. Darte de baja es un clic en cualquier correo.",
+            "faq.ctaText": "¿Tu pregunta no está aquí?",
+            "faq.ctaLink": "Escríbenos",
+            "footer.title": "RC Celta · Avísame",
+            "footer.hint": "Alertas de entradas hechas por y para celtistas.",
+            "footer.privacy": "Política de privacidad",
+            "footer.legal": "Aviso legal",
+            "footer.contact": "Contacto",
+            "footer.copy": '© <span id="footer-year"></span> Avísame. Proyecto independiente — no afiliado oficialmente a RC Celta. ¡Aúpa Celta!',
+            "cookie.title": "Cookies, lo justas",
+            "cookie.body": 'Usamos cookies imprescindibles para que el formulario funcione y para entender qué partidos interesan más a los celtistas. Sin publicidad ni venta de datos a terceros. <a href="#" class="cookie-banner__link">Política de privacidad</a>.',
+            "cookie.reject": "Rechazar",
+            "cookie.accept": "Aceptar",
+            "chatbot.title": "Avisador",
+            "chatbot.subtitle": "Respondemos al instante",
+            "chatbot.openAria": "Abrir chat de ayuda",
+            "chatbot.closeAria": "Cerrar chat",
+            "chatbot.logAria": "Conversación",
+            "chatbot.suggestionsAria": "Preguntas frecuentes",
+            "chatbot.inputAria": "Escribe un mensaje",
+            "chatbot.sendAria": "Enviar mensaje",
+            "chatbot.typingAria": "Escribiendo…",
+            "chatbot.placeholder": "Escribe tu pregunta…",
+            "chatbot.greet": "¡Hola! 👋 Soy Avisador, el bot de Avísame. Puedes tocar una pregunta de abajo o escribirme libremente.",
+            "chatbot.fallback": "No tengo respuesta exacta para eso 🤔. Prueba con otra pregunta o escríbenos a hola@avisame.example y te respondemos.",
+            "chatbot.thanks": "¡De nada! 🟢 Aúpa Celta.",
+            "chatbot.aupa": "¡Aúpa Celta siempre! ⚽💙",
+            "chatbot.chip1": "⚡ Velocidad",
+            "chatbot.chip2": "🎟️ Varias gradas",
+            "chatbot.chip3": "⏰ Si se agota",
+            "chatbot.chip4": "👁️ De dónde sale",
+            "chatbot.chip5": "👥 Quién está detrás",
+            "chatbot.chip6": "🔒 Privacidad",
+          },
+          gl: {
+            "skip": "Ir ao contido",
+            "topbar.brand": "RC Celta · Celtismo",
+            "a11y.button": "Opcións de accesibilidade",
+            "a11y.title": "Accesibilidade",
+            "a11y.colorblind": "Modo daltónico",
+            "a11y.largeText": "Texto máis grande",
+            "a11y.hint": "As túas preferencias gárdanse neste dispositivo.",
+            "hero.eyebrow": "Avísame · Para celtistas que non se renden",
+            "hero.title": "O teu sitio en Balaídos estate esperando",
+            "hero.lead": "Cando se libere unha entrada na túa grada, dicímosche ao instante. Ti ao teu: nós vixiamos por ti. ⚽",
+            "hero.cta": "Apúntame",
+            "hero.image": "assets/ChatGPT%20Image%20May%2014%2C%202026%2C%2005_17_51%20PM.png",
+            "hero.imageAlt": "Afeccionados do RC Celta animando en Balaídos coa bandeira do club",
+            "form.introTitle": "Só 4 campos e listo",
+            "form.introHint": "Póñemoste na lista en menos de 30 segundos.",
+            "form.firstName": "Nome",
+            "form.firstNamePh": "Iago",
+            "form.lastName": "Apelido",
+            "form.lastNamePh": "Aspas",
+            "form.email": "O teu correo",
+            "form.emailPh": "ti@correo.com",
+            "form.grada": "A túa grada favorita",
+            "matchCard.sectionAria": "Partido seleccionado",
+            "matchCard.availability": "Dispoñibilidade",
+            "matchCard.statusOnSale": "Á venda",
+            "matchCard.statusSoldOut": "Esgotado",
+            "matchCard.statusSoon": "Proximamente",
+            "matchCard.statusUnavailable": "Non á venda",
+            "a11y.langGroup": "Lingua",
+            "footer.linksAria": "Ligazóns legais",
+            "seatmap.label": "Onde queres sentarte?",
+            "seatmap.svgTitle": "Mapa do Estadio de Balaídos",
+            "seatmap.hint": "Toca unha zona do estadio para filtrar os sectores.",
+            "chipPicker.empty": "Toca unha zona do mapa para ver os sectores.",
+            "chipPicker.error": "Escolle unha grada para que poidamos avisarte.",
+            "chipPicker.clearAria": "Quitar grada seleccionada",
+            "chipPicker.listAria": "Sectores dispoñibles",
+            "chipPicker.activeHint": "{count} sectores en {zone}. Toca a zona outra vez para ver todos.",
+            "seatmap.standTribuna": "TRIBUNA",
+            "seatmap.standMarcador": "MARCADOR",
+            "seatmap.standGol": "GOL",
+            "seatmap.standRio": "RÍO",
+            "form.privacy": 'Lin e acepto a <a href="#" class="text-link">política de privacidade</a>.',
+            "form.submit": "¡Avísame!",
+            "how.title": "Como funciona",
+            "how.lead": "Sen recargar a web, sen estrés. Tres pasos e a pola entrada.",
+            "how.step1Title": "Apúntate en 30 segundos",
+            "how.step1Body": "Elixes a túa grada e déixasnos o correo. Iso é todo.",
+            "how.step2Title": "Vixiamos por ti 24/7",
+            "how.step2Body": "Comprobamos a dispoñibilidade de Balaídos cada poucos minutos.",
+            "how.step3Title": "Avisámoste ao instante",
+            "how.step3Body": "En canto se libera unha entrada na túa grada, recibes un correo coa ligazón de compra.",
+            "faq.title": "Preguntas frecuentes",
+            "faq.lead": "O que case todos os celtistas nos preguntan antes de apuntarse.",
+            "faq.q1": "En canto tempo me chega o aviso?",
+            "faq.a1": "En canto detectamos que a entrada se liberou. Adoita ser en menos de 2 minutos desde que o club a publica.",
+            "faq.q2": "Podo seguir máis dunha grada á vez?",
+            "faq.a2": "Si. Volve apuntarte co mesmo correo escollendo outra grada. Avisarémosche de todas as que sigas, sen correos de máis.",
+            "faq.q3": "E se a entrada se esgota antes de que poida mercala?",
+            "faq.a3": "O aviso chega ao instante, mais hai outros celtistas atentos. Canto antes premas, mellor — e se chegas tarde, segues na lista para a próxima.",
+            "faq.q4": "De onde sacades a dispoñibilidade?",
+            "faq.a4": "Consultamos directamente o sistema oficial de venda do club cada poucos minutos. Non prometemos nada que o club non estea a ofrecer de verdade.",
+            "faq.q5": "Quen está detrás de Avísame?",
+            "faq.a5": "Un grupo pequeno de celtistas, no seu tempo libre. Sen afiliación oficial co club, sen investidores nin patrocinadores. Non vendemos os teus datos, non hai publicidade. Se o proxecto crece, pedirémoslle axuda ao celtismo — non ao mellor postor.",
+            "faq.q6": "Onde gardades o meu correo? Compartídelo?",
+            "faq.a6": "O teu correo vive en Mailchimp (servidores na UE) só para enviarte avisos. Non o compartimos con ninguén. Darte de baixa é un clic en calquera correo.",
+            "faq.ctaText": "A túa pregunta non está aquí?",
+            "faq.ctaLink": "Escríbenos",
+            "footer.title": "RC Celta · Avísame",
+            "footer.hint": "Alertas de entradas feitas por e para celtistas.",
+            "footer.privacy": "Política de privacidade",
+            "footer.legal": "Aviso legal",
+            "footer.contact": "Contacto",
+            "footer.copy": '© <span id="footer-year"></span> Avísame. Proxecto independente — non afiliado oficialmente ao RC Celta. ¡Aúpa Celta!',
+            "cookie.title": "Cookies, as xustas",
+            "cookie.body": 'Usamos cookies imprescindibles para que o formulario funcione e para entender que partidos interesan máis aos celtistas. Sen publicidade nin venda de datos a terceiros. <a href="#" class="cookie-banner__link">Política de privacidade</a>.',
+            "cookie.reject": "Rexeitar",
+            "cookie.accept": "Aceptar",
+            "chatbot.title": "Avisador",
+            "chatbot.subtitle": "Respondemos ao instante",
+            "chatbot.openAria": "Abrir chat de axuda",
+            "chatbot.closeAria": "Pechar chat",
+            "chatbot.logAria": "Conversación",
+            "chatbot.suggestionsAria": "Preguntas frecuentes",
+            "chatbot.inputAria": "Escribe unha mensaxe",
+            "chatbot.sendAria": "Enviar mensaxe",
+            "chatbot.typingAria": "Escribindo…",
+            "chatbot.placeholder": "Escribe a túa pregunta…",
+            "chatbot.greet": "Ola! 👋 Son Avisador, o bot de Avísame. Podes tocar unha pregunta de abaixo ou escribirme libremente.",
+            "chatbot.fallback": "Non teño resposta exacta para iso 🤔. Proba con outra pregunta ou escríbenos a hola@avisame.example.",
+            "chatbot.thanks": "De nada! 🟢 Aúpa Celta.",
+            "chatbot.aupa": "Aúpa Celta sempre! ⚽💙",
+            "chatbot.chip1": "⚡ Velocidade",
+            "chatbot.chip2": "🎟️ Varias gradas",
+            "chatbot.chip3": "⏰ Se se esgota",
+            "chatbot.chip4": "👁️ De onde sae",
+            "chatbot.chip5": "👥 Quen está detrás",
+            "chatbot.chip6": "🔒 Privacidade",
+          },
+          en: {
+            "skip": "Skip to content",
+            "topbar.brand": "RC Celta · Celtismo",
+            "a11y.button": "Accessibility options",
+            "a11y.title": "Accessibility",
+            "a11y.colorblind": "Color-blind mode",
+            "a11y.largeText": "Larger text",
+            "a11y.hint": "Your preferences are saved on this device.",
+            "hero.eyebrow": "Avísame · For Celta fans who never give up",
+            "hero.title": "Your seat at Balaídos is waiting",
+            "hero.lead": "The moment a ticket frees up in your stand, we let you know. You go about your day — we'll keep watch. ⚽",
+            "hero.cta": "Sign me up",
+            "hero.image": "assets/english%20image.png?v=2",
+            "hero.imageAlt": "RC Celta fans cheering at Balaídos with the club flag",
+            "form.introTitle": "4 fields and you're in",
+            "form.introHint": "We'll add you to the list in under 30 seconds.",
+            "form.firstName": "First name",
+            "form.firstNamePh": "Iago",
+            "form.lastName": "Last name",
+            "form.lastNamePh": "Aspas",
+            "form.email": "Your email",
+            "form.emailPh": "you@email.com",
+            "form.grada": "Your favourite stand",
+            "matchCard.sectionAria": "Selected match",
+            "matchCard.availability": "Availability",
+            "matchCard.statusOnSale": "On sale",
+            "matchCard.statusSoldOut": "Sold out",
+            "matchCard.statusSoon": "Coming soon",
+            "matchCard.statusUnavailable": "Not on sale",
+            "a11y.langGroup": "Language",
+            "footer.linksAria": "Legal links",
+            "seatmap.label": "Where do you want to sit?",
+            "seatmap.svgTitle": "Map of Balaídos Stadium",
+            "seatmap.hint": "Tap a stadium zone to filter the sectors.",
+            "chipPicker.empty": "Tap a zone on the map to see the stands.",
+            "chipPicker.error": "Pick a stand so we know where to watch.",
+            "chipPicker.clearAria": "Clear selected stand",
+            "chipPicker.listAria": "Available stands",
+            "chipPicker.activeHint": "{count} sectors in {zone}. Tap the zone again to see all stands.",
+            "seatmap.standTribuna": "MAIN STAND",
+            "seatmap.standMarcador": "SCOREBOARD",
+            "seatmap.standGol": "GOAL END",
+            "seatmap.standRio": "RIVER SIDE",
+            "form.privacy": 'I have read and accept the <a href="#" class="text-link">privacy policy</a>.',
+            "form.submit": "Notify me!",
+            "how.title": "How it works",
+            "how.lead": "No refreshing the page, no stress. Three steps and you're after that ticket.",
+            "how.step1Title": "Sign up in 30 seconds",
+            "how.step1Body": "Pick your stand, drop us your email. That's it.",
+            "how.step2Title": "We watch 24/7",
+            "how.step2Body": "We check Balaídos availability every few minutes.",
+            "how.step3Title": "We alert you instantly",
+            "how.step3Body": "The moment a ticket opens up in your stand, you get an email with the purchase link.",
+            "faq.title": "Frequently asked",
+            "faq.lead": "What almost every Celta fan asks before signing up.",
+            "faq.q1": "How fast does the alert reach me?",
+            "faq.a1": "The moment we spot a ticket has been released. Usually under 2 minutes after the club lists it.",
+            "faq.q2": "Can I follow more than one stand?",
+            "faq.a2": "Yes. Sign up again with the same email and pick another stand. We'll alert you for every stand you follow — no extra noise.",
+            "faq.q3": "What if it sells out before I can buy it?",
+            "faq.a3": "The alert lands instantly, but other Celta fans are watching too. The faster you click, the better — and if you miss this one, you stay on the list for the next.",
+            "faq.q4": "Where does the availability data come from?",
+            "faq.a4": "We poll the club's official ticketing system every few minutes. We never promise tickets the club isn't actually offering.",
+            "faq.q5": "Who's behind Avísame?",
+            "faq.a5": "A small group of Celta fans, in their spare time. No official affiliation with the club, no investors, no sponsors. We don't sell your data, no ads. If the project grows, we'll ask the celtismo community for help — not the highest bidder.",
+            "faq.q6": "Where is my email stored? Do you share it?",
+            "faq.a6": "Your email lives in Mailchimp (EU servers) only to send you alerts. We never share it. One-click unsubscribe in every email.",
+            "faq.ctaText": "Didn't find your question?",
+            "faq.ctaLink": "Drop us a line",
+            "footer.title": "RC Celta · Avísame",
+            "footer.hint": "Ticket alerts built by and for Celta fans.",
+            "footer.privacy": "Privacy policy",
+            "footer.legal": "Legal notice",
+            "footer.contact": "Contact",
+            "footer.copy": '© <span id="footer-year"></span> Avísame. Independent project — not officially affiliated with RC Celta. Aúpa Celta!',
+            "cookie.title": "Cookies, only the essentials",
+            "cookie.body": 'We use the strictly necessary cookies to make the form work and to see which matches Celta fans care about most. No advertising, no selling data to third parties. <a href="#" class="cookie-banner__link">Privacy policy</a>.',
+            "cookie.reject": "Decline",
+            "cookie.accept": "Accept",
+            "chatbot.title": "Avisador",
+            "chatbot.subtitle": "We reply instantly",
+            "chatbot.openAria": "Open help chat",
+            "chatbot.closeAria": "Close chat",
+            "chatbot.logAria": "Conversation",
+            "chatbot.suggestionsAria": "Common questions",
+            "chatbot.inputAria": "Type a message",
+            "chatbot.sendAria": "Send message",
+            "chatbot.typingAria": "Typing…",
+            "chatbot.placeholder": "Type your question…",
+            "chatbot.greet": "Hi there! 👋 I'm Avisador, the Avísame bot. Tap a question below or just type freely.",
+            "chatbot.fallback": "I don't have an exact answer for that 🤔. Try another question or email us at hola@avisame.example.",
+            "chatbot.thanks": "You're welcome! 🟢 Aúpa Celta.",
+            "chatbot.aupa": "Aúpa Celta always! ⚽💙",
+            "chatbot.chip1": "⚡ Speed",
+            "chatbot.chip2": "🎟️ Multiple stands",
+            "chatbot.chip3": "⏰ If it sells out",
+            "chatbot.chip4": "👁️ Data source",
+            "chatbot.chip5": "👥 Who runs it",
+            "chatbot.chip6": "🔒 Privacy",
+          },
+        };
+
+        const STORAGE_KEY = "avisame-lang";
+        const langButtons = document.querySelectorAll(".lang-switch [data-lang]");
+        let currentLang = "es";
+
+        // Tiny helper for JS that builds copy at runtime (e.g., the chip
+        // picker's dynamic "{count} sectors in {zone}…" hint).
+        window.__i18nGet = function (key) {
+          const d = DICT[currentLang] || DICT.es;
+          return d[key] != null ? d[key] : DICT.es[key];
+        };
+
+        function applyLang(lang) {
+          if (!DICT[lang]) lang = "es";
+          const changed = currentLang !== lang;
+          currentLang = lang;
+          document.documentElement.lang = lang === "gl" ? "gl" : lang;
+          const dict = DICT[lang];
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            const value = dict[key];
+            if (value == null) return;
+            if (el.getAttribute("data-i18n-html") === "1") {
+              el.innerHTML = value;
+            } else {
+              el.textContent = value;
+            }
+          });
+          document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+            el.getAttribute("data-i18n-attr")
+              .split(";")
+              .forEach((pair) => {
+                const [attr, key] = pair.split(":").map((s) => s.trim());
+                if (attr && key && dict[key] != null) el.setAttribute(attr, dict[key]);
+              });
+          });
+          langButtons.forEach((btn) =>
+            btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false")
+          );
+          // Refresh footer year (innerHTML overwrite may have wiped it).
+          const yearEl = document.getElementById("footer-year");
+          if (yearEl) yearEl.textContent = new Date().getFullYear();
+          // Localize any timestamps tagged with data-match-date to the
+          // current language (e.g., "12 de febrero de 2020, 21:00" → "12
+          // February 2020, 21:00" in EN).
+          document.querySelectorAll("[data-match-date]").forEach((el) => {
+            const iso = el.getAttribute("data-match-date");
+            const d = new Date(iso);
+            if (isNaN(d.getTime())) return;
+            const localeMap = { es: "es-ES", gl: "gl-ES", en: "en-GB" };
+            try {
+              el.textContent = new Intl.DateTimeFormat(localeMap[lang] || "es-ES", {
+                day: "numeric", month: "long", year: "numeric",
+                hour: "2-digit", minute: "2-digit", hour12: false,
+              }).format(d);
+            } catch (_) { /* keep original text */ }
+          });
+          // Broadcast so JS that builds copy at runtime (chatbot, seat map)
+          // can re-translate. Fires on every applyLang, including initial.
+          window.dispatchEvent(
+            new CustomEvent("langchange", { detail: { lang, changed } })
+          );
+        }
+
+        // Pick initial language: localStorage > browser > es.
+        let initial = null;
+        try { initial = localStorage.getItem(STORAGE_KEY); } catch (_) {}
+        if (!initial) {
+          const nav = (navigator.language || "es").toLowerCase();
+          initial = nav.startsWith("gl") ? "gl" : nav.startsWith("en") ? "en" : "es";
+        }
+        applyLang(initial);
+
+        langButtons.forEach((btn) =>
+          btn.addEventListener("click", () => {
+            const lang = btn.dataset.lang;
+            try { localStorage.setItem(STORAGE_KEY, lang); } catch (_) {}
+            applyLang(lang);
+          })
+        );
+      })();
+
+      // ─── Accessibility menu ──────────────────────────────────────
+      (function () {
+        const STORAGE_KEY = "avisame-a11y";
+        const toggle = document.getElementById("a11y-toggle");
+        const menu = document.getElementById("a11y-menu");
+        if (!toggle || !menu) return;
+
+        let state = { colorblind: false, "large-text": false };
+        try {
+          const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+          state = Object.assign(state, saved);
+        } catch (_) {}
+
+        function apply() {
+          document.documentElement.classList.toggle("a11y-colorblind", !!state.colorblind);
+          document.documentElement.classList.toggle("a11y-large-text", !!state["large-text"]);
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (_) {}
+        }
+        apply();
+
+        menu.querySelectorAll("input[data-a11y]").forEach((cb) => {
+          cb.checked = !!state[cb.dataset.a11y];
+          cb.addEventListener("change", () => {
+            state[cb.dataset.a11y] = cb.checked;
+            apply();
+          });
+        });
+
+        function openMenu() {
+          menu.hidden = false;
+          toggle.setAttribute("aria-expanded", "true");
+        }
+        function closeMenu() {
+          menu.hidden = true;
+          toggle.setAttribute("aria-expanded", "false");
+        }
+        toggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          menu.hidden ? openMenu() : closeMenu();
+        });
+        document.addEventListener("click", (e) => {
+          if (!menu.hidden && !menu.contains(e.target) && e.target !== toggle) closeMenu();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !menu.hidden) closeMenu();
+        });
+      })();
+
+      // ─── Interactive seat map + chip picker ─────────────────────
+      // Tap a tier on the map → that tier's stands appear as chips below.
+      // Tap a chip → it's written to the hidden <select> the form posts.
+      // The huge native dropdown is preserved (sr-only) only as the source
+      // of truth for option values and as the form-data carrier.
+      (function () {
+        const map = document.getElementById("seatmap");
+        const select = document.getElementById("grada");
+        const hint = document.getElementById("seatmap-hint");
+        const picker = document.getElementById("chip-picker");
+        const chipsEl = document.getElementById("chip-picker-chips");
+        const emptyEl = document.getElementById("chip-picker-empty");
+        const titleEl = document.getElementById("chip-picker-title");
+        const pillEl = document.getElementById("chip-picker-pill");
+        const pillText = document.getElementById("chip-picker-pill-text");
+        const pillClear = document.getElementById("chip-picker-clear");
+        const errorEl = document.getElementById("chip-picker-error");
+        if (!map || !select || !hint || !picker) return;
+
+        function zoneFor(name) {
+          if (/^Pista|Minusvalidos/i.test(name)) return "pista";
+          if (/Palco|Llotja/i.test(name)) return "piso2";
+          const m = String(name).match(/^Sector\s*(\d)/i);
+          if (m) {
+            if (m[1] === "1") return "piso1";
+            if (m[1] === "2") return "piso2";
+            if (m[1] === "3") return "piso3";
+          }
+          return "piso1";
+        }
+
+        const allOptions = Array.from(select.options).map((opt) => ({
+          value: opt.value,
+          label: opt.textContent.trim(),
+          zone: opt.value ? zoneFor(opt.textContent) : null,
+        }));
+
+        const ZONE_NAMES = { piso1: "PISO 1", piso2: "PISO 2", piso3: "PISO 3", pista: "PISTA" };
+
+        // Fill SVG count badges so the user can size up each tier at a glance.
+        map.querySelectorAll(".seatmap__count").forEach((el) => {
+          const z = el.dataset.countFor;
+          const n = allOptions.filter((o) => o.zone === z).length;
+          el.textContent = n ? "· " + n : "";
+        });
+
+        // ─── Sector-cell layout (Ticketmaster-style highlights) ──────
+        // Each ring band is divided into N cells (one per sector), placed
+        // clockwise from the top-left. Cells are <rect>s parked invisibly
+        // until their tier is activated, then glow when a chip is picked.
+        const SVG_NS = "http://www.w3.org/2000/svg";
+        const ringGeoms = {
+          piso3: { outer: { x: 24, y: 24, w: 592, h: 372 }, inner: { x: 56, y: 44, w: 528, h: 332 } },
+          piso2: { outer: { x: 56, y: 44, w: 528, h: 332 }, inner: { x: 88, y: 64, w: 464, h: 292 } },
+          piso1: { outer: { x: 88, y: 64, w: 464, h: 292 }, inner: { x: 124, y: 86, w: 392, h: 248 } },
+          pista: { outer: { x: 124, y: 86, w: 392, h: 248 }, inner: { x: 160, y: 110, w: 320, h: 200 } },
+        };
+
+        function distributeSectors(outer, inner, count) {
+          if (count <= 0) return [];
+          const oTop = outer.y, oLeft = outer.x;
+          const iTop = inner.y, iBot = inner.y + inner.h;
+          const iLeft = inner.x, iRight = inner.x + inner.w;
+          const bandV = iTop - oTop;
+          const bandH = iLeft - oLeft;
+          const innerW = inner.w, innerH = inner.h;
+          const perim = 2 * (innerW + innerH);
+
+          // Allocate proportionally to side length, guarantee ≥1 per side
+          // when we have enough sectors to spread around.
+          let topCount = Math.max(1, Math.round((innerW / perim) * count));
+          let botCount = Math.max(1, Math.round((innerW / perim) * count));
+          let rem = count - topCount - botCount;
+          if (rem < 2 && count >= 4) {
+            // Reclaim from top/bot so each side gets at least 1.
+            const need = 2 - rem;
+            topCount -= Math.ceil(need / 2);
+            botCount -= Math.floor(need / 2);
+            rem = 2;
+          }
+          let leftCount = Math.max(0, Math.floor(rem / 2));
+          let rightCount = Math.max(0, rem - leftCount);
+          if (count < 4) {
+            // Tiny tier: just dump them across the top.
+            topCount = count;
+            botCount = leftCount = rightCount = 0;
+          }
+
+          const cells = [];
+          const inset = 0.5;
+          // 1. Top, L→R
+          if (topCount > 0) {
+            const cw = innerW / topCount;
+            for (let i = 0; i < topCount; i++) {
+              cells.push({ x: iLeft + i * cw + inset, y: oTop + inset, w: cw - 2 * inset, h: bandV - 2 * inset });
+            }
+          }
+          // 2. Right, T→B
+          if (rightCount > 0) {
+            const ch = innerH / rightCount;
+            for (let i = 0; i < rightCount; i++) {
+              cells.push({ x: iRight + inset, y: iTop + i * ch + inset, w: bandH - 2 * inset, h: ch - 2 * inset });
+            }
+          }
+          // 3. Bottom, R→L
+          if (botCount > 0) {
+            const cw = innerW / botCount;
+            for (let i = 0; i < botCount; i++) {
+              cells.push({ x: iRight - (i + 1) * cw + inset, y: iBot + inset, w: cw - 2 * inset, h: bandV - 2 * inset });
+            }
+          }
+          // 4. Left, B→T
+          if (leftCount > 0) {
+            const ch = innerH / leftCount;
+            for (let i = 0; i < leftCount; i++) {
+              cells.push({ x: oLeft + inset, y: iBot - (i + 1) * ch + inset, w: bandH - 2 * inset, h: ch - 2 * inset });
+            }
+          }
+          return cells;
+        }
+
+        const sectorLayer = map.querySelector("#seatmap-sectors");
+        if (sectorLayer) {
+          Object.entries(ringGeoms).forEach(([zone, geom]) => {
+            // Sort sectors by label so positions stay stable when ONEBOX
+            // re-bakes the option order.
+            const sectors = allOptions
+              .filter((o) => o.value && o.zone === zone)
+              .slice()
+              .sort((a, b) => a.label.localeCompare(b.label, "es", { numeric: true }));
+            const cells = distributeSectors(geom.outer, geom.inner, sectors.length);
+            sectors.forEach((s, i) => {
+              const c = cells[i];
+              if (!c) return;
+              const rect = document.createElementNS(SVG_NS, "rect");
+              rect.setAttribute("class", "seatmap__sector");
+              rect.setAttribute("data-sector-id", s.value);
+              rect.setAttribute("data-zone", zone);
+              rect.setAttribute("x", c.x.toFixed(2));
+              rect.setAttribute("y", c.y.toFixed(2));
+              rect.setAttribute("width", c.w.toFixed(2));
+              rect.setAttribute("height", c.h.toFixed(2));
+              rect.setAttribute("rx", "1");
+              rect.setAttribute("ry", "1");
+              // Native <title> so screen readers + hover tooltips show the
+              // sector name.
+              const t = document.createElementNS(SVG_NS, "title");
+              t.textContent = s.label;
+              rect.appendChild(t);
+              sectorLayer.appendChild(rect);
+            });
+          });
+        }
+
+        let activeZone = null;
+
+        function highlightTier(zone) {
+          map.querySelectorAll(".seatmap__zone").forEach((p) => {
+            p.setAttribute("data-active", p.dataset.zone === zone ? "true" : "false");
+          });
+          map.querySelectorAll("[data-zone-label]").forEach((el) => {
+            el.setAttribute("data-zone-active", el.dataset.zoneLabel === zone ? "true" : "false");
+          });
+          map.querySelectorAll("[data-count-for]").forEach((el) => {
+            el.setAttribute("data-zone-active", el.dataset.countFor === zone ? "true" : "false");
+          });
+          map.querySelectorAll(".seatmap__sector").forEach((s) => {
+            s.setAttribute("data-tier-active", s.dataset.zone === zone ? "true" : "false");
+          });
+        }
+
+        function updateHint(zone) {
+          if (!zone) {
+            hint.removeAttribute("data-active");
+            hint.textContent = hint.dataset.defaultText || hint.textContent;
+            return;
+          }
+          const count = allOptions.filter((o) => o.zone === zone).length;
+          const tpl = (window.__i18nGet && window.__i18nGet("chipPicker.activeHint")) ||
+            "{count} sectores en {zone}. Toca la zona otra vez para ver todos.";
+          hint.dataset.active = zone;
+          hint.textContent = tpl.replace("{count}", count).replace("{zone}", ZONE_NAMES[zone] || zone);
+        }
+        hint.dataset.defaultText = hint.textContent.trim();
+
+        function updateTitle(zone) {
+          const base = titleEl.dataset.baseText || titleEl.textContent.trim();
+          titleEl.dataset.baseText = base;
+          if (!zone) {
+            titleEl.textContent = base;
+            return;
+          }
+          titleEl.innerHTML = "";
+          titleEl.appendChild(document.createTextNode(base + " · "));
+          const tier = document.createElement("span");
+          tier.className = "chip-picker__title-tier";
+          tier.textContent = ZONE_NAMES[zone];
+          titleEl.appendChild(tier);
+        }
+
+        function renderChips(zone) {
+          // Keep emptyEl in the DOM (i18n needs to find it on language
+          // switch) — just toggle [hidden] and remove old chips around it.
+          chipsEl.querySelectorAll(".chip-picker__chip").forEach((c) => c.remove());
+          if (!zone) {
+            emptyEl.hidden = false;
+            return;
+          }
+          emptyEl.hidden = true;
+          const items = allOptions.filter((o) => o.value && o.zone === zone);
+          items.forEach((o) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "chip-picker__chip";
+            btn.textContent = o.label;
+            btn.setAttribute("role", "option");
+            btn.setAttribute("aria-pressed", select.value === o.value ? "true" : "false");
+            btn.dataset.value = o.value;
+            btn.addEventListener("click", () => selectChip(o.value));
+            chipsEl.appendChild(btn);
+          });
+        }
+
+        function highlightSector(value) {
+          map.querySelectorAll(".seatmap__sector").forEach((s) => {
+            if (value && s.dataset.sectorId === value) {
+              s.setAttribute("data-active", "true");
+            } else {
+              s.removeAttribute("data-active");
+            }
+          });
+        }
+
+        function selectChip(value) {
+          select.value = value;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+          chipsEl.querySelectorAll(".chip-picker__chip").forEach((c) => {
+            c.setAttribute("aria-pressed", c.dataset.value === value ? "true" : "false");
+          });
+          const chosen = allOptions.find((o) => o.value === value);
+          if (chosen) {
+            pillText.textContent = chosen.label;
+            pillEl.hidden = false;
+          }
+          highlightSector(value);
+          errorEl.removeAttribute("data-visible");
+        }
+
+        function clearSelection() {
+          select.value = "";
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+          chipsEl.querySelectorAll(".chip-picker__chip").forEach((c) => {
+            c.setAttribute("aria-pressed", "false");
+          });
+          pillText.textContent = "";
+          pillEl.hidden = true;
+          highlightSector(null);
+        }
+        pillClear.addEventListener("click", clearSelection);
+
+        function setActive(zone) {
+          activeZone = zone;
+          highlightTier(zone);
+          updateHint(zone);
+          updateTitle(zone);
+          renderChips(zone);
+        }
+
+        map.querySelectorAll(".seatmap__zone").forEach((zoneEl) => {
+          zoneEl.setAttribute("role", "button");
+          zoneEl.setAttribute("tabindex", "0");
+          zoneEl.setAttribute("aria-label", ZONE_NAMES[zoneEl.dataset.zone]);
+          zoneEl.addEventListener("click", () => {
+            const z = zoneEl.dataset.zone;
+            setActive(z === activeZone ? null : z);
+          });
+          zoneEl.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              zoneEl.click();
+            }
+          });
+        });
+
+        // Keep the active-tier highlight in sync if the select changes
+        // through some other means (e.g., autofill, programmatic).
+        select.addEventListener("change", () => {
+          const chosen = allOptions.find((o) => o.value === select.value);
+          if (chosen && chosen.zone && chosen.zone !== activeZone) {
+            // Don't auto-flip tiers; just highlight the matching one so the
+            // user sees where their selection lives on the map.
+            highlightTier(chosen.zone);
+          }
+        });
+
+        // Re-render dynamic copy on language switch (i18n overwrites the
+        // [data-i18n] elements first).
+        document.querySelectorAll(".lang-switch [data-lang]").forEach((btn) =>
+          btn.addEventListener("click", () => {
+            setTimeout(() => {
+              hint.dataset.defaultText = hint.textContent.trim();
+              titleEl.dataset.baseText = titleEl.textContent.trim();
+              if (activeZone) {
+                updateHint(activeZone);
+                updateTitle(activeZone);
+              }
+            }, 0);
+          })
+        );
+
+        // Expose so the submit handler can show the chip-picker error.
+        window.__chipPicker = {
+          showError() {
+            errorEl.dataset.visible = "true";
+            picker.scrollIntoView({ behavior: "smooth", block: "center" });
+          },
+          isEmpty() {
+            return !select.value;
+          },
+        };
+      })();
+
+      // Scroll-fade-in for sections marked with data-fade.
+      (function () {
+        document.getElementById("footer-year").textContent =
+          new Date().getFullYear();
+        const targets = document.querySelectorAll("[data-fade]");
+        if (!("IntersectionObserver" in window) || targets.length === 0) {
+          targets.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.1 }
+        );
+        targets.forEach((el) => observer.observe(el));
+      })();
+    </script>
+    <script>
+      // Cookie consent banner.
+      // Shows on first visit, stores the user's choice in localStorage, and
+      // dispatches a `cookie-consent` event that future scripts (analytics,
+      // marketing pixels) can listen to before loading.
+      (function () {
+        const STORAGE_KEY = "avisame-cookie-consent";
+        const banner = document.getElementById("cookie-banner");
+        if (!banner) return;
+
+        let stored = null;
+        try {
+          stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        } catch (_) {}
+
+        if (!stored) {
+          banner.hidden = false;
+          // Defer slide-in so the transform transition runs.
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => banner.classList.add("is-visible"))
+          );
+        } else {
+          window.dispatchEvent(
+            new CustomEvent("cookie-consent", { detail: stored })
+          );
+        }
+
+        banner
+          .querySelectorAll("[data-cookie-action]")
+          .forEach((btn) =>
+            btn.addEventListener("click", () => {
+              const choice = btn.dataset.cookieAction;
+              const detail = { choice, at: Date.now() };
+              try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(detail));
+              } catch (_) {}
+              banner.classList.remove("is-visible");
+              setTimeout(() => (banner.hidden = true), 450);
+              window.dispatchEvent(
+                new CustomEvent("cookie-consent", { detail })
+              );
+            })
+          );
+      })();
+    </script>
+
+    <!-- ─── Chatbot ────────────────────────────────────────────── -->
+    <div id="chatbot" class="chatbot" data-open="false">
+      <button
+        type="button"
+        class="chatbot__launcher"
+        id="chatbot-launcher"
+        aria-label="Abrir chat de ayuda"
+        aria-expanded="false"
+        aria-controls="chatbot-panel"
+        data-i18n-attr="aria-label:chatbot.openAria"
+      >
+        <svg class="chatbot__launcher--chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <svg class="chatbot__launcher--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        <span class="chatbot__launcher-dot" aria-hidden="true"></span>
+      </button>
+      <div
+        class="chatbot__panel"
+        id="chatbot-panel"
+        role="dialog"
+        aria-labelledby="chatbot-title"
+        aria-modal="false"
+      >
+        <header class="chatbot__header">
+          <span class="chatbot__avatar" aria-hidden="true">
+            <img src="assets/rc%20celta%20logo.png" alt="" />
+          </span>
+          <div class="chatbot__header-text">
+            <p class="chatbot__title" id="chatbot-title" data-i18n="chatbot.title">Avisador</p>
+            <p class="chatbot__subtitle" data-i18n="chatbot.subtitle">Respondemos al instante</p>
+          </div>
+          <button
+            type="button"
+            class="chatbot__close"
+            id="chatbot-close"
+            aria-label="Cerrar chat"
+            data-i18n-attr="aria-label:chatbot.closeAria"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </header>
+        <div
+          class="chatbot__messages"
+          id="chatbot-messages"
+          role="log"
+          aria-live="polite"
+          aria-label="Conversación"
+          data-i18n-attr="aria-label:chatbot.logAria"
+        ></div>
+        <div class="chatbot__suggestions" id="chatbot-suggestions" aria-label="Preguntas frecuentes" data-i18n-attr="aria-label:chatbot.suggestionsAria"></div>
+        <form class="chatbot__form" id="chatbot-form" autocomplete="off">
+          <textarea
+            class="chatbot__input"
+            id="chatbot-input"
+            placeholder="Escribe tu pregunta…"
+            aria-label="Escribe un mensaje"
+            data-i18n-attr="placeholder:chatbot.placeholder;aria-label:chatbot.inputAria"
+            maxlength="500"
+            rows="1"
+          ></textarea>
+          <button
+            type="submit"
+            class="chatbot__send"
+            aria-label="Enviar"
+            data-i18n-attr="aria-label:chatbot.sendAria"
+            disabled
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // ─── Chatbot (rule-based FAQ helper) ────────────────────────
+      // Uses the existing i18n FAQ entries as the knowledge base.
+      // No backend, no API key, no LLM — pure keyword matching with
+      // accent-normalization across ES/GL/EN.
+      (function () {
+        const root = document.getElementById("chatbot");
+        const launcher = document.getElementById("chatbot-launcher");
+        const closeBtn = document.getElementById("chatbot-close");
+        const panel = document.getElementById("chatbot-panel");
+        const messages = document.getElementById("chatbot-messages");
+        const suggestions = document.getElementById("chatbot-suggestions");
+        const form = document.getElementById("chatbot-form");
+        const input = document.getElementById("chatbot-input");
+        if (!root || !messages || !suggestions || !form || !input) return;
+
+        // Each entry maps to one of the FAQ answer keys (faq.a1..a6) or to a
+        // chatbot-only canned reply. Keywords are matched after accent
+        // stripping + lowercase, so "rápido" matches "rapido".
+        const KB = [
+          { keys: ["mis datos","mi email","mi correo","privacidad","privacy","gdpr","mailchimp","guardais","guardar","almacen","comparti","compart","share my","share data","baja","unsubscribe","darme de baja","borrar","suprimir","privacidade","gardades","compartides","baixa","my data","my email","remove me","delete me","stored","storage","where is my","keep my"], reply: "faq.a6" },
+          { keys: ["quien","quien sois","quien esta detras","detras","fundador","fundadores","equipo","afiliad","oficial con","quen","quen sodes","quen esta detras","who","who is behind","who runs","who built","who made","team","founder","founders","official","affiliated","gratis","pagar","dinero","cobr","sostien","vivis","modelo de negocio","negocio","lucr","balde","sosten","money","free","paid","cost","business model","sustain","monetiz","ads","sponsor","profit","make money","earn"], reply: "faq.a5" },
+          { keys: ["rapido","rapida","rapidez","cuanto tarda","cuanto tardais","cuando llega","llega","aviso al instante","velocidad","demora","minuto","instante","tempo","canto tarda","chega","axinha","fast","quick","how fast","how quick","how long","alert","alert time","speed","soon","notify","latency","real time","realtime"], reply: "faq.a1" },
+          { keys: ["varias gradas","dos gradas","mas de una","mas dunha","multiple","varios stands","varios","mais dunha","duas gradas","both stands","two stands","multi","more than one","several stands","another stand","second stand"], reply: "faq.a2" },
+          { keys: ["agot","agotar","se acaba","llego tarde","ya no hay","perder","perdi","esgota","esgotar","sell out","sold out","miss","missed","late","gone","stock"], reply: "faq.a3" },
+          { keys: ["de donde","fuente","sacais","obteneis","sacar","origen","sistema oficial","oficial","disponibilidad","onde","sacades","fonte","data source","source","comes from","fetch","poll","scrape","official ticketing"], reply: "faq.a4" },
+          { keys: ["hola","hello","hi","hey","ola","ei","buenas","bos dias","good morning","good evening"], reply: "chatbot.greet" },
+          { keys: ["gracias","thanks","thank you","grazas","ty","cheers","obrigado"], reply: "chatbot.thanks" },
+          { keys: ["aupa celta","aúpa","forza celta","forca celta","up celta"], reply: "chatbot.aupa" },
+        ];
+
+        function stripAccents(s) {
+          // ̀-ͯ is the Combining Diacritical Marks block —
+          // NFD normalisation moves accents into that range so they can be
+          // dropped without losing the underlying letter.
+          return String(s).toLowerCase().normalize("NFD")
+            .replace(/[̀-ͯ]/g, "")
+            .replace(/[?¿!¡.,;:'"()]/g, " ")
+            .replace(/\s+/g, " ")
+            .trim();
+        }
+
+        function findReply(rawText) {
+          const norm = " " + stripAccents(rawText) + " ";
+          let best = { score: 0, entry: null };
+          for (const e of KB) {
+            let score = 0;
+            for (const k of e.keys) {
+              const nk = stripAccents(k);
+              // word-ish match: surrounded by space or string edge
+              if (norm.indexOf(" " + nk + " ") >= 0) score += nk.length;
+              else if (norm.indexOf(nk) >= 0) score += 1; // partial fallback
+            }
+            if (score > best.score) best = { score, entry: e };
+          }
+          return best.entry;
+        }
+
+        function t(key, fallback) {
+          if (window.__i18nGet) {
+            const v = window.__i18nGet(key);
+            if (v != null) return v;
+          }
+          return fallback || key;
+        }
+
+        const BOT_AVATAR_URL = "assets/rc%20celta%20logo.png";
+
+        function scrollToBottom() {
+          // requestAnimationFrame so layout settles after the new bubble
+          // before we compute scrollHeight.
+          requestAnimationFrame(() => {
+            messages.scrollTop = messages.scrollHeight;
+          });
+        }
+
+        function buildAvatar(who) {
+          const av = document.createElement("span");
+          av.className = "chatbot__msg-avatar";
+          av.setAttribute("aria-hidden", "true");
+          if (who === "bot") {
+            const img = document.createElement("img");
+            img.src = BOT_AVATAR_URL;
+            img.alt = "";
+            av.appendChild(img);
+          } else {
+            // Tiny user silhouette for "user" rows.
+            av.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>';
+          }
+          return av;
+        }
+
+        function appendBubble(text, who, opts) {
+          opts = opts || {};
+          const row = document.createElement("div");
+          row.className = "chatbot__row chatbot__row--" + who;
+          row.appendChild(buildAvatar(who));
+          const bubble = document.createElement("div");
+          bubble.className = "chatbot__msg chatbot__msg--" + who;
+          bubble.textContent = text;
+          // Tag bubbles that came from a known i18n key so langchange can
+          // retranslate them. Free-text user messages have no key and stay
+          // in whatever language the user typed in (we don't auto-translate
+          // their own words).
+          if (opts.i18nKey) bubble.dataset.i18nMsg = opts.i18nKey;
+          row.appendChild(bubble);
+          messages.appendChild(row);
+          scrollToBottom();
+          return bubble;
+        }
+
+        function showTyping() {
+          const el = document.createElement("div");
+          el.className = "chatbot__typing";
+          el.setAttribute("aria-label",
+            (window.__i18nGet && window.__i18nGet("chatbot.typingAria")) || "Typing…");
+          // Tag so the langchange handler refreshes the aria-label too.
+          el.dataset.i18nAttr = "aria-label:chatbot.typingAria";
+          el.innerHTML = "<span></span><span></span><span></span>";
+          messages.appendChild(el);
+          scrollToBottom();
+          return el;
+        }
+
+        function botSay(text, key) {
+          const typing = showTyping();
+          setTimeout(() => {
+            typing.remove();
+            appendBubble(text, "bot", key ? { i18nKey: key } : undefined);
+          }, 420 + Math.min(1200, text.length * 12));
+        }
+
+        // Each chip pairs a short visual label (chatbot.chipN) with the
+        // full FAQ question (faq.qN) — the chip shows short, the user
+        // bubble shows the full question, the bot replies with faq.aN.
+        const CHIPS = [
+          { chip: "chatbot.chip1", q: "faq.q1", a: "faq.a1" },
+          { chip: "chatbot.chip2", q: "faq.q2", a: "faq.a2" },
+          { chip: "chatbot.chip3", q: "faq.q3", a: "faq.a3" },
+          { chip: "chatbot.chip4", q: "faq.q4", a: "faq.a4" },
+          { chip: "chatbot.chip5", q: "faq.q5", a: "faq.a5" },
+          { chip: "chatbot.chip6", q: "faq.q6", a: "faq.a6" },
+        ];
+
+        function renderSuggestions() {
+          suggestions.innerHTML = "";
+          CHIPS.forEach((c) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "chatbot__chip";
+            btn.textContent = t(c.chip, t(c.q, c.q));
+            btn.addEventListener("click", () => {
+              // Pass the q-key as the user-bubble i18n key so it retranslates
+              // on language change; a-key drives the bot's reply.
+              handleUser(t(c.q, c.q), c.a, c.q);
+            });
+            suggestions.appendChild(btn);
+          });
+        }
+
+        function handleUser(text, forcedAnswerKey, userKey) {
+          const trimmed = text.trim();
+          if (!trimmed) return;
+          appendBubble(trimmed, "user", userKey ? { i18nKey: userKey } : undefined);
+          input.value = "";
+
+          let replyText, replyKey;
+          if (forcedAnswerKey) {
+            replyText = t(forcedAnswerKey, forcedAnswerKey);
+            replyKey = forcedAnswerKey;
+          } else {
+            const match = findReply(trimmed);
+            if (match) {
+              replyText = t(match.reply, "");
+              replyKey = match.reply;
+            }
+            if (!replyText) {
+              replyText = t("chatbot.fallback", "");
+              replyKey = "chatbot.fallback";
+            }
+          }
+          botSay(replyText, replyKey);
+        }
+
+        function openPanel() {
+          root.setAttribute("data-open", "true");
+          launcher.setAttribute("aria-expanded", "true");
+          if (!messages.dataset.greeted) {
+            appendBubble(t("chatbot.greet", "¡Hola!"), "bot", {
+              i18nKey: "chatbot.greet",
+            });
+            messages.dataset.greeted = "1";
+          }
+          // Wait for the open animation to finish before focusing — focusing
+          // the input mid-transform on iOS can yank the page.
+          setTimeout(() => input.focus({ preventScroll: true }), 240);
+        }
+
+        function closePanel() {
+          root.setAttribute("data-open", "false");
+          launcher.setAttribute("aria-expanded", "false");
+          launcher.focus({ preventScroll: true });
+        }
+
+        launcher.addEventListener("click", () => {
+          if (root.getAttribute("data-open") === "true") closePanel();
+          else openPanel();
+        });
+        closeBtn.addEventListener("click", closePanel);
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && root.getAttribute("data-open") === "true") {
+            closePanel();
+          }
+        });
+
+        // ─── Textarea behaviour ────────────────────────────────────
+        // Auto-grow up to max-height (CSS clamps it), Enter sends,
+        // Shift+Enter inserts a newline, send button stays disabled while
+        // empty/whitespace.
+        const sendBtn = form.querySelector(".chatbot__send");
+
+        function autoGrow() {
+          input.style.height = "auto";
+          input.style.height = Math.min(input.scrollHeight, 110) + "px";
+        }
+
+        function refreshSendState() {
+          sendBtn.disabled = input.value.trim().length === 0;
+        }
+
+        input.addEventListener("input", () => {
+          autoGrow();
+          refreshSendState();
+        });
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
+            e.preventDefault();
+            if (input.value.trim()) form.requestSubmit();
+          }
+        });
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const txt = input.value.trim();
+          if (!txt) return;
+          handleUser(txt);
+          input.value = "";
+          autoGrow();
+          refreshSendState();
+          input.focus({ preventScroll: true });
+        });
+
+        refreshSendState();
+
+        renderSuggestions();
+        // Re-render chips + retranslate any sticky message bubbles (greeting,
+        // canned replies) whenever the page language changes. Driven by the
+        // custom `langchange` event the i18n IIFE fires on every applyLang.
+        window.addEventListener("langchange", () => {
+          renderSuggestions();
+          // Retranslate every tagged bubble (greeting, chip-driven user
+          // questions, bot answers) so the whole conversation flips
+          // language. Free-text user messages stay in their original tongue.
+          messages.querySelectorAll("[data-i18n-msg]").forEach((el) => {
+            el.textContent = t(el.dataset.i18nMsg, el.textContent);
+          });
+          // Refresh aria-labels on dynamic elements (typing indicator).
+          messages.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+            const spec = el.dataset.i18nAttr || "";
+            spec.split(";").forEach((pair) => {
+              const [attr, key] = pair.split(":").map((s) => s.trim());
+              if (attr && key) el.setAttribute(attr, t(key, el.getAttribute(attr) || ""));
+            });
+          });
+        });
+
+        // Sync chatbot position when cookie banner opens/closes.
+        function updateCookieOffset() {
+          const banner = document.getElementById("cookie-banner");
+          const visible = banner && !banner.hidden &&
+            getComputedStyle(banner).opacity !== "0";
+          document.body.classList.toggle("cookie-active", !!visible);
+        }
+        window.addEventListener("cookie-consent", () =>
+          document.body.classList.remove("cookie-active")
+        );
+        // Initial check after a tick (cookie banner JS runs in its own IIFE).
+        setTimeout(updateCookieOffset, 50);
+      })();
+    </script>
+  </body>
+</html>
