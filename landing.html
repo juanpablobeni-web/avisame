@@ -422,13 +422,6 @@
         fill: #c5cdd9;
         opacity: 0.85;
       }
-      /* Concourse / walkway fillers between stands — non-interactive,
-         signals "this is structure, not seating". */
-      .seatmap__concourse {
-        fill: #c0c8d4;
-        stroke: rgba(10, 31, 68, 0.10);
-        stroke-width: 1;
-      }
 
       /* ─── Clickable stand cells ───────────────────────────────── */
       .seatmap__cell {
@@ -2468,14 +2461,10 @@
                 <text class="seatmap__cell-label" x="582" y="572" text-anchor="middle">Tribuna Alta Área</text>
               </g>
 
-              <!-- ─── Concourse fillers between stands (decorative, non-clickable) ─── -->
-              <rect class="seatmap__concourse" x="148" y="82" width="50" height="124" rx="3" pointer-events="none"/>
-              <rect class="seatmap__concourse" x="148" y="472" width="50" height="124" rx="3" pointer-events="none"/>
-
-              <!-- ─── GOL (right, full-height construction zone) ─── -->
+              <!-- ─── GOL (right, under construction) ─── -->
               <g class="seatmap__stand-group" data-stand="gol">
-                <rect class="seatmap__cell cell-gol" x="648" y="82" width="85" height="514" rx="6"/>
-                <text class="seatmap__cell-label seatmap__cell-label--obras" transform="translate(690 339) rotate(90)" text-anchor="middle">OBRAS GOL</text>
+                <rect class="seatmap__cell cell-gol" x="650" y="215" width="78" height="240" rx="3"/>
+                <text class="seatmap__cell-label seatmap__cell-label--obras" transform="translate(689 335) rotate(90)" text-anchor="middle">OBRAS GOL</text>
               </g>
 
               <!-- Stadium name labels outside the shell -->
