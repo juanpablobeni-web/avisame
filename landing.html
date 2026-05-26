@@ -408,86 +408,88 @@
       .seatmap__svg {
         display: block;
         width: 100%;
-        max-width: 720px;
+        max-width: 620px;
         height: auto;
         margin: 0 auto;
         filter: drop-shadow(0 8px 24px rgba(10, 31, 68, 0.10));
       }
       .seatmap__shell {
-        fill: #ecf0f5;
+        fill: rgba(10, 31, 68, 0.025);
         stroke: rgba(10, 31, 68, 0.10);
         stroke-width: 1;
       }
-      .seatmap__stair {
-        fill: #c5cdd9;
-        opacity: 0.85;
+      .seatmap__seatrow {
+        fill: none;
+        stroke: rgba(10, 31, 68, 0.18);
+        stroke-width: 0.8;
+        stroke-dasharray: 3 5;
       }
-
-      /* ─── Clickable stand cells ───────────────────────────────── */
-      .seatmap__cell {
-        stroke: rgba(255, 255, 255, 0.65);
-        stroke-width: 1;
-        cursor: pointer;
-        transition: filter 0.18s ease, transform 0.18s ease, stroke 0.18s ease;
-        transform-origin: center;
-        transform-box: fill-box;
-      }
-      .seatmap__cell:hover {
-        filter: brightness(1.08);
-        stroke: #fff;
-        stroke-width: 1.8;
-      }
-      .seatmap__cell[data-tier-active="true"] {
-        stroke: #fff;
-        stroke-width: 2.4;
-        filter: brightness(1.10) drop-shadow(0 0 6px rgba(10, 31, 68, 0.45));
-      }
-
-      /* RÍO palette (red, behind one goal) */
-      .cell-rio-alto-area     { fill: #8e1f2e; }
-      .cell-rio-alto-central  { fill: #c8323a; }
-      .cell-rio-baixo-area    { fill: #cc5562; }
-      .cell-rio-baixo-central { fill: #dc7884; }
-      /* MARCADOR palette (blue, main stand) */
-      .cell-marc-alto-corner  { fill: #4a7299; }
-      .cell-marc-alto-central { fill: #6ba2c8; }
-      .cell-marc-baixo        { fill: #b8d0e6; }
-      /* TRIBUNA palette (gold/brown, opposite of Marcador) */
-      .cell-trib-baixa-area    { fill: #ad8b56; }
-      .cell-trib-baixa-central { fill: #c6a574; }
-      .cell-trib-alta-area     { fill: #6f5733; }
-      .cell-trib-alta-central  { fill: #8e7146; }
-      /* GOL (construction zone — not clickable) */
-      .cell-gol {
-        fill: #5a6470;
-        cursor: not-allowed;
-        stroke: #3d4754;
-      }
-      .cell-gol:hover {
-        filter: none;
-        stroke-width: 1;
-      }
-      /* PISTA (pitch-level strip) */
-      .cell-pista {
-        fill: #4a8862;
-        stroke: rgba(255, 255, 255, 0.7);
-      }
-
-      .seatmap__cell-label {
+      .seatmap__stand {
         font-family: "Montserrat", system-ui, sans-serif;
         font-size: 9px;
         font-weight: 700;
-        fill: #ffffff;
+        fill: rgba(10, 31, 68, 0.55);
+        letter-spacing: 0.22em;
         pointer-events: none;
-        letter-spacing: 0.02em;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
       }
-      .seatmap__cell-label--dark { fill: #0B1F3F; text-shadow: none; }
-      .seatmap__cell-label--xs { font-size: 8px; }
-      .seatmap__cell-label--obras {
-        font-size: 11px;
-        letter-spacing: 0.16em;
-        font-weight: 800;
+      .seatmap__zone {
+        stroke: rgba(10, 31, 68, 0.14);
+        stroke-width: 1;
+        cursor: pointer;
+        transition:
+          fill 0.18s ease,
+          stroke 0.18s ease,
+          stroke-width 0.18s ease,
+          filter 0.18s ease;
+      }
+      /* Color hierarchy: outer rings (cheaper / farther) are lighter,
+         inner rings (pitchside / premium) are more saturated. */
+      .seatmap__zone[data-zone="piso3"] { fill: rgba(122, 177, 217, 0.18); }
+      .seatmap__zone[data-zone="piso2"] { fill: rgba(122, 177, 217, 0.32); }
+      .seatmap__zone[data-zone="piso1"] { fill: rgba(122, 177, 217, 0.50); }
+      .seatmap__zone[data-zone="pista"] { fill: rgba(122, 177, 217, 0.72); }
+
+      .seatmap__zone:hover {
+        fill: rgba(10, 31, 68, 0.18);
+        stroke: var(--celta-navy);
+        stroke-width: 1.5;
+      }
+      /* Active tier is a calm navy wash — it says "this is the area you're
+         exploring" without screaming. The picked sector inside gets the
+         brand red so it pops as the actual selection marker. */
+      .seatmap__zone[data-active="true"] {
+        fill: var(--celta-navy) !important;
+        stroke: #061331;
+        stroke-width: 1.5;
+        filter: drop-shadow(0 4px 10px rgba(10, 31, 68, 0.28));
+      }
+
+      /* Individual sector cells overlay the ring band. Three states:
+         (1) parked     → invisible
+         (2) tier active → faint outlines so user sees the subdivisions
+         (3) sector active → solid Celta red, "your seat is here" */
+      .seatmap__sector {
+        fill: rgba(255, 255, 255, 0);
+        stroke: rgba(255, 255, 255, 0);
+        stroke-width: 0.6;
+        transition: fill 0.18s ease, stroke 0.18s ease, filter 0.18s ease;
+      }
+      .seatmap__sector[data-tier-active="true"] {
+        fill: rgba(255, 255, 255, 0.08);
+        stroke: rgba(255, 255, 255, 0.42);
+      }
+      .seatmap__sector[data-active="true"] {
+        fill: var(--celta-red);
+        stroke: #fff;
+        stroke-width: 1.1;
+        filter: drop-shadow(0 0 5px rgba(228, 0, 43, 0.75))
+          drop-shadow(0 0 10px rgba(228, 0, 43, 0.35));
+      }
+      html.a11y-colorblind .seatmap__sector[data-active="true"] {
+        fill: #e69f00;
+        stroke: #fff;
+        filter: drop-shadow(0 0 5px rgba(230, 159, 0, 0.85))
+          drop-shadow(0 0 10px rgba(230, 159, 0, 0.4));
       }
 
       .seatmap__pitch {
@@ -500,31 +502,36 @@
         stroke-width: 1;
         fill: none;
       }
-      .seatmap__pitch-dot { fill: rgba(255, 255, 255, 0.92); }
+      .seatmap__pitch-dot {
+        fill: rgba(255, 255, 255, 0.92);
+      }
       .seatmap__pitch-goal {
         stroke: rgba(255, 255, 255, 0.95);
         stroke-width: 2.5;
         stroke-linecap: round;
       }
-
-      /* Stand titles + street names outside the shell */
-      .seatmap__stand-title {
+      .seatmap__label {
         font-family: "Montserrat", system-ui, sans-serif;
-        font-size: 18px;
-        font-weight: 900;
+        font-size: 13px;
+        font-weight: 800;
         fill: var(--celta-navy);
-        letter-spacing: 0.06em;
         pointer-events: none;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        transition: fill 0.18s ease;
       }
-      .seatmap__stand-street {
-        font-family: "Montserrat", system-ui, sans-serif;
-        font-size: 9px;
-        font-weight: 700;
-        fill: rgba(10, 31, 68, 0.55);
-        letter-spacing: 0.20em;
-        pointer-events: none;
+      .seatmap__label--sm { font-size: 10px; }
+      .seatmap__label[data-zone-active="true"] {
+        fill: #fff;
       }
-
+      .seatmap__count[data-zone-active="true"] {
+        fill: #fff;
+        opacity: 0.92;
+      }
+      html.a11y-colorblind .seatmap__label[data-zone-active="true"],
+      html.a11y-colorblind .seatmap__count[data-zone-active="true"] {
+        fill: #1a1a1a;
+      }
       .seatmap__hint {
         margin: 0.4rem 0 0;
         text-align: center;
@@ -532,35 +539,27 @@
         color: #5b6a82;
         line-height: 1.4;
       }
-
-      /* Colorblind palette — Wong-safe re-tints (blue + orange + brown) */
-      html.a11y-colorblind .cell-rio-alto-area,
-      html.a11y-colorblind .cell-rio-alto-central,
-      html.a11y-colorblind .cell-rio-baixo-area,
-      html.a11y-colorblind .cell-rio-baixo-central { fill: #d55e00; }
-      html.a11y-colorblind .cell-rio-baixo-area    { filter: brightness(1.15); }
-      html.a11y-colorblind .cell-rio-baixo-central { filter: brightness(1.30); }
-      html.a11y-colorblind .cell-rio-alto-central  { filter: brightness(0.92); }
-      html.a11y-colorblind .cell-marc-alto-corner,
-      html.a11y-colorblind .cell-marc-alto-central,
-      html.a11y-colorblind .cell-marc-baixo        { fill: #0072b2; }
-      html.a11y-colorblind .cell-marc-alto-central { filter: brightness(1.15); }
-      html.a11y-colorblind .cell-marc-baixo        { filter: brightness(1.35); }
-      html.a11y-colorblind .cell-trib-baixa-area,
-      html.a11y-colorblind .cell-trib-baixa-central,
-      html.a11y-colorblind .cell-trib-alta-area,
-      html.a11y-colorblind .cell-trib-alta-central { fill: #e69f00; }
-      html.a11y-colorblind .cell-trib-baixa-central { filter: brightness(1.15); }
-      html.a11y-colorblind .cell-trib-alta-area    { filter: brightness(0.85); }
-      html.a11y-colorblind .cell-trib-alta-central { filter: brightness(0.95); }
-      html.a11y-colorblind .cell-pista             { fill: #009e73; }
-
+      html.a11y-colorblind .seatmap__zone {
+        stroke: rgba(0, 114, 178, 0.4);
+      }
+      html.a11y-colorblind .seatmap__zone[data-zone="piso3"] { fill: rgba(0, 114, 178, 0.12); }
+      html.a11y-colorblind .seatmap__zone[data-zone="piso2"] { fill: rgba(0, 114, 178, 0.22); }
+      html.a11y-colorblind .seatmap__zone[data-zone="piso1"] { fill: rgba(0, 114, 178, 0.36); }
+      html.a11y-colorblind .seatmap__zone[data-zone="pista"] { fill: rgba(0, 114, 178, 0.55); }
+      html.a11y-colorblind .seatmap__zone:hover {
+        fill: rgba(0, 114, 178, 0.30);
+        stroke: #003a5c;
+      }
+      html.a11y-colorblind .seatmap__zone[data-active="true"] {
+        fill: #003a5c !important;
+        stroke: #00264a;
+        filter: drop-shadow(0 4px 10px rgba(0, 58, 92, 0.4));
+      }
       @media (max-width: 480px) {
         .seatmap__svg { max-width: 100%; }
-        .seatmap__cell-label { font-size: 8px; }
-        .seatmap__cell-label--xs { font-size: 7px; }
-        .seatmap__stand-title { font-size: 15px; }
-        .seatmap__stand-street { font-size: 8px; letter-spacing: 0.14em; }
+        .seatmap__label { font-size: 12px; }
+        .seatmap__label--sm { font-size: 9px; }
+        .seatmap__stand { font-size: 8px; letter-spacing: 0.15em; }
       }
 
       /* ─── Chip picker (visual replacement for huge <select>) ──── */
@@ -711,6 +710,18 @@
         clip: rect(0, 0, 0, 0);
         white-space: nowrap;
         border: 0;
+      }
+
+      /* Tier counts inline next to each PISO/PISTA label */
+      .seatmap__count {
+        font-family: "Montserrat", system-ui, sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        fill: var(--celta-navy);
+        opacity: 0.6;
+        pointer-events: none;
+        letter-spacing: 0.06em;
+        transition: fill 0.18s ease, opacity 0.18s ease;
       }
 
       form p {
@@ -2359,123 +2370,84 @@
           <div class="seatmap" id="seatmap">
             <svg
               class="seatmap__svg"
-              viewBox="0 0 800 660"
+              viewBox="0 0 640 420"
               role="img"
               aria-labelledby="seatmap-title"
             >
               <title id="seatmap-title" data-i18n="seatmap.svgTitle">Mapa del Estadio de Balaídos</title>
 
-              <!-- Stadium concrete shell -->
-              <rect class="seatmap__shell" x="40" y="55" width="720" height="555" rx="22" pointer-events="none" />
+              <!-- Decorative outer "concrete" shell -->
+              <rect class="seatmap__shell" x="4" y="4" width="632" height="412"
+                rx="14" ry="14" pointer-events="none" />
 
-              <!-- ─── RÍO (top, red palette, 2 tiers × 4 segments) ─── -->
-              <g class="seatmap__stand-group" data-stand="rio">
-                <!-- Decorative stair caps above Alto tier -->
-                <rect class="seatmap__stair" x="245" y="66" width="32" height="12" rx="1.5"/>
-                <rect class="seatmap__stair" x="345" y="66" width="40" height="12" rx="1.5"/>
-                <rect class="seatmap__stair" x="415" y="66" width="40" height="12" rx="1.5"/>
-                <rect class="seatmap__stair" x="525" y="66" width="32" height="12" rx="1.5"/>
-                <!-- Alto -->
-                <rect class="seatmap__cell cell-rio-alto-area" data-target-tier="piso3" x="200" y="82" width="105" height="58" rx="3"/>
-                <rect class="seatmap__cell cell-rio-alto-central" data-target-tier="piso3" x="310" y="82" width="105" height="58" rx="3"/>
-                <rect class="seatmap__cell cell-rio-alto-central" data-target-tier="piso3" x="420" y="82" width="105" height="58" rx="3"/>
-                <rect class="seatmap__cell cell-rio-alto-area" data-target-tier="piso3" x="530" y="82" width="105" height="58" rx="3"/>
-                <text class="seatmap__cell-label" x="252" y="115" text-anchor="middle">Rio Alto Área</text>
-                <text class="seatmap__cell-label" x="362" y="115" text-anchor="middle">Rio Alto Central</text>
-                <text class="seatmap__cell-label" x="472" y="115" text-anchor="middle">Rio Alto Central</text>
-                <text class="seatmap__cell-label" x="582" y="115" text-anchor="middle">Rio Alto Área</text>
-                <!-- Baixo -->
-                <rect class="seatmap__cell cell-rio-baixo-area" data-target-tier="piso1" x="200" y="150" width="105" height="56" rx="3"/>
-                <rect class="seatmap__cell cell-rio-baixo-central" data-target-tier="piso1" x="310" y="150" width="105" height="56" rx="3"/>
-                <rect class="seatmap__cell cell-rio-baixo-central" data-target-tier="piso1" x="420" y="150" width="105" height="56" rx="3"/>
-                <rect class="seatmap__cell cell-rio-baixo-area" data-target-tier="piso1" x="530" y="150" width="105" height="56" rx="3"/>
-                <text class="seatmap__cell-label" x="252" y="182" text-anchor="middle">Rio Baixo Área</text>
-                <text class="seatmap__cell-label" x="362" y="182" text-anchor="middle">Rio Baixo Central</text>
-                <text class="seatmap__cell-label" x="472" y="182" text-anchor="middle">Rio Baixo Central</text>
-                <text class="seatmap__cell-label" x="582" y="182" text-anchor="middle">Rio Baixo Área</text>
-              </g>
+              <!-- 4 nested rectangular ring donuts. fill-rule:evenodd carves
+                   out the inner rect, leaving a clickable band. -->
+              <path class="seatmap__zone" data-zone="piso3" fill-rule="evenodd"
+                d="M 24,24 H 616 V 396 H 24 Z
+                   M 56,44 H 584 V 376 H 56 Z" />
+              <path class="seatmap__zone" data-zone="piso2" fill-rule="evenodd"
+                d="M 56,44 H 584 V 376 H 56 Z
+                   M 88,64 H 552 V 356 H 88 Z" />
+              <path class="seatmap__zone" data-zone="piso1" fill-rule="evenodd"
+                d="M 88,64 H 552 V 356 H 88 Z
+                   M 124,86 H 516 V 334 H 124 Z" />
+              <path class="seatmap__zone" data-zone="pista" fill-rule="evenodd"
+                d="M 124,86 H 516 V 334 H 124 Z
+                   M 160,110 H 480 V 310 H 160 Z" />
 
-              <!-- ─── MARCADOR (left, blue palette) ─── -->
-              <g class="seatmap__stand-group" data-stand="marcador">
-                <!-- Outer M. Alto column -->
-                <rect class="seatmap__cell cell-marc-alto-corner" data-target-tier="piso3" x="68" y="80" width="72" height="100" rx="3"/>
-                <rect class="seatmap__cell cell-marc-alto-central" data-target-tier="piso3" x="68" y="190" width="72" height="125" rx="3"/>
-                <rect class="seatmap__cell cell-marc-alto-central" data-target-tier="piso3" x="68" y="325" width="72" height="125" rx="3"/>
-                <rect class="seatmap__cell cell-marc-alto-corner" data-target-tier="piso3" x="68" y="460" width="72" height="100" rx="3"/>
-                <text class="seatmap__cell-label" transform="translate(104 130) rotate(-90)" text-anchor="middle">M. Alto Córner</text>
-                <text class="seatmap__cell-label" transform="translate(104 252) rotate(-90)" text-anchor="middle">M. Alto Central</text>
-                <text class="seatmap__cell-label" transform="translate(104 387) rotate(-90)" text-anchor="middle">M. Alto Central</text>
-                <text class="seatmap__cell-label" transform="translate(104 510) rotate(-90)" text-anchor="middle">M. Alto Córner</text>
-                <!-- Inner Marcador Baixo column -->
-                <rect class="seatmap__cell cell-marc-baixo" data-target-tier="piso2" x="150" y="215" width="62" height="70" rx="3"/>
-                <rect class="seatmap__cell cell-marc-baixo" data-target-tier="piso2" x="150" y="295" width="62" height="60" rx="3"/>
-                <rect class="seatmap__cell cell-marc-baixo" data-target-tier="piso2" x="150" y="365" width="62" height="70" rx="3"/>
-                <text class="seatmap__cell-label seatmap__cell-label--dark" transform="translate(181 250) rotate(-90)" text-anchor="middle">Marcador Baixo</text>
-                <text class="seatmap__cell-label seatmap__cell-label--dark" transform="translate(181 325) rotate(-90)" text-anchor="middle">Marcador Baixo</text>
-                <text class="seatmap__cell-label seatmap__cell-label--dark" transform="translate(181 400) rotate(-90)" text-anchor="middle">Marcador Baixo</text>
-              </g>
+              <!-- Decorative dashed "seat row" rectangles inside each ring -->
+              <rect class="seatmap__seatrow" x="40" y="34" width="560" height="352" pointer-events="none" />
+              <rect class="seatmap__seatrow" x="72" y="54" width="496" height="312" pointer-events="none" />
+              <rect class="seatmap__seatrow" x="106" y="75" width="428" height="270" pointer-events="none" />
+              <rect class="seatmap__seatrow" x="142" y="98" width="356" height="224" pointer-events="none" />
 
-              <!-- ─── PITCH ─── -->
+              <!-- Sector cells (one rect per stand, generated by JS at init.
+                   Invisible by default; lit up when their tier is active and
+                   solid-glowing when the user picks that sector's chip). -->
+              <g class="seatmap__sectors" id="seatmap-sectors" pointer-events="none"></g>
+
+              <!-- Pitch + soccer markings (corner arcs, penalty spots, etc.) -->
               <g class="seatmap__pitch-group" pointer-events="none">
-                <rect class="seatmap__pitch" x="225" y="230" width="395" height="210" rx="2"/>
-                <line class="seatmap__pitch-line" x1="422" y1="230" x2="422" y2="440"/>
-                <circle class="seatmap__pitch-line" cx="422" cy="335" r="32" fill="none"/>
-                <circle class="seatmap__pitch-dot" cx="422" cy="335" r="2.5"/>
-                <rect class="seatmap__pitch-line" x="225" y="280" width="55" height="110" fill="none"/>
-                <rect class="seatmap__pitch-line" x="565" y="280" width="55" height="110" fill="none"/>
-                <rect class="seatmap__pitch-line" x="225" y="307" width="22" height="56" fill="none"/>
-                <rect class="seatmap__pitch-line" x="598" y="307" width="22" height="56" fill="none"/>
-                <circle class="seatmap__pitch-dot" cx="262" cy="335" r="1.5"/>
-                <circle class="seatmap__pitch-dot" cx="582" cy="335" r="1.5"/>
-                <line class="seatmap__pitch-goal" x1="223" y1="324" x2="223" y2="346"/>
-                <line class="seatmap__pitch-goal" x1="622" y1="324" x2="622" y2="346"/>
-                <path class="seatmap__pitch-line" d="M 235 230 A 10 10 0 0 0 225 240"/>
-                <path class="seatmap__pitch-line" d="M 620 240 A 10 10 0 0 0 610 230"/>
-                <path class="seatmap__pitch-line" d="M 225 430 A 10 10 0 0 0 235 440"/>
-                <path class="seatmap__pitch-line" d="M 610 440 A 10 10 0 0 0 620 430"/>
+                <rect class="seatmap__pitch" x="160" y="110" width="320" height="200" rx="2" />
+                <!-- Halfway line -->
+                <line class="seatmap__pitch-line" x1="320" y1="110" x2="320" y2="310" />
+                <!-- Center circle + dot -->
+                <circle class="seatmap__pitch-line" cx="320" cy="210" r="24" fill="none" />
+                <circle class="seatmap__pitch-dot" cx="320" cy="210" r="2.5" />
+                <!-- Penalty areas -->
+                <rect class="seatmap__pitch-line" x="160" y="170" width="44" height="80" fill="none" />
+                <rect class="seatmap__pitch-line" x="436" y="170" width="44" height="80" fill="none" />
+                <!-- Goal areas -->
+                <rect class="seatmap__pitch-line" x="160" y="190" width="18" height="40" fill="none" />
+                <rect class="seatmap__pitch-line" x="462" y="190" width="18" height="40" fill="none" />
+                <!-- Penalty spots -->
+                <circle class="seatmap__pitch-dot" cx="190" cy="210" r="1.5" />
+                <circle class="seatmap__pitch-dot" cx="450" cy="210" r="1.5" />
+                <!-- Goal nets (thick stroke segments) -->
+                <line class="seatmap__pitch-goal" x1="158" y1="200" x2="158" y2="220" />
+                <line class="seatmap__pitch-goal" x1="482" y1="200" x2="482" y2="220" />
+                <!-- Corner flag arcs -->
+                <path class="seatmap__pitch-line" d="M 168 110 A 8 8 0 0 0 160 118" />
+                <path class="seatmap__pitch-line" d="M 480 118 A 8 8 0 0 0 472 110" />
+                <path class="seatmap__pitch-line" d="M 160 302 A 8 8 0 0 0 168 310" />
+                <path class="seatmap__pitch-line" d="M 472 310 A 8 8 0 0 0 480 302" />
               </g>
 
-              <!-- ─── PISTA (thin strip below pitch, pitch-level seats) ─── -->
-              <rect class="seatmap__cell cell-pista" data-target-tier="pista" x="295" y="448" width="255" height="14" rx="3"/>
-              <text class="seatmap__cell-label seatmap__cell-label--xs" x="422" y="458" text-anchor="middle">PISTA · Pie de campo</text>
+              <!-- Tier labels (top band of each ring) + count badges -->
+              <text class="seatmap__label" data-zone-label="piso3" x="320" y="37" text-anchor="middle">PISO 3</text>
+              <text class="seatmap__count" data-count-for="piso3" x="362" y="37" text-anchor="start"></text>
+              <text class="seatmap__label" data-zone-label="piso2" x="320" y="57" text-anchor="middle">PISO 2</text>
+              <text class="seatmap__count" data-count-for="piso2" x="362" y="57" text-anchor="start"></text>
+              <text class="seatmap__label" data-zone-label="piso1" x="320" y="78" text-anchor="middle">PISO 1</text>
+              <text class="seatmap__count" data-count-for="piso1" x="362" y="78" text-anchor="start"></text>
+              <text class="seatmap__label seatmap__label--sm" data-zone-label="pista" x="320" y="101" text-anchor="middle">PISTA</text>
+              <text class="seatmap__count" data-count-for="pista" x="358" y="101" text-anchor="start"></text>
 
-              <!-- ─── TRIBUNA (bottom, gold/brown palette) ─── -->
-              <g class="seatmap__stand-group" data-stand="tribuna">
-                <!-- Baixa (upper, closer to pitch) -->
-                <rect class="seatmap__cell cell-trib-baixa-area" data-target-tier="piso1" x="200" y="472" width="105" height="58" rx="3"/>
-                <rect class="seatmap__cell cell-trib-baixa-central" data-target-tier="piso1" x="310" y="472" width="105" height="58" rx="3"/>
-                <rect class="seatmap__cell cell-trib-baixa-central" data-target-tier="piso1" x="420" y="472" width="105" height="58" rx="3"/>
-                <rect class="seatmap__cell cell-trib-baixa-area" data-target-tier="piso1" x="530" y="472" width="105" height="58" rx="3"/>
-                <text class="seatmap__cell-label" x="252" y="505" text-anchor="middle">Tribuna Baixa Área</text>
-                <text class="seatmap__cell-label" x="362" y="505" text-anchor="middle">Tribuna Baixa Central</text>
-                <text class="seatmap__cell-label" x="472" y="505" text-anchor="middle">Tribuna Baixa Central</text>
-                <text class="seatmap__cell-label" x="582" y="505" text-anchor="middle">Tribuna Baixa Área</text>
-                <!-- Alta (lower, further from pitch) -->
-                <rect class="seatmap__cell cell-trib-alta-area" data-target-tier="piso3" x="200" y="540" width="105" height="56" rx="3"/>
-                <rect class="seatmap__cell cell-trib-alta-central" data-target-tier="piso3" x="310" y="540" width="105" height="56" rx="3"/>
-                <rect class="seatmap__cell cell-trib-alta-central" data-target-tier="piso3" x="420" y="540" width="105" height="56" rx="3"/>
-                <rect class="seatmap__cell cell-trib-alta-area" data-target-tier="piso3" x="530" y="540" width="105" height="56" rx="3"/>
-                <text class="seatmap__cell-label" x="252" y="572" text-anchor="middle">Tribuna Alta Área</text>
-                <text class="seatmap__cell-label" x="362" y="572" text-anchor="middle">T. Alta Central</text>
-                <text class="seatmap__cell-label" x="472" y="572" text-anchor="middle">T. Alta Central</text>
-                <text class="seatmap__cell-label" x="582" y="572" text-anchor="middle">Tribuna Alta Área</text>
-              </g>
-
-              <!-- ─── GOL (right, under construction) ─── -->
-              <g class="seatmap__stand-group" data-stand="gol">
-                <rect class="seatmap__cell cell-gol" x="650" y="215" width="78" height="240" rx="3"/>
-                <text class="seatmap__cell-label seatmap__cell-label--obras" transform="translate(689 335) rotate(90)" text-anchor="middle">OBRAS GOL</text>
-              </g>
-
-              <!-- Stadium name labels outside the shell -->
-              <text class="seatmap__stand-title" x="400" y="26" text-anchor="middle" data-i18n="seatmap.standRio">RÍO</text>
-              <text class="seatmap__stand-street" x="400" y="43" text-anchor="middle">AVDA. DE CITROËN</text>
-              <text class="seatmap__stand-title" x="400" y="638" text-anchor="middle" data-i18n="seatmap.standTribuna">TRIBUNA</text>
-              <text class="seatmap__stand-street" x="400" y="622" text-anchor="middle">AVDA. DE FRAGOSO</text>
-              <text class="seatmap__stand-title" transform="translate(20 335) rotate(-90)" text-anchor="middle" data-i18n="seatmap.standMarcador">MARCADOR</text>
-              <text class="seatmap__stand-street" transform="translate(36 335) rotate(-90)" text-anchor="middle">RÚA VAL MIÑOR</text>
-              <text class="seatmap__stand-title" transform="translate(780 335) rotate(90)" text-anchor="middle" data-i18n="seatmap.standGol">GOL</text>
-              <text class="seatmap__stand-street" transform="translate(764 335) rotate(90)" text-anchor="middle">RÚA DOS OLÍMPICOS</text>
+              <!-- Cardinal stand names around the outside of the outer ring -->
+              <text class="seatmap__stand" x="320" y="16" text-anchor="middle" data-i18n="seatmap.standTribuna">TRIBUNA</text>
+              <text class="seatmap__stand" x="320" y="412" text-anchor="middle" data-i18n="seatmap.standMarcador">MARCADOR</text>
+              <text class="seatmap__stand" x="14" y="210" text-anchor="middle" transform="rotate(-90 14 210)" data-i18n="seatmap.standGol">GOL</text>
+              <text class="seatmap__stand" x="626" y="210" text-anchor="middle" transform="rotate(90 626 210)" data-i18n="seatmap.standRio">RÍO</text>
             </svg>
             <p class="seatmap__hint" id="seatmap-hint" aria-live="polite" data-i18n="seatmap.hint">
               Toca una zona para filtrar los sectores.
@@ -3601,17 +3573,135 @@
 
         const ZONE_NAMES = { piso1: "PISO 1", piso2: "PISO 2", piso3: "PISO 3", pista: "PISTA" };
 
+        // Fill SVG count badges so the user can size up each tier at a glance.
+        map.querySelectorAll(".seatmap__count").forEach((el) => {
+          const z = el.dataset.countFor;
+          const n = allOptions.filter((o) => o.zone === z).length;
+          el.textContent = n ? "· " + n : "";
+        });
+
+        // ─── Sector-cell layout (Ticketmaster-style highlights) ──────
+        // Each ring band is divided into N cells (one per sector), placed
+        // clockwise from the top-left. Cells are <rect>s parked invisibly
+        // until their tier is activated, then glow when a chip is picked.
+        const SVG_NS = "http://www.w3.org/2000/svg";
+        const ringGeoms = {
+          piso3: { outer: { x: 24, y: 24, w: 592, h: 372 }, inner: { x: 56, y: 44, w: 528, h: 332 } },
+          piso2: { outer: { x: 56, y: 44, w: 528, h: 332 }, inner: { x: 88, y: 64, w: 464, h: 292 } },
+          piso1: { outer: { x: 88, y: 64, w: 464, h: 292 }, inner: { x: 124, y: 86, w: 392, h: 248 } },
+          pista: { outer: { x: 124, y: 86, w: 392, h: 248 }, inner: { x: 160, y: 110, w: 320, h: 200 } },
+        };
+
+        function distributeSectors(outer, inner, count) {
+          if (count <= 0) return [];
+          const oTop = outer.y, oLeft = outer.x;
+          const iTop = inner.y, iBot = inner.y + inner.h;
+          const iLeft = inner.x, iRight = inner.x + inner.w;
+          const bandV = iTop - oTop;
+          const bandH = iLeft - oLeft;
+          const innerW = inner.w, innerH = inner.h;
+          const perim = 2 * (innerW + innerH);
+
+          // Allocate proportionally to side length, guarantee ≥1 per side
+          // when we have enough sectors to spread around.
+          let topCount = Math.max(1, Math.round((innerW / perim) * count));
+          let botCount = Math.max(1, Math.round((innerW / perim) * count));
+          let rem = count - topCount - botCount;
+          if (rem < 2 && count >= 4) {
+            // Reclaim from top/bot so each side gets at least 1.
+            const need = 2 - rem;
+            topCount -= Math.ceil(need / 2);
+            botCount -= Math.floor(need / 2);
+            rem = 2;
+          }
+          let leftCount = Math.max(0, Math.floor(rem / 2));
+          let rightCount = Math.max(0, rem - leftCount);
+          if (count < 4) {
+            // Tiny tier: just dump them across the top.
+            topCount = count;
+            botCount = leftCount = rightCount = 0;
+          }
+
+          const cells = [];
+          const inset = 0.5;
+          // 1. Top, L→R
+          if (topCount > 0) {
+            const cw = innerW / topCount;
+            for (let i = 0; i < topCount; i++) {
+              cells.push({ x: iLeft + i * cw + inset, y: oTop + inset, w: cw - 2 * inset, h: bandV - 2 * inset });
+            }
+          }
+          // 2. Right, T→B
+          if (rightCount > 0) {
+            const ch = innerH / rightCount;
+            for (let i = 0; i < rightCount; i++) {
+              cells.push({ x: iRight + inset, y: iTop + i * ch + inset, w: bandH - 2 * inset, h: ch - 2 * inset });
+            }
+          }
+          // 3. Bottom, R→L
+          if (botCount > 0) {
+            const cw = innerW / botCount;
+            for (let i = 0; i < botCount; i++) {
+              cells.push({ x: iRight - (i + 1) * cw + inset, y: iBot + inset, w: cw - 2 * inset, h: bandV - 2 * inset });
+            }
+          }
+          // 4. Left, B→T
+          if (leftCount > 0) {
+            const ch = innerH / leftCount;
+            for (let i = 0; i < leftCount; i++) {
+              cells.push({ x: oLeft + inset, y: iBot - (i + 1) * ch + inset, w: bandH - 2 * inset, h: ch - 2 * inset });
+            }
+          }
+          return cells;
+        }
+
+        const sectorLayer = map.querySelector("#seatmap-sectors");
+        if (sectorLayer) {
+          Object.entries(ringGeoms).forEach(([zone, geom]) => {
+            // Sort sectors by label so positions stay stable when ONEBOX
+            // re-bakes the option order.
+            const sectors = allOptions
+              .filter((o) => o.value && o.zone === zone)
+              .slice()
+              .sort((a, b) => a.label.localeCompare(b.label, "es", { numeric: true }));
+            const cells = distributeSectors(geom.outer, geom.inner, sectors.length);
+            sectors.forEach((s, i) => {
+              const c = cells[i];
+              if (!c) return;
+              const rect = document.createElementNS(SVG_NS, "rect");
+              rect.setAttribute("class", "seatmap__sector");
+              rect.setAttribute("data-sector-id", s.value);
+              rect.setAttribute("data-zone", zone);
+              rect.setAttribute("x", c.x.toFixed(2));
+              rect.setAttribute("y", c.y.toFixed(2));
+              rect.setAttribute("width", c.w.toFixed(2));
+              rect.setAttribute("height", c.h.toFixed(2));
+              rect.setAttribute("rx", "1");
+              rect.setAttribute("ry", "1");
+              // Native <title> so screen readers + hover tooltips show the
+              // sector name.
+              const t = document.createElementNS(SVG_NS, "title");
+              t.textContent = s.label;
+              rect.appendChild(t);
+              sectorLayer.appendChild(rect);
+            });
+          });
+        }
+
         let activeZone = null;
 
-        // Each Balaídos cell carries data-target-tier mapping it to one of
-        // the four ONEBOX tier groups (piso1/2/3/pista). Activating any
-        // cell highlights every sibling cell that shares the same tier.
         function highlightTier(zone) {
-          map.querySelectorAll(".seatmap__cell").forEach((p) => {
-            p.setAttribute(
-              "data-tier-active",
-              zone && p.dataset.targetTier === zone ? "true" : "false"
-            );
+          map.querySelectorAll(".seatmap__zone").forEach((p) => {
+            p.setAttribute("data-active", p.dataset.zone === zone ? "true" : "false");
+          });
+          map.querySelectorAll("[data-zone-label]").forEach((el) => {
+            el.setAttribute("data-zone-active", el.dataset.zoneLabel === zone ? "true" : "false");
+          });
+          map.querySelectorAll("[data-count-for]").forEach((el) => {
+            el.setAttribute("data-zone-active", el.dataset.countFor === zone ? "true" : "false");
+          });
+          map.querySelectorAll(".seatmap__sector").forEach((s) => {
+            s.setAttribute("data-tier-active", s.dataset.zone === zone ? "true" : "false");
           });
         }
 
@@ -3667,6 +3757,16 @@
           });
         }
 
+        function highlightSector(value) {
+          map.querySelectorAll(".seatmap__sector").forEach((s) => {
+            if (value && s.dataset.sectorId === value) {
+              s.setAttribute("data-active", "true");
+            } else {
+              s.removeAttribute("data-active");
+            }
+          });
+        }
+
         function selectChip(value) {
           select.value = value;
           select.dispatchEvent(new Event("change", { bubbles: true }));
@@ -3678,6 +3778,7 @@
             pillText.textContent = chosen.label;
             pillEl.hidden = false;
           }
+          highlightSector(value);
           errorEl.removeAttribute("data-visible");
         }
 
@@ -3689,6 +3790,7 @@
           });
           pillText.textContent = "";
           pillEl.hidden = true;
+          highlightSector(null);
         }
         pillClear.addEventListener("click", clearSelection);
 
@@ -3700,21 +3802,18 @@
           renderChips(zone);
         }
 
-        // Wire every clickable Balaídos cell. GOL has no data-target-tier
-        // (under construction) so it's silently ignored.
-        map.querySelectorAll(".seatmap__cell").forEach((cellEl) => {
-          const tier = cellEl.dataset.targetTier;
-          if (!tier) return;
-          cellEl.setAttribute("role", "button");
-          cellEl.setAttribute("tabindex", "0");
-          cellEl.setAttribute("aria-label", ZONE_NAMES[tier]);
-          cellEl.addEventListener("click", () => {
-            setActive(tier === activeZone ? null : tier);
+        map.querySelectorAll(".seatmap__zone").forEach((zoneEl) => {
+          zoneEl.setAttribute("role", "button");
+          zoneEl.setAttribute("tabindex", "0");
+          zoneEl.setAttribute("aria-label", ZONE_NAMES[zoneEl.dataset.zone]);
+          zoneEl.addEventListener("click", () => {
+            const z = zoneEl.dataset.zone;
+            setActive(z === activeZone ? null : z);
           });
-          cellEl.addEventListener("keydown", (e) => {
+          zoneEl.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
-              cellEl.click();
+              zoneEl.click();
             }
           });
         });
