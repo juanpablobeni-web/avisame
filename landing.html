@@ -817,19 +817,118 @@
 
       .form-status {
         text-align: center;
-        padding: 0.75rem 0.5rem;
+        padding: 1.5rem 0.5rem 1rem;
+        animation: form-status-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes form-status-in {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
       }
 
-      .form-status h2 {
+      .form-status__badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 84px;
+        height: 84px;
+        margin: 0 auto 1rem;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, #10c46d 0%, #07924f 100%);
+        color: #fff;
+        box-shadow:
+          0 12px 28px rgba(16, 196, 109, 0.32),
+          0 2px 6px rgba(10, 31, 68, 0.08);
+        animation: form-status-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s both;
+      }
+      @keyframes form-status-pop {
+        from { opacity: 0; transform: scale(0.4); }
+        to   { opacity: 1; transform: scale(1); }
+      }
+      .form-status__badge svg {
+        width: 52px;
+        height: 52px;
+        animation: form-status-check 0.7s cubic-bezier(0.65, 0, 0.45, 1) 0.35s both;
+      }
+      @keyframes form-status-check {
+        from { stroke-dasharray: 0 100; }
+        to   { stroke-dasharray: 100 0; }
+      }
+
+      .form-status__title {
         margin: 0 0 0.5rem;
         color: var(--celta-navy);
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .form-status__body {
+        margin: 0 auto 0.85rem;
+        max-width: 460px;
+        color: #5b6a82;
+        font-size: 0.95rem;
+        line-height: 1.55;
+      }
+      .form-status__match {
+        margin: 0 auto 1.25rem;
+        max-width: 460px;
+        font-size: 0.88rem;
+        color: var(--celta-navy);
+      }
+      .form-status__match strong {
+        display: inline-block;
+        margin-left: 0.2rem;
+        padding: 0.15rem 0.55rem;
+        background: rgba(122, 177, 217, 0.18);
+        border-radius: 999px;
+        font-weight: 700;
+      }
+      .form-status__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        justify-content: center;
+        margin-top: 0.25rem;
+      }
+      .form-status__btn {
+        appearance: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.6rem 1.1rem;
+        border-radius: 999px;
+        font-family: inherit;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.15s ease, transform 0.05s ease,
+          border-color 0.15s ease;
+      }
+      .form-status__btn--primary {
+        background: var(--celta-red);
+        color: #fff;
+        border: 1.5px solid var(--celta-red);
+        box-shadow: 0 6px 16px rgba(228, 0, 43, 0.22);
+      }
+      .form-status__btn--primary:hover {
+        background: #c40026;
+        border-color: #c40026;
+      }
+      .form-status__btn--primary:active { transform: translateY(1px); }
+      .form-status__btn--ghost {
+        background: transparent;
+        color: var(--celta-navy);
+        border: 1.5px solid #d4dde8;
+      }
+      .form-status__btn--ghost:hover {
+        background: rgba(10, 31, 68, 0.04);
+        border-color: var(--celta-navy);
       }
 
-      .form-status p {
-        margin: 0;
-        color: #5b6a82;
+      html.a11y-colorblind .form-status__badge {
+        background: radial-gradient(circle at 30% 30%, #0072b2 0%, #003a5c 100%);
+        box-shadow: 0 12px 28px rgba(0, 114, 178, 0.32);
       }
 
       /* ─── Hero polish ─────────────────────────────────────────── */
@@ -1885,23 +1984,6 @@
         .cookie-banner__btn { flex: 1; }
       }
 
-      .form-status--success h2::after {
-        content: "";
-        display: block;
-        width: 56px;
-        height: 56px;
-        margin: 0.5rem auto 0.75rem;
-        border-radius: 50%;
-        background:
-          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5L20 7'/%3E%3C/svg%3E") center/22px no-repeat,
-          linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
-        animation: pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
-      }
-      @keyframes pop {
-        from { transform: scale(0); opacity: 0; }
-        to   { transform: scale(1); opacity: 1; }
-      }
-
       .match-info {
         max-width: 640px;
         margin: -2rem auto 0.75rem;
@@ -2088,6 +2170,47 @@
         }
       }
     </style>
+
+    <!-- ─── Google Analytics (consent-gated) ─────────────────────
+         gtag.js is NOT loaded on initial page hit. It loads only after
+         the user clicks "Aceptar" on the cookie banner, which dispatches
+         a `cookie-consent` event with detail.choice === "accept". If the
+         user rejects or never decides, GA never runs.                  -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ window.dataLayer.push(arguments); }
+      gtag("js", new Date());
+
+      (function () {
+        var GA_ID = "G-59X40HS448";
+        var loaded = false;
+
+        function loadGA() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+          document.head.appendChild(s);
+          gtag("config", GA_ID, {
+            anonymize_ip: true,
+            send_page_view: true,
+          });
+          // Also expose a form-submit tracker the form handler can call.
+          window.__avisameTrack = function (eventName, params) {
+            try { gtag("event", eventName, params || {}); } catch (_) {}
+          };
+        }
+
+        window.addEventListener("cookie-consent", function (e) {
+          var choice = (e.detail || {}).choice;
+          if (choice === "accept") loadGA();
+        });
+
+        // No-op stub before consent so callers don't crash.
+        window.__avisameTrack = window.__avisameTrack || function () {};
+      })();
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-link" data-i18n="skip">Saltar al contenido</a>
@@ -2790,22 +2913,104 @@
           })();
         }
 
+        function t(key, fallback) {
+          if (window.__i18nGet) {
+            const v = window.__i18nGet(key);
+            if (v != null) return v;
+          }
+          return fallback;
+        }
+
         function showSuccess() {
           const card = form.closest("main");
+          if (!card || !form.parentNode) return; // already shown
+          const grada = (form.elements.GRADA && form.elements.GRADA.value) || "";
+
           const status = document.createElement("div");
           status.className = "form-status form-status--success";
+          status.setAttribute("role", "status");
+          status.setAttribute("aria-live", "polite");
+          status.tabIndex = -1;
+
+          // Big animated checkmark badge.
+          status.innerHTML =
+            '<div class="form-status__badge" aria-hidden="true">' +
+              '<svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 27 l8 8 l16 -18" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '</div>';
+
           const heading = document.createElement("h2");
-          heading.textContent = "¡Estás dentro!";
-          const para = document.createElement("p");
-          para.textContent =
-            "Te avisaremos en cuanto se libere una entrada en tu grada. ¡Aúpa Celta!";
+          heading.className = "form-status__title";
+          heading.textContent = t("thank.title", "¡Estás dentro! 🟢");
           status.appendChild(heading);
-          status.appendChild(para);
-          // Replace form + progress + iframe with the celebration block.
+
+          const body = document.createElement("p");
+          body.className = "form-status__body";
+          body.textContent = t("thank.body", "Revisa tu email — confirma la suscripción para activar las alertas.");
+          status.appendChild(body);
+
+          if (grada) {
+            const matchLine = document.createElement("p");
+            matchLine.className = "form-status__match";
+            const lead = document.createElement("span");
+            lead.textContent = t("thank.match", "Te avisaremos cuando se libere una entrada en");
+            const pill = document.createElement("strong");
+            pill.textContent = grada;
+            matchLine.appendChild(lead);
+            matchLine.appendChild(document.createTextNode(" "));
+            matchLine.appendChild(pill);
+            status.appendChild(matchLine);
+          }
+
+          const actions = document.createElement("div");
+          actions.className = "form-status__actions";
+          const shareBtn = document.createElement("button");
+          shareBtn.type = "button";
+          shareBtn.className = "form-status__btn form-status__btn--primary";
+          shareBtn.textContent = t("thank.share", "Compártelo con celtistas");
+          shareBtn.addEventListener("click", () => {
+            const url = window.location.href;
+            const txt = "Avísame · Alertas de entradas RC Celta en Balaídos";
+            if (navigator.share) {
+              navigator.share({ title: txt, url }).catch(() => {});
+            } else if (navigator.clipboard) {
+              navigator.clipboard.writeText(url);
+              shareBtn.textContent = "✓ " + (url.length > 28 ? "Copiado" : url);
+              setTimeout(() => { shareBtn.textContent = t("thank.share", "Compártelo"); }, 2000);
+            }
+            if (window.__avisameTrack) window.__avisameTrack("signup_share", { method: navigator.share ? "share_api" : "clipboard" });
+          });
+          actions.appendChild(shareBtn);
+          const backBtn = document.createElement("a");
+          backBtn.href = "#top";
+          backBtn.className = "form-status__btn form-status__btn--ghost";
+          backBtn.textContent = t("thank.back", "Volver arriba");
+          backBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          actions.appendChild(backBtn);
+          status.appendChild(actions);
+
+          // Replace form + progress with the celebration block.
           const progress = card.querySelector(".form-progress");
           if (progress) progress.remove();
           card.replaceChild(status, form);
+
+          // Pull the user's eye to the celebration — many users were missing
+          // it because the form was below the fold when submitted.
+          requestAnimationFrame(() => {
+            status.scrollIntoView({ behavior: "smooth", block: "center" });
+            status.focus({ preventScroll: true });
+          });
           fireConfetti();
+
+          // GA conversion event (no-op if user hasn't accepted cookies).
+          if (window.__avisameTrack) {
+            window.__avisameTrack("signup_complete", {
+              grada_id: (form.elements.GRADA_ID && form.elements.GRADA_ID.value) || "",
+              session_id: (form.elements.SESSION_ID && form.elements.SESSION_ID.value) || "",
+            });
+          }
         }
 
         function showError(message) {
@@ -2827,7 +3032,7 @@
         form.addEventListener("submit", function (event) {
           if (!form.action) {
             event.preventDefault();
-            showError("El formulario aún no está configurado.");
+            showError(t("form.notConfigured", "El formulario aún no está configurado."));
             return;
           }
           // The grada <select> is visually hidden behind the chip picker, so
@@ -2856,7 +3061,7 @@
           submittedAt = Date.now();
           const submitBtn = form.querySelector('button[type="submit"]');
           submitBtn.disabled = true;
-          submitBtn.textContent = "Enviando…";
+          submitBtn.textContent = t("form.submitting", "Enviando…");
           // Safety net if the iframe load event never fires.
           setTimeout(function () {
             if (form.parentNode) showSuccess();
@@ -2891,6 +3096,13 @@
             "form.email": "Tu email",
             "form.emailPh": "tu@email.com",
             "form.grada": "Tu grada favorita",
+            "form.submitting": "Enviando…",
+            "form.notConfigured": "El formulario aún no está configurado.",
+            "thank.title": "¡Estás dentro! 🟢",
+            "thank.body": "Revisa tu email — tienes que confirmar la suscripción para activar las alertas. Si no ves el correo, mira en spam.",
+            "thank.match": "Te avisaremos cuando se libere una entrada en",
+            "thank.share": "Compártelo con celtistas",
+            "thank.back": "Volver arriba",
             "matchCard.sectionAria": "Partido seleccionado",
             "matchCard.availability": "Disponibilidad",
             "matchCard.statusOnSale": "A la venta",
@@ -2991,6 +3203,13 @@
             "form.email": "O teu correo",
             "form.emailPh": "ti@correo.com",
             "form.grada": "A túa grada favorita",
+            "form.submitting": "Enviando…",
+            "form.notConfigured": "O formulario aínda non está configurado.",
+            "thank.title": "Estás dentro! 🟢",
+            "thank.body": "Revisa o teu correo — tes que confirmar a subscrición para activar as alertas. Se non ves o correo, mira en spam.",
+            "thank.match": "Avisarémosche cando se libere unha entrada en",
+            "thank.share": "Compárteo cos celtistas",
+            "thank.back": "Volver arriba",
             "matchCard.sectionAria": "Partido seleccionado",
             "matchCard.availability": "Dispoñibilidade",
             "matchCard.statusOnSale": "Á venda",
@@ -3091,6 +3310,13 @@
             "form.email": "Your email",
             "form.emailPh": "you@email.com",
             "form.grada": "Your favourite stand",
+            "form.submitting": "Sending…",
+            "form.notConfigured": "The form isn't configured yet.",
+            "thank.title": "You're in! 🟢",
+            "thank.body": "Check your inbox — you need to confirm your subscription to activate the alerts. If you don't see the email, check spam.",
+            "thank.match": "We'll alert you the moment a ticket opens up in",
+            "thank.share": "Share with Celta fans",
+            "thank.back": "Back to top",
             "matchCard.sectionAria": "Selected match",
             "matchCard.availability": "Availability",
             "matchCard.statusOnSale": "On sale",
