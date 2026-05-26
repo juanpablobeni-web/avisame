@@ -2980,15 +2980,18 @@
             if (window.__avisameTrack) window.__avisameTrack("signup_share", { method: navigator.share ? "share_api" : "clipboard" });
           });
           actions.appendChild(shareBtn);
-          const backBtn = document.createElement("a");
-          backBtn.href = "#top";
-          backBtn.className = "form-status__btn form-status__btn--ghost";
-          backBtn.textContent = t("thank.back", "Volver arriba");
-          backBtn.addEventListener("click", (e) => {
+          const homeBtn = document.createElement("a");
+          homeBtn.href = window.location.pathname;
+          homeBtn.className = "form-status__btn form-status__btn--ghost";
+          homeBtn.textContent = t("thank.home", "Volver al inicio");
+          homeBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            // Full reload — resets the form, scrolls to top, and keeps the
+            // localStorage-saved language so the page comes back in the
+            // same tongue the user signed up in.
+            window.location.assign(window.location.pathname);
           });
-          actions.appendChild(backBtn);
+          actions.appendChild(homeBtn);
           status.appendChild(actions);
 
           // Replace form + progress with the celebration block.
@@ -3108,7 +3111,7 @@
             "thank.body": "Revisa tu email — tienes que confirmar la suscripción para activar las alertas. Si no ves el correo, mira en spam.",
             "thank.match": "Te avisaremos cuando se libere una entrada en",
             "thank.share": "Compártelo con celtistas",
-            "thank.back": "Volver arriba",
+            "thank.home": "Volver al inicio",
             "matchCard.sectionAria": "Partido seleccionado",
             "matchCard.availability": "Disponibilidad",
             "matchCard.statusOnSale": "A la venta",
@@ -3215,7 +3218,7 @@
             "thank.body": "Revisa o teu correo — tes que confirmar a subscrición para activar as alertas. Se non ves o correo, mira en spam.",
             "thank.match": "Avisarémosche cando se libere unha entrada en",
             "thank.share": "Compárteo cos celtistas",
-            "thank.back": "Volver arriba",
+            "thank.home": "Volver ao inicio",
             "matchCard.sectionAria": "Partido seleccionado",
             "matchCard.availability": "Dispoñibilidade",
             "matchCard.statusOnSale": "Á venda",
@@ -3322,7 +3325,7 @@
             "thank.body": "Check your inbox — you need to confirm your subscription to activate the alerts. If you don't see the email, check spam.",
             "thank.match": "We'll alert you the moment a ticket opens up in",
             "thank.share": "Share with Celta fans",
-            "thank.back": "Back to top",
+            "thank.home": "Back to home",
             "matchCard.sectionAria": "Selected match",
             "matchCard.availability": "Availability",
             "matchCard.statusOnSale": "On sale",
