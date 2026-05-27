@@ -740,6 +740,7 @@
 
       input[type="text"],
       input[type="email"],
+      input[type="tel"],
       select {
         width: 100%;
         padding: 0.7rem 0.85rem;
@@ -754,10 +755,20 @@
 
       input[type="text"]:focus,
       input[type="email"]:focus,
+      input[type="tel"]:focus,
       select:focus {
         outline: none;
         border-color: var(--celta-sky);
         box-shadow: 0 0 0 3px rgba(122, 177, 217, 0.25);
+      }
+
+      .field-optional {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: var(--celta-text-muted, #5a6273);
+        margin-left: 0.4rem;
+        text-transform: none;
+        letter-spacing: 0;
       }
 
       input[type="checkbox"] {
@@ -1142,10 +1153,10 @@
         .form-row { grid-template-columns: 1fr; }
       }
 
-      input[type="text"], input[type="email"], select {
+      input[type="text"], input[type="email"], input[type="tel"], select {
         font-size: 1.05rem;
       }
-      input[type="text"]:focus, input[type="email"]:focus, select:focus {
+      input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus {
         transform: translateY(-1px);
       }
 
@@ -2371,6 +2382,22 @@
           />
         </p>
 
+        <p>
+          <label for="phone">
+            <span data-i18n="form.phone">Teléfono</span>
+            <span class="field-optional" data-i18n="form.optional">(opcional)</span>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="PHONE"
+            autocomplete="tel"
+            inputmode="tel"
+            placeholder="+34 600 000 000"
+            data-i18n-attr="placeholder:form.phonePh"
+          />
+        </p>
+
         <div class="seatmap-section">
           <span class="seatmap-section__label" data-i18n="seatmap.label">
             ¿Dónde quieres sentarte?
@@ -3118,6 +3145,9 @@
             "form.lastNamePh": "Aspas",
             "form.email": "Tu email",
             "form.emailPh": "tu@email.com",
+            "form.phone": "Teléfono",
+            "form.phonePh": "+34 600 000 000",
+            "form.optional": "(opcional)",
             "form.grada": "Tu grada favorita",
             "form.submitting": "Enviando…",
             "form.notConfigured": "El formulario aún no está configurado.",
@@ -3226,6 +3256,9 @@
             "form.lastNamePh": "Aspas",
             "form.email": "O teu correo",
             "form.emailPh": "ti@correo.com",
+            "form.phone": "Teléfono",
+            "form.phonePh": "+34 600 000 000",
+            "form.optional": "(opcional)",
             "form.grada": "A túa grada favorita",
             "form.submitting": "Enviando…",
             "form.notConfigured": "O formulario aínda non está configurado.",
@@ -3334,6 +3367,9 @@
             "form.lastNamePh": "Aspas",
             "form.email": "Your email",
             "form.emailPh": "you@email.com",
+            "form.phone": "Phone",
+            "form.phonePh": "+34 600 000 000",
+            "form.optional": "(optional)",
             "form.grada": "Your favourite stand",
             "form.submitting": "Sending…",
             "form.notConfigured": "The form isn't configured yet.",

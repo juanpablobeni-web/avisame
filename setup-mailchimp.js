@@ -17,6 +17,7 @@ const ENV_PATH = path.join(ROOT, ".env");
 const FIELDS = [
   { tag: "FNAME", name: "Nombre", type: "text", required: true, public: true },
   { tag: "LNAME", name: "Apellido", type: "text", required: true, public: true },
+  { tag: "PHONE", name: "Teléfono", type: "phone", required: false, public: false, options: { phone_format: "none" } },
   { tag: "GRADA", name: "Grada (nombre)", type: "text", required: false, public: false },
   { tag: "GRADA_ID", name: "Grada (ID ONEBOX)", type: "text", required: false, public: false },
   { tag: "SESSION", name: "Partido (nombre)", type: "text", required: false, public: false },
