@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+    <title>Política de privacidad · Avísame · RC Celta</title>
+    <meta name="description" content="Política de privacidad del servicio de alertas Avísame para entradas del RC Celta en Balaídos. RGPD · LOPDGDD · LSSI-CE." />
+    <link rel="canonical" href="https://juanpablobeni-web.github.io/avisame/privacy.html" />
+    <link rel="alternate" hreflang="es" href="https://juanpablobeni-web.github.io/avisame/privacy.html" />
+    <link rel="alternate" hreflang="gl" href="https://juanpablobeni-web.github.io/avisame/privacy.html" />
+    <link rel="alternate" hreflang="en" href="https://juanpablobeni-web.github.io/avisame/privacy.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" />
+    <style>
+      :root {
+        --celta-red: #E4002B;
+        --celta-navy: #0A1F44;
+        --celta-celeste: #7AB1D9;
+        --celta-celeste-dark: #5C9CCB;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: "Montserrat", system-ui, -apple-system, "Segoe UI",
+          Roboto, sans-serif;
+        color: var(--celta-navy);
+        line-height: 1.6;
+        background:
+          radial-gradient(circle at 12% -10%, rgba(228, 0, 43, 0.10) 0, transparent 38%),
+          radial-gradient(ellipse at 88% 55%, rgba(122, 177, 217, 0.22) 0, transparent 42%),
+          linear-gradient(170deg, #c2dbed 0%, #e3eff7 45%, #f7fafc 100%);
+        background-color: #e3eff7;
+        min-height: 100vh;
+        background-attachment: fixed;
+      }
+      @supports (-webkit-touch-callout: none) {
+        body { background-attachment: scroll; }
+      }
+      a { color: var(--celta-celeste-dark); }
+      a:hover { color: var(--celta-red); }
+
+      /* ─── Topbar ───────────────────────────────────────────── */
+      .topbar {
+        background: var(--celta-navy);
+        color: #fff;
+      }
+      .topbar__inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0.85rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .topbar__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 800;
+        font-size: 0.95rem;
+        letter-spacing: -0.01em;
+      }
+      .topbar__brand img {
+        width: 28px; height: 28px;
+        object-fit: contain;
+      }
+      .topbar__back {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+      .topbar__back:hover { color: #fff; }
+      .topbar__nav {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+      .lang-switch {
+        display: inline-flex;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        padding: 2px;
+      }
+      .lang-switch button {
+        background: transparent;
+        border: 0;
+        color: rgba(255, 255, 255, 0.7);
+        font: inherit;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        padding: 0.32rem 0.6rem;
+        cursor: pointer;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: background-color 0.15s ease, color 0.15s ease;
+      }
+      .lang-switch button:hover { color: #fff; }
+      .lang-switch button[aria-pressed="true"] {
+        background: #fff;
+        color: var(--celta-navy);
+      }
+      .lang-flag {
+        width: 16px; height: 12px;
+        border-radius: 2px;
+        display: inline-block;
+        box-shadow: 0 0 0 1px rgba(10, 31, 68, 0.15);
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .lang-flag svg { display: block; width: 100%; height: 100%; }
+
+      /* ─── Main content ──────────────────────────────────────── */
+      main {
+        max-width: 720px;
+        margin: 2.5rem auto 4rem;
+        padding: 2.5rem 2.25rem;
+        background: #fff;
+        border: 1px solid #e6ecf2;
+        border-radius: 14px;
+        box-shadow:
+          0 1px 2px rgba(10, 31, 68, 0.04),
+          0 12px 40px rgba(10, 31, 68, 0.08);
+      }
+      @media (max-width: 600px) {
+        main { margin: 1.25rem 1rem 2rem; padding: 1.5rem 1.25rem; }
+      }
+      .doc-meta {
+        font-size: 0.78rem;
+        color: #5b6a82;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        margin: 0 0 0.4rem;
+      }
+      h1 {
+        font-size: 1.85rem;
+        font-weight: 900;
+        letter-spacing: -0.015em;
+        margin: 0 0 1.2rem;
+        color: var(--celta-navy);
+      }
+      h2 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin: 1.75rem 0 0.55rem;
+        color: var(--celta-navy);
+        letter-spacing: -0.01em;
+      }
+      h2 .num {
+        display: inline-block;
+        min-width: 1.6rem;
+        color: var(--celta-celeste-dark);
+        font-weight: 900;
+      }
+      p, li { font-size: 0.95rem; color: #2c3e60; }
+      p { margin: 0.5rem 0; }
+      ul { padding-left: 1.4rem; margin: 0.4rem 0 0.8rem; }
+      li { margin: 0.25rem 0; }
+      strong { color: var(--celta-navy); }
+      .lead {
+        font-size: 1rem;
+        color: #4a5b7a;
+        font-weight: 500;
+        margin: 0 0 0.8rem;
+      }
+      .compliance-tags {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin: 0.4rem 0 1rem;
+      }
+      .compliance-tag {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(122, 177, 217, 0.16);
+        color: var(--celta-celeste-dark);
+        padding: 0.18rem 0.55rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .contact-callout {
+        margin: 2rem 0 0;
+        padding: 1.1rem 1.25rem;
+        background: linear-gradient(135deg, rgba(122, 177, 217, 0.14) 0%, rgba(122, 177, 217, 0.04) 100%);
+        border: 1px dashed rgba(122, 177, 217, 0.55);
+        border-radius: 12px;
+        font-size: 0.92rem;
+      }
+      .contact-callout strong { color: var(--celta-navy); }
+
+      /* Language-aware content swap */
+      article[data-lang-content] { display: none; }
+      html[lang="es"] article[data-lang-content="es"],
+      html[lang="gl"] article[data-lang-content="gl"],
+      html[lang="en"] article[data-lang-content="en"] {
+        display: block;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1.5rem 1rem 2.5rem;
+        font-size: 0.78rem;
+        color: rgba(10, 31, 68, 0.55);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="topbar__brand" href="landing.html">
+          <img src="assets/rc%20celta%20logo.png" alt="" />
+          <span>RC Celta · Avísame</span>
+        </a>
+        <nav class="topbar__nav" aria-label="Idioma">
+          <a class="topbar__back" href="landing.html" aria-label="Volver a la página principal">
+            ← <span data-back-label>Inicio</span>
+          </a>
+          <div class="lang-switch" role="group" aria-label="Idioma">
+            <button type="button" data-lang="es" aria-pressed="true">
+              <span class="lang-flag" aria-hidden="true">
+                <svg viewBox="0 0 6 4" preserveAspectRatio="none"><rect width="6" height="1" fill="#aa151b"/><rect y="1" width="6" height="2" fill="#f1bf00"/><rect y="3" width="6" height="1" fill="#aa151b"/></svg>
+              </span>
+              <span>ES</span>
+            </button>
+            <button type="button" data-lang="gl" aria-pressed="false">
+              <span class="lang-flag" aria-hidden="true">
+                <svg viewBox="0 0 6 4" preserveAspectRatio="none"><rect width="6" height="4" fill="#fff"/><path d="M 0 0 L 6 4" stroke="#0179c8" stroke-width="1.1" fill="none"/></svg>
+              </span>
+              <span>GL</span>
+            </button>
+            <button type="button" data-lang="en" aria-pressed="false">
+              <span class="lang-flag" aria-hidden="true">
+                <svg viewBox="0 0 6 4" preserveAspectRatio="none"><rect width="6" height="4" fill="#012169"/><path d="M 0 0 L 6 4 M 6 0 L 0 4" stroke="#fff" stroke-width="0.8"/><path d="M 0 0 L 6 4 M 6 0 L 0 4" stroke="#c8102e" stroke-width="0.32"/><rect x="2.4" width="1.2" height="4" fill="#fff"/><rect y="1.4" width="6" height="1.2" fill="#fff"/><rect x="2.7" width="0.6" height="4" fill="#c8102e"/><rect y="1.7" width="6" height="0.6" fill="#c8102e"/></svg>
+              </span>
+              <span>EN</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ─── ESPAÑOL ─────────────────────────────────────────── -->
+      <article data-lang-content="es">
+        <p class="doc-meta">Última actualización · 27 de mayo de 2026</p>
+        <h1>Política de privacidad</h1>
+        <p class="lead">En Avísame respetamos tu privacidad. Esta política explica qué datos recogemos, para qué los usamos y cómo puedes ejercer tus derechos.</p>
+        <div class="compliance-tags">
+          <span class="compliance-tag">RGPD (UE 2016/679)</span>
+          <span class="compliance-tag">LOPDGDD</span>
+          <span class="compliance-tag">LSSI-CE</span>
+        </div>
+
+        <h2><span class="num">1.</span> Responsable del tratamiento</h2>
+        <p><strong>Avísame</strong> es un proyecto independiente desarrollado por aficionados del RC Celta. No está oficialmente afiliado al Real Club Celta de Vigo, S.A.D.</p>
+        <ul>
+          <li>Ubicación: Vigo, Galicia (España)</li>
+          <li>Contacto para protección de datos: <a href="mailto:hola@avisame.example">hola@avisame.example</a></li>
+        </ul>
+
+        <h2><span class="num">2.</span> Qué datos recogemos</h2>
+        <p>Cuando te apuntas al servicio recogemos únicamente:</p>
+        <ul>
+          <li>Nombre y apellido</li>
+          <li>Dirección de email</li>
+          <li>Grada elegida y datos del partido seleccionado (identificador, nombre del evento, fecha, estadio)</li>
+          <li>Idioma elegido al apuntarte (para enviarte los avisos en tu lengua)</li>
+          <li>Fecha y hora en la que aceptaste esta política</li>
+        </ul>
+        <p>No recogemos teléfono, dirección postal, datos de pago ni ningún dato bancario.</p>
+
+        <h2><span class="num">3.</span> Finalidad del tratamiento</h2>
+        <p>Tus datos se utilizan <strong>exclusivamente</strong> para avisarte por email cuando se libere una entrada en la grada que has elegido. Nunca se usarán para publicidad, ni se cederán a terceros con fines comerciales.</p>
+
+        <h2><span class="num">4.</span> Base legal</h2>
+        <p>El tratamiento se basa en <strong>tu consentimiento expreso</strong>, prestado al marcar las dos casillas del formulario de alta (artículo 6.1.a del RGPD).</p>
+
+        <h2><span class="num">5.</span> Plazo de conservación</h2>
+        <p>Conservamos tus datos <strong>únicamente mientras estés suscrito al servicio</strong>. Cuando te das de baja (un clic en cualquier email de aviso), eliminamos tus datos de nuestros sistemas en un plazo máximo de <strong>30 días</strong>.</p>
+
+        <h2><span class="num">6.</span> Con quién compartimos los datos</h2>
+        <p>Para que el servicio funcione, utilizamos los siguientes proveedores (encargados del tratamiento):</p>
+        <ul>
+          <li><strong>Mailchimp</strong> (The Rocket Science Group LLC) — almacenamiento de la lista y envío de los emails de confirmación. Tu email se guarda en servidores de la UE/EE.UU. bajo cláusulas contractuales tipo aprobadas por la Comisión Europea.</li>
+          <li><strong>Mandrill / Intuit</strong> — envío de los emails de aviso de disponibilidad de entradas.</li>
+          <li><strong>ONEBOX TDS</strong> — sistema oficial de venta del club. Solo lo consultamos para saber si hay entradas; <strong>no le compartimos tus datos</strong>.</li>
+          <li><strong>GitHub Pages</strong> — alojamiento de esta web.</li>
+          <li><strong>Google Analytics 4</strong> — únicamente si has aceptado el banner de cookies, para entender qué partidos interesan al celtismo. IP anonimizada, sin perfilado publicitario.</li>
+        </ul>
+        <p>No vendemos ni cedemos tus datos a ningún tercero con fines comerciales.</p>
+
+        <h2><span class="num">7.</span> Transferencias internacionales</h2>
+        <p>Mailchimp, Mandrill y Google pueden procesar datos en servidores ubicados en Estados Unidos. Las transferencias se amparan en el <strong>EU-US Data Privacy Framework</strong> y en cláusulas contractuales tipo aprobadas por la Comisión Europea.</p>
+
+        <h2><span class="num">8.</span> Tus derechos</h2>
+        <p>Como persona interesada tienes los siguientes derechos sobre tus datos:</p>
+        <ul>
+          <li><strong>Acceso</strong> — saber qué datos tenemos sobre ti.</li>
+          <li><strong>Rectificación</strong> — corregir datos incorrectos o incompletos.</li>
+          <li><strong>Supresión</strong> ("derecho al olvido").</li>
+          <li><strong>Limitación</strong> del tratamiento.</li>
+          <li><strong>Portabilidad</strong> — recibir tus datos en formato estructurado.</li>
+          <li><strong>Oposición</strong> al tratamiento.</li>
+          <li><strong>Retirar el consentimiento</strong> en cualquier momento (la baja desde cualquier email cuenta).</li>
+          <li><strong>Presentar una reclamación</strong> ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a> si consideras que no respetamos tus derechos.</li>
+        </ul>
+
+        <h2><span class="num">9.</span> Cómo ejercer tus derechos</h2>
+        <p>Escríbenos a <a href="mailto:hola@avisame.example">hola@avisame.example</a> indicando qué derecho quieres ejercer y desde qué dirección de email te apuntaste. Responderemos en un plazo máximo de <strong>30 días naturales</strong>.</p>
+
+        <h2><span class="num">10.</span> Cookies</h2>
+        <p>Usamos solo cookies imprescindibles para que el formulario funcione. Si aceptas el banner de cookies, activamos Google Analytics 4 con IP anonimizada para entender qué partidos interesan más. Puedes rechazar el banner sin perder funcionalidad del servicio.</p>
+
+        <h2><span class="num">11.</span> Cambios en esta política</h2>
+        <p>Si actualizamos esta política, comunicaremos los cambios a los suscriptores por email <strong>antes</strong> de aplicarlos. La fecha de la última actualización aparece arriba del documento.</p>
+
+        <div class="contact-callout">
+          <strong>¿Dudas sobre privacidad?</strong><br>
+          Escríbenos a <a href="mailto:hola@avisame.example">hola@avisame.example</a> — somos celtistas, no abogados, pero respondemos rápido.
+        </div>
+      </article>
+
+      <!-- ─── GALEGO ──────────────────────────────────────────── -->
+      <article data-lang-content="gl">
+        <p class="doc-meta">Última actualización · 27 de maio de 2026</p>
+        <h1>Política de privacidade</h1>
+        <p class="lead">En Avísame respectamos a túa privacidade. Esta política explica que datos recollemos, para que os usamos e como podes exercer os teus dereitos.</p>
+        <div class="compliance-tags">
+          <span class="compliance-tag">RGPD (UE 2016/679)</span>
+          <span class="compliance-tag">LOPDGDD</span>
+          <span class="compliance-tag">LSSI-CE</span>
+        </div>
+
+        <h2><span class="num">1.</span> Responsable do tratamento</h2>
+        <p><strong>Avísame</strong> é un proxecto independente desenvolvido por afeccionados do RC Celta. Non está oficialmente afiliado ao Real Club Celta de Vigo, S.A.D.</p>
+        <ul>
+          <li>Localización: Vigo, Galicia (España)</li>
+          <li>Contacto para protección de datos: <a href="mailto:hola@avisame.example">hola@avisame.example</a></li>
+        </ul>
+
+        <h2><span class="num">2.</span> Que datos recollemos</h2>
+        <p>Cando te apuntas ao servizo recollemos unicamente:</p>
+        <ul>
+          <li>Nome e apelido</li>
+          <li>Enderezo de correo</li>
+          <li>Grada elixida e datos do partido seleccionado (identificador, nome do evento, data, estadio)</li>
+          <li>Idioma elixido ao apuntarte (para enviarche os avisos na túa lingua)</li>
+          <li>Data e hora na que aceptaches esta política</li>
+        </ul>
+        <p>Non recollemos teléfono, enderezo postal, datos de pagamento nin ningún dato bancario.</p>
+
+        <h2><span class="num">3.</span> Finalidade do tratamento</h2>
+        <p>Os teus datos úsanse <strong>exclusivamente</strong> para avisarte por correo cando se libere unha entrada na grada que escolliches. Nunca se usarán para publicidade, nin se cederán a terceiros con fins comerciais.</p>
+
+        <h2><span class="num">4.</span> Base legal</h2>
+        <p>O tratamento baséase no <strong>teu consentimento expreso</strong>, prestado ao marcar as dúas caixas do formulario de alta (artigo 6.1.a do RGPD).</p>
+
+        <h2><span class="num">5.</span> Prazo de conservación</h2>
+        <p>Conservamos os teus datos <strong>só mentres esteas subscrito ao servizo</strong>. Cando te das de baixa (un clic en calquera correo de aviso), eliminamos os teus datos dos nosos sistemas nun prazo máximo de <strong>30 días</strong>.</p>
+
+        <h2><span class="num">6.</span> Con quen compartimos os datos</h2>
+        <p>Para que o servizo funcione, usamos os seguintes provedores (encargados do tratamento):</p>
+        <ul>
+          <li><strong>Mailchimp</strong> (The Rocket Science Group LLC) — almacenamento da lista e envío dos correos de confirmación. O teu correo gárdase en servidores da UE/EE.UU. baixo cláusulas contractuais tipo aprobadas pola Comisión Europea.</li>
+          <li><strong>Mandrill / Intuit</strong> — envío dos correos de aviso de dispoñibilidade de entradas.</li>
+          <li><strong>ONEBOX TDS</strong> — sistema oficial de venda do club. Só o consultamos para saber se hai entradas; <strong>non lle compartimos os teus datos</strong>.</li>
+          <li><strong>GitHub Pages</strong> — aloxamento desta web.</li>
+          <li><strong>Google Analytics 4</strong> — unicamente se aceptaches o banner de cookies, para entender que partidos interesan ao celtismo. IP anonimizada, sen perfilado publicitario.</li>
+        </ul>
+        <p>Non vendemos nin cedemos os teus datos a ningún terceiro con fins comerciais.</p>
+
+        <h2><span class="num">7.</span> Transferencias internacionais</h2>
+        <p>Mailchimp, Mandrill e Google poden procesar datos en servidores situados nos Estados Unidos. As transferencias ampáranse no <strong>EU-US Data Privacy Framework</strong> e en cláusulas contractuais tipo aprobadas pola Comisión Europea.</p>
+
+        <h2><span class="num">8.</span> Os teus dereitos</h2>
+        <p>Como persoa interesada tes os seguintes dereitos sobre os teus datos:</p>
+        <ul>
+          <li><strong>Acceso</strong> — saber que datos temos sobre ti.</li>
+          <li><strong>Rectificación</strong> — corrixir datos incorrectos ou incompletos.</li>
+          <li><strong>Supresión</strong> ("dereito ao esquecemento").</li>
+          <li><strong>Limitación</strong> do tratamento.</li>
+          <li><strong>Portabilidade</strong> — recibir os teus datos en formato estruturado.</li>
+          <li><strong>Oposición</strong> ao tratamento.</li>
+          <li><strong>Retirar o consentimento</strong> en calquera momento (a baixa desde calquera correo conta).</li>
+          <li><strong>Presentar unha reclamación</strong> ante a <a href="https://www.aepd.es" target="_blank" rel="noopener">Axencia Española de Protección de Datos</a> se consideras que non respectamos os teus dereitos.</li>
+        </ul>
+
+        <h2><span class="num">9.</span> Como exercer os teus dereitos</h2>
+        <p>Escríbenos a <a href="mailto:hola@avisame.example">hola@avisame.example</a> indicando que dereito queres exercer e desde que enderezo de correo te apuntaches. Responderemos nun prazo máximo de <strong>30 días naturais</strong>.</p>
+
+        <h2><span class="num">10.</span> Cookies</h2>
+        <p>Usamos só cookies imprescindibles para que o formulario funcione. Se aceptas o banner de cookies, activamos Google Analytics 4 con IP anonimizada para entender que partidos interesan máis. Podes rexeitar o banner sen perder funcionalidade do servizo.</p>
+
+        <h2><span class="num">11.</span> Cambios nesta política</h2>
+        <p>Se actualizamos esta política, comunicaremos os cambios aos subscritores por correo <strong>antes</strong> de aplicalos. A data da última actualización aparece arriba do documento.</p>
+
+        <div class="contact-callout">
+          <strong>Dúbidas sobre privacidade?</strong><br>
+          Escríbenos a <a href="mailto:hola@avisame.example">hola@avisame.example</a> — somos celtistas, non avogados, pero respondemos rápido.
+        </div>
+      </article>
+
+      <!-- ─── ENGLISH ─────────────────────────────────────────── -->
+      <article data-lang-content="en">
+        <p class="doc-meta">Last updated · 27 May 2026</p>
+        <h1>Privacy policy</h1>
+        <p class="lead">At Avísame we respect your privacy. This policy explains what data we collect, what we use it for, and how you can exercise your rights.</p>
+        <div class="compliance-tags">
+          <span class="compliance-tag">GDPR (EU 2016/679)</span>
+          <span class="compliance-tag">LOPDGDD (Spain)</span>
+          <span class="compliance-tag">LSSI-CE (Spain)</span>
+        </div>
+
+        <h2><span class="num">1.</span> Data controller</h2>
+        <p><strong>Avísame</strong> is an independent project run by RC Celta fans. It is not officially affiliated with Real Club Celta de Vigo, S.A.D.</p>
+        <ul>
+          <li>Location: Vigo, Galicia (Spain)</li>
+          <li>Data protection contact: <a href="mailto:hola@avisame.example">hola@avisame.example</a></li>
+        </ul>
+
+        <h2><span class="num">2.</span> What data we collect</h2>
+        <p>When you sign up we collect only:</p>
+        <ul>
+          <li>First name and last name</li>
+          <li>Email address</li>
+          <li>Chosen stand and selected match details (ID, event name, date, stadium)</li>
+          <li>The language you signed up in (so we can email you alerts in your language)</li>
+          <li>Date and time you accepted this policy</li>
+        </ul>
+        <p>We do not collect phone numbers, postal addresses, payment details, or any banking information.</p>
+
+        <h2><span class="num">3.</span> Purpose</h2>
+        <p>Your data is used <strong>exclusively</strong> to email you when a ticket becomes available in the stand you chose. It will never be used for advertising or transferred to third parties for commercial purposes.</p>
+
+        <h2><span class="num">4.</span> Legal basis</h2>
+        <p>Processing is based on <strong>your explicit consent</strong>, given when you tick the two checkboxes on the signup form (Article 6.1.a GDPR).</p>
+
+        <h2><span class="num">5.</span> Retention period</h2>
+        <p>We keep your data <strong>only while you are subscribed to the service</strong>. When you unsubscribe (one click in any alert email), we delete your data from our systems within <strong>30 days</strong>.</p>
+
+        <h2><span class="num">6.</span> Who we share data with</h2>
+        <p>For the service to work we use the following processors:</p>
+        <ul>
+          <li><strong>Mailchimp</strong> (The Rocket Science Group LLC) — list storage and confirmation emails. Your email lives on EU/US servers under EU Standard Contractual Clauses.</li>
+          <li><strong>Mandrill / Intuit</strong> — delivery of the ticket-availability alert emails.</li>
+          <li><strong>ONEBOX TDS</strong> — the club's official ticketing system. We query it for availability only; <strong>we do not share your data with it</strong>.</li>
+          <li><strong>GitHub Pages</strong> — website hosting.</li>
+          <li><strong>Google Analytics 4</strong> — only if you accepted the cookie banner, to understand which matches Celta fans care about. IP anonymised, no advertising profiling.</li>
+        </ul>
+        <p>We do not sell or transfer your data to any third party for commercial purposes.</p>
+
+        <h2><span class="num">7.</span> International transfers</h2>
+        <p>Mailchimp, Mandrill, and Google may process data on servers located in the United States. Transfers rely on the <strong>EU-US Data Privacy Framework</strong> and EU Standard Contractual Clauses.</p>
+
+        <h2><span class="num">8.</span> Your rights</h2>
+        <p>As the data subject you have these rights over your data:</p>
+        <ul>
+          <li><strong>Access</strong> — know what data we hold about you.</li>
+          <li><strong>Rectification</strong> — correct inaccurate or incomplete data.</li>
+          <li><strong>Erasure</strong> ("right to be forgotten").</li>
+          <li><strong>Restriction</strong> of processing.</li>
+          <li><strong>Portability</strong> — receive your data in a structured format.</li>
+          <li><strong>Objection</strong> to processing.</li>
+          <li><strong>Withdraw consent</strong> at any time (one-click unsubscribe counts).</li>
+          <li><strong>Lodge a complaint</strong> with the <a href="https://www.aepd.es" target="_blank" rel="noopener">Spanish Data Protection Agency (AEPD)</a> if you believe we don't respect your rights.</li>
+        </ul>
+
+        <h2><span class="num">9.</span> How to exercise your rights</h2>
+        <p>Email us at <a href="mailto:hola@avisame.example">hola@avisame.example</a> stating which right you want to exercise and which email address you signed up with. We respond within <strong>30 calendar days</strong>.</p>
+
+        <h2><span class="num">10.</span> Cookies</h2>
+        <p>We use only strictly necessary cookies to make the form work. If you accept the cookie banner, we enable Google Analytics 4 with IP anonymisation to understand which matches interest fans the most. You can reject the banner without losing any service functionality.</p>
+
+        <h2><span class="num">11.</span> Changes to this policy</h2>
+        <p>If we update this policy, we'll email subscribers <strong>before</strong> changes take effect. The last-updated date appears at the top of the document.</p>
+
+        <div class="contact-callout">
+          <strong>Privacy questions?</strong><br>
+          Email <a href="mailto:hola@avisame.example">hola@avisame.example</a> — we're Celta fans, not lawyers, but we reply fast.
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <p>© <span id="footer-year"></span> Avísame · <a href="landing.html">Volver al inicio</a></p>
+    </footer>
+
+    <script>
+      // Language switcher + persistence shared with landing.html
+      (function () {
+        const KEY = "avisame-lang";
+        const btns = document.querySelectorAll(".lang-switch [data-lang]");
+        const backLabel = document.querySelector("[data-back-label]");
+        const BACK_TEXT = { es: "Inicio", gl: "Inicio", en: "Home" };
+
+        function applyLang(lang) {
+          if (!["es", "gl", "en"].includes(lang)) lang = "es";
+          document.documentElement.lang = lang;
+          btns.forEach((b) =>
+            b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false")
+          );
+          if (backLabel) backLabel.textContent = BACK_TEXT[lang];
+          document.title =
+            lang === "en"
+              ? "Privacy policy · Avísame · RC Celta"
+              : lang === "gl"
+              ? "Política de privacidade · Avísame · RC Celta"
+              : "Política de privacidad · Avísame · RC Celta";
+        }
+
+        let initial = null;
+        try { initial = localStorage.getItem(KEY); } catch (_) {}
+        if (!initial) {
+          const nav = (navigator.language || "es").toLowerCase();
+          initial = nav.startsWith("gl") ? "gl" : nav.startsWith("en") ? "en" : "es";
+        }
+        applyLang(initial);
+
+        btns.forEach((b) =>
+          b.addEventListener("click", () => {
+            try { localStorage.setItem(KEY, b.dataset.lang); } catch (_) {}
+            applyLang(b.dataset.lang);
+          })
+        );
+
+        document.getElementById("footer-year").textContent = new Date().getFullYear();
+      })();
+    </script>
+  </body>
+</html>

@@ -1168,6 +1168,14 @@
         background: rgba(122, 177, 217, 0.15);
         border-color: var(--celta-sky);
       }
+      /* Wrap the two GDPR consent checkboxes so they sit as a single
+         visual group (each one separately required + unchecked). */
+      .consent-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        margin: 0 0 1.25rem;
+      }
       .text-link {
         color: var(--celta-sky-dark);
         text-decoration: underline;
@@ -2584,14 +2592,20 @@
             <option value="224479">Sector Palco / Llotja</option>
           </select>
 
-        <p>
+        <div class="consent-group">
           <label class="checkbox-label">
-            <input type="checkbox" required />
-            <span data-i18n="form.privacy" data-i18n-html="1">
-              He leído y acepto la <a href="#" class="text-link">política de privacidad</a>.
+            <input type="checkbox" name="privacy_consent" required />
+            <span data-i18n="form.privacyConsent" data-i18n-html="1">
+              He leído y acepto la <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidad</a>.
             </span>
           </label>
-        </p>
+          <label class="checkbox-label">
+            <input type="checkbox" name="marketing_consent" required />
+            <span data-i18n="form.marketingConsent">
+              Acepto recibir avisos por email cuando se libere una entrada en mi grada.
+            </span>
+          </label>
+        </div>
 
         <!-- match-data:start -->
         <input type="hidden" name="SESSION" value="NUMERADO" />
@@ -2776,7 +2790,7 @@
             </div>
           </div>
           <nav class="footer__links" aria-label="Enlaces legales" data-i18n-attr="aria-label:footer.linksAria">
-            <a href="#" data-i18n="footer.privacy">Política de privacidad</a>
+            <a href="privacy.html" data-i18n="footer.privacy">Política de privacidad</a>
             <a href="#" data-i18n="footer.legal">Aviso legal</a>
             <a href="mailto:hola@avisame.example" data-i18n="footer.contact">Contacto</a>
           </nav>
@@ -2811,7 +2825,7 @@
             Usamos cookies imprescindibles para que el formulario funcione y
             para entender qué partidos interesan más a los celtistas. Sin
             publicidad ni venta de datos a terceros.
-            <a href="#" class="cookie-banner__link">Política de privacidad</a>.
+            <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Política de privacidad</a>.
           </p>
         </div>
         <div class="cookie-banner__actions">
@@ -3132,7 +3146,8 @@
             "seatmap.standMarcador": "MARCADOR",
             "seatmap.standGol": "GOL",
             "seatmap.standRio": "RÍO",
-            "form.privacy": 'He leído y acepto la <a href="#" class="text-link">política de privacidad</a>.',
+            "form.privacyConsent": 'He leído y acepto la <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidad</a>.',
+            "form.marketingConsent": "Acepto recibir avisos por email cuando se libere una entrada en mi grada.",
             "form.submit": "¡Avísame!",
             "how.title": "Cómo funciona",
             "how.lead": "Sin recargar la web, sin estrés. Tres pasos y a por la entrada.",
@@ -3165,7 +3180,7 @@
             "footer.contact": "Contacto",
             "footer.copy": '© <span id="footer-year"></span> Avísame. Proyecto independiente — no afiliado oficialmente a RC Celta. ¡Aúpa Celta!',
             "cookie.title": "Cookies, lo justas",
-            "cookie.body": 'Usamos cookies imprescindibles para que el formulario funcione y para entender qué partidos interesan más a los celtistas. Sin publicidad ni venta de datos a terceros. <a href="#" class="cookie-banner__link">Política de privacidad</a>.',
+            "cookie.body": 'Usamos cookies imprescindibles para que el formulario funcione y para entender qué partidos interesan más a los celtistas. Sin publicidad ni venta de datos a terceros. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Política de privacidad</a>.',
             "cookie.reject": "Rechazar",
             "cookie.accept": "Aceptar",
             "chatbot.title": "Avisador",
@@ -3239,7 +3254,8 @@
             "seatmap.standMarcador": "MARCADOR",
             "seatmap.standGol": "GOL",
             "seatmap.standRio": "RÍO",
-            "form.privacy": 'Lin e acepto a <a href="#" class="text-link">política de privacidade</a>.',
+            "form.privacyConsent": 'Lin e acepto a <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidade</a>.',
+            "form.marketingConsent": "Acepto recibir avisos por correo cando se libere unha entrada na miña grada.",
             "form.submit": "¡Avísame!",
             "how.title": "Como funciona",
             "how.lead": "Sen recargar a web, sen estrés. Tres pasos e a pola entrada.",
@@ -3272,7 +3288,7 @@
             "footer.contact": "Contacto",
             "footer.copy": '© <span id="footer-year"></span> Avísame. Proxecto independente — non afiliado oficialmente ao RC Celta. ¡Aúpa Celta!',
             "cookie.title": "Cookies, as xustas",
-            "cookie.body": 'Usamos cookies imprescindibles para que o formulario funcione e para entender que partidos interesan máis aos celtistas. Sen publicidade nin venda de datos a terceiros. <a href="#" class="cookie-banner__link">Política de privacidade</a>.',
+            "cookie.body": 'Usamos cookies imprescindibles para que o formulario funcione e para entender que partidos interesan máis aos celtistas. Sen publicidade nin venda de datos a terceiros. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Política de privacidade</a>.',
             "cookie.reject": "Rexeitar",
             "cookie.accept": "Aceptar",
             "chatbot.title": "Avisador",
@@ -3346,7 +3362,8 @@
             "seatmap.standMarcador": "SCOREBOARD",
             "seatmap.standGol": "GOAL END",
             "seatmap.standRio": "RIVER SIDE",
-            "form.privacy": 'I have read and accept the <a href="#" class="text-link">privacy policy</a>.',
+            "form.privacyConsent": 'I have read and accept the <a href="privacy.html" target="_blank" rel="noopener" class="text-link">privacy policy</a>.',
+            "form.marketingConsent": "I consent to receive email alerts when a ticket becomes available in my chosen stand.",
             "form.submit": "Notify me!",
             "how.title": "How it works",
             "how.lead": "No refreshing the page, no stress. Three steps and you're after that ticket.",
@@ -3379,7 +3396,7 @@
             "footer.contact": "Contact",
             "footer.copy": '© <span id="footer-year"></span> Avísame. Independent project — not officially affiliated with RC Celta. Aúpa Celta!',
             "cookie.title": "Cookies, only the essentials",
-            "cookie.body": 'We use the strictly necessary cookies to make the form work and to see which matches Celta fans care about most. No advertising, no selling data to third parties. <a href="#" class="cookie-banner__link">Privacy policy</a>.',
+            "cookie.body": 'We use the strictly necessary cookies to make the form work and to see which matches Celta fans care about most. No advertising, no selling data to third parties. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Privacy policy</a>.',
             "cookie.reject": "Decline",
             "cookie.accept": "Accept",
             "chatbot.title": "Avisador",
