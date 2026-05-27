@@ -1013,7 +1013,10 @@
         display: block;
         width: 100%;
         max-width: 1500px;
-        height: auto;
+        height: auto !important;
+        max-height: none !important;
+        aspect-ratio: auto !important;
+        object-fit: contain !important;
         margin: 0 auto;
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
       }
@@ -2301,8 +2304,6 @@
         class="hero__photo"
         src="assets/hero-spanish.jpg?v=4"
         alt="Aficionados del RC Celta animando en Balaídos con la bandera del club"
-        width="1500"
-        height="785"
         fetchpriority="high"
         decoding="async"
         data-i18n-attr="alt:hero.imageAlt;src:hero.image"
