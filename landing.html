@@ -1012,13 +1012,17 @@
       .hero__photo {
         display: block;
         width: 100%;
-        max-width: 1500px;
+        max-width: 1100px;
         height: auto !important;
         max-height: none !important;
         aspect-ratio: auto !important;
         object-fit: contain !important;
         margin: 0 auto;
+        border-radius: 12px;
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+      @media (max-width: 720px) {
+        .hero__photo { border-radius: 0; }
       }
       .hero--photo section {
         padding: 2.25rem 1.5rem 0;
