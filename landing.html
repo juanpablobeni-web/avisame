@@ -277,20 +277,20 @@
         --red-soft: #fbe6f0;
       }
       html.a11y-colorblind .match-card__bar-fill--green,
-      html.a11y-colorblind .pct--green { background-color: #0072b2; }
-      html.a11y-colorblind .pct--green { color: #0072b2; background-color: transparent; }
+      html.a11y-colorblind .pct--green { background-color: #009e73; }
+      html.a11y-colorblind .pct--green { color: #009e73; background-color: transparent; }
       html.a11y-colorblind .match-card__bar-fill--amber { background-color: #e69f00; }
       html.a11y-colorblind .pct--amber { color: #e69f00; background-color: transparent; }
-      html.a11y-colorblind .match-card__bar-fill--red { background-color: #cc79a7; }
-      html.a11y-colorblind .pct--red { color: #cc79a7; background-color: transparent; }
+      html.a11y-colorblind .match-card__bar-fill--red { background-color: #d55e00; }
+      html.a11y-colorblind .pct--red { color: #d55e00; background-color: transparent; }
       html.a11y-colorblind .status-pill--green {
-        background-color: #d6ebf7; color: #003a5c; border-color: rgba(0, 114, 178, 0.3);
+        background-color: #c4e9dc; color: #00563a; border-color: rgba(0, 158, 115, 0.35);
       }
       html.a11y-colorblind .status-pill--amber {
         background-color: #fcefcf; color: #6e4a00; border-color: rgba(230, 159, 0, 0.3);
       }
       html.a11y-colorblind .status-pill--red {
-        background-color: #fbe6f0; color: #6b2e51; border-color: rgba(204, 121, 167, 0.3);
+        background-color: #fbd9c4; color: #6b2a00; border-color: rgba(213, 94, 0, 0.35);
       }
 
       /* Large-text accessibility mode */
@@ -498,10 +498,10 @@
           drop-shadow(0 0 10px rgba(228, 0, 43, 0.35));
       }
       html.a11y-colorblind .seatmap__sector[data-active="true"] {
-        fill: #e69f00;
+        fill: #cc79a7;
         stroke: #fff;
-        filter: drop-shadow(0 0 5px rgba(230, 159, 0, 0.85))
-          drop-shadow(0 0 10px rgba(230, 159, 0, 0.4));
+        filter: drop-shadow(0 0 5px rgba(204, 121, 167, 0.85))
+          drop-shadow(0 0 10px rgba(204, 121, 167, 0.4));
       }
 
       .seatmap__pitch {
@@ -552,20 +552,22 @@
         line-height: 1.4;
       }
       html.a11y-colorblind .seatmap__zone {
-        stroke: rgba(0, 114, 178, 0.4);
+        stroke: rgba(26, 26, 26, 0.4);
       }
-      html.a11y-colorblind .seatmap__zone[data-zone="piso3"] { fill: rgba(0, 114, 178, 0.12); }
-      html.a11y-colorblind .seatmap__zone[data-zone="piso2"] { fill: rgba(0, 114, 178, 0.22); }
-      html.a11y-colorblind .seatmap__zone[data-zone="piso1"] { fill: rgba(0, 114, 178, 0.36); }
-      html.a11y-colorblind .seatmap__zone[data-zone="pista"] { fill: rgba(0, 114, 178, 0.55); }
+      /* Wong palette per tier — 4 distinct hues so colorblind users can
+         distinguish the rings even when the page itself is blue. */
+      html.a11y-colorblind .seatmap__zone[data-zone="piso3"] { fill: rgba(86, 180, 233, 0.40); }   /* sky blue */
+      html.a11y-colorblind .seatmap__zone[data-zone="piso2"] { fill: rgba(0, 158, 115, 0.45); }    /* bluish green */
+      html.a11y-colorblind .seatmap__zone[data-zone="piso1"] { fill: rgba(230, 159, 0, 0.50); }    /* orange */
+      html.a11y-colorblind .seatmap__zone[data-zone="pista"] { fill: rgba(213, 94, 0, 0.65); }     /* vermillion */
       html.a11y-colorblind .seatmap__zone:hover {
-        fill: rgba(0, 114, 178, 0.30);
-        stroke: #003a5c;
+        stroke: #1a1a1a;
+        stroke-width: 1.6;
       }
       html.a11y-colorblind .seatmap__zone[data-active="true"] {
-        fill: #003a5c !important;
-        stroke: #00264a;
-        filter: drop-shadow(0 4px 10px rgba(0, 58, 92, 0.4));
+        stroke: #1a1a1a !important;
+        stroke-width: 2.5 !important;
+        filter: drop-shadow(0 4px 10px rgba(26, 26, 26, 0.45));
       }
       @media (max-width: 480px) {
         .seatmap__svg { max-width: 100%; }
