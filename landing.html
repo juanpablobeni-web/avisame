@@ -2193,45 +2193,20 @@
       }
     </style>
 
-    <!-- ─── Google Analytics (consent-gated) ─────────────────────
-         gtag.js is NOT loaded on initial page hit. It loads only after
-         the user clicks "Aceptar" on the cookie banner, which dispatches
-         a `cookie-consent` event with detail.choice === "accept". If the
-         user rejects or never decides, GA never runs.                  -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59X40HS448"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){ window.dataLayer.push(arguments); }
-      gtag("js", new Date());
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-      (function () {
-        var GA_ID = "G-MRVW0RCR6J";
-        var loaded = false;
+      gtag('config', 'G-59X40HS448');
 
-        function loadGA() {
-          if (loaded) return;
-          loaded = true;
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
-          document.head.appendChild(s);
-          gtag("config", GA_ID, {
-            anonymize_ip: true,
-            send_page_view: true,
-          });
-          // Also expose a form-submit tracker the form handler can call.
-          window.__avisameTrack = function (eventName, params) {
-            try { gtag("event", eventName, params || {}); } catch (_) {}
-          };
-        }
-
-        window.addEventListener("cookie-consent", function (e) {
-          var choice = (e.detail || {}).choice;
-          if (choice === "accept") loadGA();
-        });
-
-        // No-op stub before consent so callers don't crash.
-        window.__avisameTrack = window.__avisameTrack || function () {};
-      })();
+      // Thin wrapper kept so existing callsites (signup_complete, signup_share)
+      // keep working without touching them.
+      window.__avisameTrack = function (eventName, params) {
+        try { gtag('event', eventName, params || {}); } catch (_) {}
+      };
     </script>
   </head>
   <body>
