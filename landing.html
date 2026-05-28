@@ -398,7 +398,13 @@
 
       /* ─── Interactive seat map ───────────────────────────────── */
       .seatmap-section {
-        margin: 0 0 1.25rem;
+        /* Break out of <main>'s 2.25rem padding so the map can use the full
+           width of the form card — gives the SVG ~70px more room to render
+           the tier-band sector cells at a readable size. */
+        margin: 0 -2.25rem 1.25rem;
+      }
+      @media (max-width: 600px) {
+        .seatmap-section { margin: 0 -1.25rem 1.25rem; }
       }
       .seatmap-section__label {
         display: block;
@@ -420,7 +426,7 @@
       .seatmap__svg {
         display: block;
         width: 100%;
-        max-width: 620px;
+        max-width: 760px;
         height: auto;
         margin: 0 auto;
         filter: drop-shadow(0 8px 24px rgba(10, 31, 68, 0.10));
