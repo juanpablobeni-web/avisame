@@ -384,6 +384,17 @@
       }
 
       .submit-row { margin-top: 0.5rem !important; }
+      .form-privacy-notice {
+        margin: 0.85rem 0 0;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: #6b7a91;
+        text-align: center;
+      }
+      .form-privacy-notice a {
+        color: var(--celta-sky-dark, #4f8fc2);
+        text-decoration: underline;
+      }
 
       /* ─── Interactive seat map ───────────────────────────────── */
       .seatmap-section {
@@ -2647,12 +2658,6 @@
 
         <div class="consent-group">
           <label class="checkbox-label">
-            <input type="checkbox" name="privacy_consent" required />
-            <span data-i18n="form.privacyConsent" data-i18n-html="1">
-              He leído y acepto la <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidad</a>.
-            </span>
-          </label>
-          <label class="checkbox-label">
             <input type="checkbox" name="marketing_consent" required />
             <span data-i18n="form.marketingConsent">
               Acepto recibir avisos por email cuando se libere una entrada en mi grada.
@@ -2679,6 +2684,9 @@
             <span data-i18n="form.submit">¡Avísame!</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>
           </button>
+        </p>
+        <p class="form-privacy-notice" data-i18n="form.privacyNotice" data-i18n-html="1">
+          Al apuntarte aceptas nuestra <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidad</a>.
         </p>
       </form>
       <iframe
@@ -3258,7 +3266,7 @@
             "seatmap.standMarcador": "MARCADOR",
             "seatmap.standGol": "GOL",
             "seatmap.standRio": "RÍO",
-            "form.privacyConsent": 'He leído y acepto la <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidad</a>.',
+            "form.privacyNotice": 'Al apuntarte aceptas nuestra <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidad</a>.',
             "form.marketingConsent": "Acepto recibir avisos por email cuando se libere una entrada en mi grada.",
             "form.partnersConsent": "Quiero recibir ofertas de viaje y alojamiento de los partners oficiales del Celta para asistir a partidos.",
             "form.submit": "¡Avísame!",
@@ -3375,7 +3383,7 @@
             "seatmap.standMarcador": "MARCADOR",
             "seatmap.standGol": "GOL",
             "seatmap.standRio": "RÍO",
-            "form.privacyConsent": 'Lin e acepto a <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidade</a>.',
+            "form.privacyNotice": 'Ao apuntarte aceptas a nosa <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidade</a>.',
             "form.marketingConsent": "Acepto recibir avisos por correo cando se libere unha entrada na miña grada.",
             "form.partnersConsent": "Quero recibir ofertas de viaxe e aloxamento dos partners oficiais do Celta para asistir aos partidos.",
             "form.submit": "¡Avísame!",
@@ -3492,7 +3500,7 @@
             "seatmap.standMarcador": "SCOREBOARD",
             "seatmap.standGol": "GOAL END",
             "seatmap.standRio": "RIVER SIDE",
-            "form.privacyConsent": 'I have read and accept the <a href="privacy.html" target="_blank" rel="noopener" class="text-link">privacy policy</a>.',
+            "form.privacyNotice": 'By signing up you accept our <a href="privacy.html" target="_blank" rel="noopener" class="text-link">privacy policy</a>.',
             "form.marketingConsent": "I consent to receive email alerts when a ticket becomes available in my chosen stand.",
             "form.partnersConsent": "I want to receive travel and accommodation offers from Celta's official partners to attend matches.",
             "form.submit": "Notify me!",
