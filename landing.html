@@ -398,7 +398,7 @@
 
       /* ─── Interactive seat map ───────────────────────────────── */
       .seatmap-section {
-        margin: 0 0 1.25rem;
+        margin: 0 0 1.75rem;
       }
       .seatmap-section__label {
         display: block;
@@ -501,7 +501,11 @@
         stroke: var(--celta-navy);
         outline: none;
       }
-      .seatmap__sector[data-active="true"] {
+      /* Red glow only when BOTH the sector itself is selected AND its tier
+         is still being browsed. Moving away from the tier hides the glow,
+         so old red highlights stop "leaking" into other tiers. Selection
+         itself stays tracked in the pill below the map. */
+      .seatmap__sector[data-active="true"][data-tier-active="true"] {
         fill: var(--celta-red) !important;
         stroke: #fff !important;
         stroke-width: 1.1;
@@ -525,7 +529,7 @@
       .seatmap__sector-label[data-active="true"] {
         fill: #fff;
       }
-      html.a11y-colorblind .seatmap__sector[data-active="true"] {
+      html.a11y-colorblind .seatmap__sector[data-active="true"][data-tier-active="true"] {
         fill: #cc79a7;
         stroke: #fff;
         filter: drop-shadow(0 0 5px rgba(204, 121, 167, 0.85))
