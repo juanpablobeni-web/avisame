@@ -327,7 +327,7 @@
       }
 
       header.hero section {
-        max-width: 640px;
+        max-width: 720px;
         margin: 0 auto;
       }
 
@@ -354,7 +354,7 @@
       }
 
       main {
-        max-width: 640px;
+        max-width: 720px;
         margin: 0 auto 3rem;
         padding: 2.25rem 2.25rem 2.5rem;
         background-color: #ffffff;
@@ -398,13 +398,7 @@
 
       /* ─── Interactive seat map ───────────────────────────────── */
       .seatmap-section {
-        /* Break out of <main>'s 2.25rem padding so the map can use the full
-           width of the form card — gives the SVG ~70px more room to render
-           the tier-band sector cells at a readable size. */
-        margin: 0 -2.25rem 1.25rem;
-      }
-      @media (max-width: 600px) {
-        .seatmap-section { margin: 0 -1.25rem 1.25rem; }
+        margin: 0 0 1.25rem;
       }
       .seatmap-section__label {
         display: block;
@@ -569,10 +563,11 @@
       .seatmap__label--sm { font-size: 10px; }
       .seatmap__label[data-zone-active="true"] {
         fill: #fff;
+        opacity: 0;
       }
       .seatmap__count[data-zone-active="true"] {
         fill: #fff;
-        opacity: 0.92;
+        opacity: 0;
       }
       html.a11y-colorblind .seatmap__label[data-zone-active="true"],
       html.a11y-colorblind .seatmap__count[data-zone-active="true"] {
@@ -1446,7 +1441,7 @@
         flex-direction: column;
         gap: 0.7rem;
         margin: 0 auto;
-        max-width: 640px;
+        max-width: 720px;
       }
       .faq__item {
         background: #ffffff;
@@ -1548,7 +1543,7 @@
 
       .faq__cta {
         margin: 2.25rem auto 0;
-        max-width: 640px;
+        max-width: 720px;
         background: linear-gradient(135deg, rgba(122, 177, 217, 0.12) 0%, rgba(122, 177, 217, 0.04) 100%);
         border: 1px dashed rgba(122, 177, 217, 0.45);
         border-radius: 14px;
@@ -2144,7 +2139,7 @@
       }
 
       .match-info {
-        max-width: 640px;
+        max-width: 720px;
         margin: -2rem auto 0.75rem;
         padding: 0;
         position: relative;
