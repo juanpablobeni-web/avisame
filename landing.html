@@ -2658,6 +2658,12 @@
               Acepto recibir avisos por email cuando se libere una entrada en mi grada.
             </span>
           </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="partners_consent" />
+            <span data-i18n="form.partnersConsent">
+              Quiero recibir ofertas de viaje y alojamiento de los partners oficiales del Celta para asistir a partidos.
+            </span>
+          </label>
         </div>
 
         <!-- match-data:start -->
@@ -3166,6 +3172,13 @@
           const consentTs = new Date().toISOString();
           injectHidden("PRIVACY", consentTs);
           injectHidden("MARKETING", consentTs);
+          // The third (partners) checkbox is OPTIONAL and unticked by default.
+          // Only stamp PARTNERS when the user actively opts in — otherwise
+          // leave the merge field empty so n8n can filter "did they consent".
+          const partnersBox = form.elements.partners_consent;
+          if (partnersBox && partnersBox.checked) {
+            injectHidden("PARTNERS", consentTs);
+          }
           // Capture page language so n8n/Mandrill can route to the right
           // template (ES / GL / EN). Falls back to <html lang>.
           injectHidden(
@@ -3247,6 +3260,7 @@
             "seatmap.standRio": "RÍO",
             "form.privacyConsent": 'He leído y acepto la <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidad</a>.',
             "form.marketingConsent": "Acepto recibir avisos por email cuando se libere una entrada en mi grada.",
+            "form.partnersConsent": "Quiero recibir ofertas de viaje y alojamiento de los partners oficiales del Celta para asistir a partidos.",
             "form.submit": "¡Avísame!",
             "how.title": "Cómo funciona",
             "how.lead": "Sin recargar la web, sin estrés. Tres pasos y a por la entrada.",
@@ -3363,6 +3377,7 @@
             "seatmap.standRio": "RÍO",
             "form.privacyConsent": 'Lin e acepto a <a href="privacy.html" target="_blank" rel="noopener" class="text-link">política de privacidade</a>.',
             "form.marketingConsent": "Acepto recibir avisos por correo cando se libere unha entrada na miña grada.",
+            "form.partnersConsent": "Quero recibir ofertas de viaxe e aloxamento dos partners oficiais do Celta para asistir aos partidos.",
             "form.submit": "¡Avísame!",
             "how.title": "Como funciona",
             "how.lead": "Sen recargar a web, sen estrés. Tres pasos e a pola entrada.",
@@ -3479,6 +3494,7 @@
             "seatmap.standRio": "RIVER SIDE",
             "form.privacyConsent": 'I have read and accept the <a href="privacy.html" target="_blank" rel="noopener" class="text-link">privacy policy</a>.',
             "form.marketingConsent": "I consent to receive email alerts when a ticket becomes available in my chosen stand.",
+            "form.partnersConsent": "I want to receive travel and accommodation offers from Celta's official partners to attend matches.",
             "form.submit": "Notify me!",
             "how.title": "How it works",
             "how.lead": "No refreshing the page, no stress. Three steps and you're after that ticket.",
