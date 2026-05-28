@@ -2204,7 +2204,7 @@
       gtag("js", new Date());
 
       (function () {
-        var GA_ID = "G-59X40HS448";
+        var GA_ID = "G-MRVW0RCR6J";
         var loaded = false;
 
         function loadGA() {
@@ -3056,6 +3056,32 @@
               session_id: (form.elements.SESSION_ID && form.elements.SESSION_ID.value) || "",
             });
           }
+
+          // GA4 custom conversion: generate_lead.
+          // Reached only via showSuccess(), which itself is reached only
+          // after a real submission (iframe `load` AFTER submittedAt is set,
+          // or the 5s safety-net). Validation failures preventDefault before
+          // submittedAt is set, so this branch can't fire on those.
+          const selectedEventId =
+            (form.elements.SESSION_ID && form.elements.SESSION_ID.value) || "";
+          const selectedEventName =
+            (form.elements.SESSION && form.elements.SESSION.value) || "";
+          const selectedGradaId =
+            (form.elements.GRADA_ID && form.elements.GRADA_ID.value) || "";
+          const selectedGradaName =
+            (form.elements.GRADA && form.elements.GRADA.value) || "";
+
+          const leadPayload = {
+            method: "avisame_form",
+            event_id: selectedEventId,
+            event_name: selectedEventName,
+            grada_id: selectedGradaId,
+            grada_name: selectedGradaName,
+            is_duplicate: false,
+            locale: navigator.language,
+          };
+          gtag("event", "generate_lead", leadPayload);
+          console.log("[GA4] generate_lead fired", leadPayload);
         }
 
         function showError(message) {
