@@ -1009,6 +1009,20 @@
           linear-gradient(180deg, #0a1f44 0%, #11305a 45%, var(--celta-sky) 100%) !important;
       }
       .hero--photo::before, .hero--photo::after { display: none; }
+      .hero__photo-link {
+        display: block;
+        cursor: pointer;
+        transition: transform 0.25s ease;
+      }
+      .hero__photo-link:hover .hero__photo,
+      .hero__photo-link:focus-visible .hero__photo {
+        transform: scale(1.01);
+      }
+      .hero__photo-link:focus-visible {
+        outline: 3px solid #ffffff;
+        outline-offset: 4px;
+        border-radius: 12px;
+      }
       .hero__photo {
         display: block;
         width: 100%;
@@ -2001,9 +2015,11 @@
         }
         .cookie-banner__actions {
           width: 100%;
-          justify-content: stretch;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0.5rem;
         }
-        .cookie-banner__btn { flex: 1; }
+        .cookie-banner__btn { flex: none; width: 100%; }
       }
 
       .match-info {
@@ -2309,15 +2325,17 @@
       </div>
     </div>
     <header class="hero hero--photo">
-      <img
-        id="main-content"
-        class="hero__photo"
-        src="assets/hero-spanish.jpg?v=5"
-        alt="Aficionados del RC Celta animando en Balaídos con la bandera del club"
-        fetchpriority="high"
-        decoding="async"
-        data-i18n-attr="alt:hero.imageAlt;src:hero.image"
-      />
+      <a href="#avisame-form-anchor" class="hero__photo-link" aria-label="Ir al formulario" data-i18n-attr="aria-label:hero.cta">
+        <img
+          id="main-content"
+          class="hero__photo"
+          src="assets/hero-spanish.jpg?v=5"
+          alt="Aficionados del RC Celta animando en Balaídos con la bandera del club"
+          fetchpriority="high"
+          decoding="async"
+          data-i18n-attr="alt:hero.imageAlt;src:hero.image"
+        />
+      </a>
       <section>
         <p class="hero__eyebrow" data-i18n="hero.eyebrow">Avísame · Para celtistas que no se rinden</p>
         <h1 data-i18n="hero.title">Tu sitio en Balaídos te está esperando</h1>
@@ -2873,11 +2891,19 @@
           </button>
           <button
             type="button"
+            class="cookie-banner__btn cookie-banner__btn--ghost"
+            data-cookie-action="essential"
+            data-i18n="cookie.essential"
+          >
+            Solo esenciales
+          </button>
+          <button
+            type="button"
             class="cookie-banner__btn cookie-banner__btn--primary"
             data-cookie-action="accept"
             data-i18n="cookie.accept"
           >
-            Aceptar
+            Aceptar todo
           </button>
         </div>
       </div>
@@ -3248,9 +3274,10 @@
             "footer.contact": "Contacto",
             "footer.copy": '© <span id="footer-year"></span> Avísame. Proyecto independiente — no afiliado oficialmente a RC Celta. ¡Aúpa Celta!',
             "cookie.title": "Cookies, lo justas",
-            "cookie.body": 'Usamos cookies imprescindibles para que el formulario funcione y para entender qué partidos interesan más a los celtistas. Sin publicidad ni venta de datos a terceros. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Política de privacidad</a>.',
+            "cookie.body": 'Usamos <strong>cookies esenciales</strong> (idioma, consentimiento, sesión del formulario) y, si lo aceptas, <strong>analíticas</strong> de Google Analytics 4 (<code>_ga</code>, <code>_ga_*</code>) con IP anonimizada para saber qué partidos interesan más. Sin publicidad ni venta de datos a terceros. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Más info</a>.',
             "cookie.reject": "Rechazar",
-            "cookie.accept": "Aceptar",
+            "cookie.essential": "Solo esenciales",
+            "cookie.accept": "Aceptar todo",
             "chatbot.title": "Avisador",
             "chatbot.subtitle": "Respondemos al instante",
             "chatbot.openAria": "Abrir chat de ayuda",
@@ -3359,9 +3386,10 @@
             "footer.contact": "Contacto",
             "footer.copy": '© <span id="footer-year"></span> Avísame. Proxecto independente — non afiliado oficialmente ao RC Celta. ¡Aúpa Celta!',
             "cookie.title": "Cookies, as xustas",
-            "cookie.body": 'Usamos cookies imprescindibles para que o formulario funcione e para entender que partidos interesan máis aos celtistas. Sen publicidade nin venda de datos a terceiros. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Política de privacidade</a>.',
+            "cookie.body": 'Usamos <strong>cookies esenciais</strong> (idioma, consentimento, sesión do formulario) e, se o aceptas, <strong>analíticas</strong> de Google Analytics 4 (<code>_ga</code>, <code>_ga_*</code>) coa IP anonimizada para saber que partidos interesan máis. Sen publicidade nin venda de datos a terceiros. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Máis info</a>.',
             "cookie.reject": "Rexeitar",
-            "cookie.accept": "Aceptar",
+            "cookie.essential": "Só esenciais",
+            "cookie.accept": "Aceptar todo",
             "chatbot.title": "Avisador",
             "chatbot.subtitle": "Respondemos ao instante",
             "chatbot.openAria": "Abrir chat de axuda",
@@ -3470,9 +3498,10 @@
             "footer.contact": "Contact",
             "footer.copy": '© <span id="footer-year"></span> Avísame. Independent project — not officially affiliated with RC Celta. Aúpa Celta!',
             "cookie.title": "Cookies, only the essentials",
-            "cookie.body": 'We use the strictly necessary cookies to make the form work and to see which matches Celta fans care about most. No advertising, no selling data to third parties. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Privacy policy</a>.',
+            "cookie.body": 'We use <strong>essential cookies</strong> (language preference, consent record, form session) and, only if you accept, <strong>analytics</strong> from Google Analytics 4 (<code>_ga</code>, <code>_ga_*</code>) with IP anonymised, so we can see which matches Celta fans care about most. No advertising, no selling data to third parties. <a href="privacy.html" target="_blank" rel="noopener" class="cookie-banner__link">Read more</a>.',
             "cookie.reject": "Decline",
-            "cookie.accept": "Accept",
+            "cookie.essential": "Essential only",
+            "cookie.accept": "Accept all",
             "chatbot.title": "Avisador",
             "chatbot.subtitle": "We reply instantly",
             "chatbot.openAria": "Open help chat",
@@ -3567,6 +3596,15 @@
           initial = nav.startsWith("gl") ? "gl" : nav.startsWith("en") ? "en" : "es";
         }
         applyLang(initial);
+        // The chatbot DOM (and a couple of other elements with data-i18n)
+        // sits later in the body, so the parse-time applyLang above misses
+        // them. Re-run once DOMContentLoaded fires so the chatbot subtitle
+        // and input placeholder pick up the right language.
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", () =>
+            applyLang(currentLang)
+          );
+        }
 
         langButtons.forEach((btn) =>
           btn.addEventListener("click", () => {
@@ -3899,7 +3937,16 @@
           zoneEl.setAttribute("aria-label", ZONE_NAMES[zoneEl.dataset.zone]);
           zoneEl.addEventListener("click", () => {
             const z = zoneEl.dataset.zone;
+            const willActivate = z !== activeZone;
             setActive(z === activeZone ? null : z);
+            // Scroll the chip picker into view so the freshly revealed
+            // sectors are visible immediately — only on activate, not on
+            // toggle-off, so the user isn't yanked around.
+            if (willActivate) {
+              requestAnimationFrame(() =>
+                picker.scrollIntoView({ behavior: "smooth", block: "center" })
+              );
+            }
           });
           zoneEl.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
