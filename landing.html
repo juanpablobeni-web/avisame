@@ -2193,14 +2193,44 @@
       }
     </style>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59X40HS448"></script>
+    <!-- Google tag (gtag.js) with Consent Mode v2 -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-59X40HS448');
+      // Honor a prior consent choice (so returning visitors aren't re-prompted)
+      // before gtag.js loads — Consent Mode v2 requires defaults set first.
+      var __priorConsent = null;
+      try {
+        __priorConsent = JSON.parse(
+          localStorage.getItem('avisame-cookie-consent') || 'null'
+        );
+      } catch (_) {}
+      var __analyticsDefault =
+        __priorConsent && __priorConsent.choice === 'accept'
+          ? 'granted'
+          : 'denied';
+
+      gtag('consent', 'default', {
+        analytics_storage: __analyticsDefault,
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+
+      gtag('js', new Date());
+      gtag('config', 'G-59X40HS448', { anonymize_ip: true });
+
+      // Cookie banner dispatches `cookie-consent` with {choice:'accept'|'reject'}.
+      // Map that onto a Consent Mode update so GA flips between cookieless
+      // pings (denied) and full tracking (granted).
+      window.addEventListener('cookie-consent', function (e) {
+        var choice = (e.detail || {}).choice;
+        gtag('consent', 'update', {
+          analytics_storage: choice === 'accept' ? 'granted' : 'denied'
+        });
+      });
 
       // Thin wrapper kept so existing callsites (signup_complete, signup_share)
       // keep working without touching them.
@@ -2208,6 +2238,7 @@
         try { gtag('event', eventName, params || {}); } catch (_) {}
       };
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59X40HS448"></script>
   </head>
   <body>
     <a href="#main-content" class="skip-link" data-i18n="skip">Saltar al contenido</a>
