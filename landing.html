@@ -576,9 +576,82 @@
         .seatmap__stand { font-size: 8px; letter-spacing: 0.15em; }
       }
 
+      /* ─── Seat-map stage + drawer overlay ─────────────────────── */
+      .seatmap-stage {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--celta-grey, #f5f7fb);
+      }
+
       /* ─── Chip picker (visual replacement for huge <select>) ──── */
       .chip-picker {
         margin: 0 0 1.25rem;
+      }
+      /* Drawer variant: absolutely positioned inside .seatmap-stage,
+         slides up from the bottom of the map when a tier is active. */
+      .chip-picker--drawer {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0.85rem 1rem 1rem;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(10, 31, 68, 0.1);
+        box-shadow: 0 -8px 24px rgba(10, 31, 68, 0.08);
+        max-height: 60%;
+        overflow-y: auto;
+        transform: translateY(100%);
+        opacity: 0;
+        transition:
+          transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.18s ease;
+        pointer-events: none;
+        z-index: 5;
+      }
+      .chip-picker--drawer[data-open="true"] {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .chip-picker__close {
+        appearance: none;
+        background: none;
+        border: 0;
+        font-size: 1.5rem;
+        line-height: 1;
+        color: var(--celta-navy);
+        cursor: pointer;
+        padding: 0 0.45rem;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+      .chip-picker__close:hover,
+      .chip-picker__close:focus-visible {
+        background: rgba(10, 31, 68, 0.08);
+        outline: none;
+      }
+      .chip-picker__pill--standalone {
+        display: flex;
+        margin: 0.85rem auto 1.25rem;
+        align-self: center;
+        justify-content: center;
+        width: max-content;
+        max-width: 100%;
+      }
+      .chip-picker__pill-check {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.28);
+        border-radius: 50%;
+        font-size: 0.7rem;
+        font-weight: 800;
       }
       .chip-picker__header {
         display: flex;
@@ -2441,6 +2514,7 @@
           <span class="seatmap-section__label" data-i18n="seatmap.label">
             ¿Dónde quieres sentarte?
           </span>
+          <div class="seatmap-stage">
           <div class="seatmap" id="seatmap">
             <svg
               class="seatmap__svg"
@@ -2527,49 +2601,57 @@
               Toca una zona para filtrar los sectores.
             </p>
           </div>
-        </div>
 
-        <div class="chip-picker" id="chip-picker">
-          <div class="chip-picker__header">
-            <p class="chip-picker__title" id="chip-picker-title" data-i18n="form.grada">
-              Tu grada favorita
-            </p>
-            <span
-              class="chip-picker__pill"
-              id="chip-picker-pill"
-              hidden
-              aria-live="polite"
-            >
-              <span class="chip-picker__pill-text" id="chip-picker-pill-text"></span>
+          <!-- Drawer overlay: slides up from the bottom of the map when a
+               tier is activated; collapses on chip select or close click. -->
+          <div class="chip-picker chip-picker--drawer" id="chip-picker" data-open="false">
+            <div class="chip-picker__header">
+              <p class="chip-picker__title" id="chip-picker-title" data-i18n="form.grada">
+                Tu grada favorita
+              </p>
               <button
                 type="button"
-                class="chip-picker__pill-clear"
-                id="chip-picker-clear"
-                aria-label="Quitar grada seleccionada"
-                data-i18n-attr="aria-label:chipPicker.clearAria"
+                class="chip-picker__close"
+                id="chip-picker-close"
+                aria-label="Cerrar"
+                data-i18n-attr="aria-label:chipPicker.closeAria"
               >×</button>
-            </span>
+            </div>
+            <div
+              class="chip-picker__chips"
+              id="chip-picker-chips"
+              role="listbox"
+              aria-label="Sectores disponibles"
+              data-i18n-attr="aria-label:chipPicker.listAria"
+            >
+              <p class="chip-picker__empty" id="chip-picker-empty" data-i18n="chipPicker.empty">
+                Toca una zona del mapa para ver los sectores.
+              </p>
+            </div>
           </div>
-          <div
-            class="chip-picker__chips"
-            id="chip-picker-chips"
-            role="listbox"
-            aria-label="Sectores disponibles"
-            data-i18n-attr="aria-label:chipPicker.listAria"
-          >
-            <p class="chip-picker__empty" id="chip-picker-empty" data-i18n="chipPicker.empty">
-              Toca una zona del mapa para ver los sectores.
-            </p>
-          </div>
-          <p
-            class="chip-picker__error"
-            id="chip-picker-error"
-            data-i18n="chipPicker.error"
-            role="alert"
-          >
-            Elige una grada para que podamos avisarte.
-          </p>
         </div>
+
+        <!-- Selected sector badge — sits below the stage, visible after pick -->
+        <div class="chip-picker__pill chip-picker__pill--standalone" id="chip-picker-pill" hidden aria-live="polite">
+          <span class="chip-picker__pill-check" aria-hidden="true">✓</span>
+          <span class="chip-picker__pill-text" id="chip-picker-pill-text"></span>
+          <button
+            type="button"
+            class="chip-picker__pill-clear"
+            id="chip-picker-clear"
+            aria-label="Quitar grada seleccionada"
+            data-i18n-attr="aria-label:chipPicker.clearAria"
+          >×</button>
+        </div>
+
+        <p
+          class="chip-picker__error"
+          id="chip-picker-error"
+          data-i18n="chipPicker.error"
+          role="alert"
+        >
+          Elige una grada para que podamos avisarte.
+        </p>
 
         <label for="grada" class="sr-only" data-i18n="form.grada">Tu grada favorita</label>
         <select id="grada" name="GRADA_ID" class="sr-only" tabindex="-1" aria-hidden="true">
@@ -3247,6 +3329,7 @@
             "chipPicker.empty": "Toca una zona del mapa para ver los sectores.",
             "chipPicker.error": "Elige una grada para que podamos avisarte.",
             "chipPicker.clearAria": "Quitar grada seleccionada",
+            "chipPicker.closeAria": "Cerrar selector de sectores",
             "chipPicker.listAria": "Sectores disponibles",
             "chipPicker.activeHint": "{count} sectores en {zone}. Toca la zona otra vez para ver todos.",
             "seatmap.standTribuna": "TRIBUNA",
@@ -3361,6 +3444,7 @@
             "chipPicker.empty": "Toca unha zona do mapa para ver os sectores.",
             "chipPicker.error": "Escolle unha grada para que poidamos avisarte.",
             "chipPicker.clearAria": "Quitar grada seleccionada",
+            "chipPicker.closeAria": "Pechar selector de sectores",
             "chipPicker.listAria": "Sectores dispoñibles",
             "chipPicker.activeHint": "{count} sectores en {zone}. Toca a zona outra vez para ver todos.",
             "seatmap.standTribuna": "TRIBUNA",
@@ -3475,6 +3559,7 @@
             "chipPicker.empty": "Tap a zone on the map to see the stands.",
             "chipPicker.error": "Pick a stand so we know where to watch.",
             "chipPicker.clearAria": "Clear selected stand",
+            "chipPicker.closeAria": "Close stand picker",
             "chipPicker.listAria": "Available stands",
             "chipPicker.activeHint": "{count} sectors in {zone}. Tap the zone again to see all stands.",
             "seatmap.standTribuna": "MAIN STAND",
@@ -3911,6 +3996,10 @@
           });
         }
 
+        function setDrawerOpen(open) {
+          picker.setAttribute("data-open", open ? "true" : "false");
+        }
+
         function selectChip(value) {
           select.value = value;
           select.dispatchEvent(new Event("change", { bubbles: true }));
@@ -3924,6 +4013,10 @@
           }
           highlightSector(value);
           errorEl.removeAttribute("data-visible");
+          // Close the drawer once a sector is picked — the badge below the
+          // map carries the selection forward, so the chips no longer need
+          // to occupy screen real estate.
+          setDrawerOpen(false);
         }
 
         function clearSelection() {
@@ -3938,12 +4031,24 @@
         }
         pillClear.addEventListener("click", clearSelection);
 
+        // Close button on the drawer header — collapses chips without
+        // touching the current selection, and also turns off the tier
+        // highlight so the map returns to a neutral state.
+        const closeBtn = document.getElementById("chip-picker-close");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", () => {
+            setDrawerOpen(false);
+            setActive(null);
+          });
+        }
+
         function setActive(zone) {
           activeZone = zone;
           highlightTier(zone);
           updateHint(zone);
           updateTitle(zone);
           renderChips(zone);
+          setDrawerOpen(!!zone);
         }
 
         map.querySelectorAll(".seatmap__zone").forEach((zoneEl) => {
@@ -3952,16 +4057,9 @@
           zoneEl.setAttribute("aria-label", ZONE_NAMES[zoneEl.dataset.zone]);
           zoneEl.addEventListener("click", () => {
             const z = zoneEl.dataset.zone;
-            const willActivate = z !== activeZone;
             setActive(z === activeZone ? null : z);
-            // Scroll the chip picker into view so the freshly revealed
-            // sectors are visible immediately — only on activate, not on
-            // toggle-off, so the user isn't yanked around.
-            if (willActivate) {
-              requestAnimationFrame(() =>
-                picker.scrollIntoView({ behavior: "smooth", block: "center" })
-              );
-            }
+            // No scrollIntoView — the drawer overlays the map in-place,
+            // so the chips appear right under the user's tap.
           });
           zoneEl.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
