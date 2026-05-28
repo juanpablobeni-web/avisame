@@ -25,6 +25,7 @@ const FIELDS = [
   { tag: "VENUE", name: "Estadio", type: "text", required: false, public: false },
   { tag: "MATCHDATE", name: "Fecha del partido", type: "date", required: false, public: false, options: { date_format: "YYYY-MM-DD" } },
   { tag: "PRIVACY", name: "Aceptación política privacidad", type: "text", required: false, public: false },
+  { tag: "MARKETING", name: "Aceptación marketing (avisos)", type: "text", required: false, public: false },
   { tag: "LANG", name: "Idioma signup", type: "text", required: false, public: false },
 ];
 

@@ -3133,7 +3133,12 @@
             (select && select.options[select.selectedIndex] &&
               select.options[select.selectedIndex].text) || "";
           injectHidden("GRADA", gradaName);
-          injectHidden("PRIVACY", new Date().toISOString());
+          // Both consent checkboxes are HTML-required, so by the time we get
+          // here both are checked. Stamp the moment they were submitted —
+          // that ISO timestamp is the GDPR-defensible opt-in record.
+          const consentTs = new Date().toISOString();
+          injectHidden("PRIVACY", consentTs);
+          injectHidden("MARKETING", consentTs);
           // Capture page language so n8n/Mandrill can route to the right
           // template (ES / GL / EN). Falls back to <html lang>.
           injectHidden(
