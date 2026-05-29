@@ -422,7 +422,7 @@
       }
       .ticket-qty__chip {
         appearance: none;
-        flex: 1 1 auto;
+        flex: 1 1 0;
         min-width: 56px;
         padding: 0.65rem 0.85rem;
         background: var(--celta-grey);
@@ -449,7 +449,7 @@
         outline-offset: 2px;
       }
       .ticket-qty__chip--more {
-        flex: 1 1 auto;
+        flex: 1 1 0;
         font-size: 0.92rem;
         letter-spacing: 0.02em;
       }
@@ -457,8 +457,8 @@
          the same flex slot so the chip row stays the same width. */
       .ticket-qty__stepper[hidden] { display: none; }
       .ticket-qty__stepper {
-        flex: 1 1 auto;
-        min-width: 130px;
+        flex: 1 1 0;
+        min-width: 110px;
         display: inline-flex;
         align-items: stretch;
         background: var(--celta-celeste, #7AB1D9);
