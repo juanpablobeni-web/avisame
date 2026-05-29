@@ -449,7 +449,7 @@
         outline-offset: 2px;
       }
       .ticket-qty__chip--more {
-        flex: 1.4 1 auto;
+        flex: 0 0 auto;
         font-size: 0.92rem;
         letter-spacing: 0.02em;
       }
@@ -457,8 +457,8 @@
          the same flex slot so the chip row stays the same width. */
       .ticket-qty__stepper[hidden] { display: none; }
       .ticket-qty__stepper {
-        flex: 1.4 1 auto;
-        min-width: 140px;
+        flex: 0 0 auto;
+        min-width: 0;
         display: inline-flex;
         align-items: stretch;
         background: var(--celta-celeste, #7AB1D9);
@@ -471,10 +471,10 @@
         background: transparent;
         border: 0;
         color: #ffffff;
-        font-size: 1.25rem;
+        font-size: 1.15rem;
         font-weight: 800;
         line-height: 1;
-        padding: 0 0.9rem;
+        padding: 0 0.6rem;
         cursor: pointer;
         transition: background 0.15s ease;
       }
@@ -484,8 +484,7 @@
         outline: none;
       }
       .ticket-qty__stepper input {
-        flex: 1 1 auto;
-        min-width: 0;
+        width: 2.4em;
         background: transparent;
         border: 0;
         color: #ffffff;
@@ -493,7 +492,7 @@
         font-weight: 800;
         font-size: 1rem;
         text-align: center;
-        padding: 0.55rem 0.25rem;
+        padding: 0.55rem 0.15rem;
         -moz-appearance: textfield;
       }
       .ticket-qty__stepper input::-webkit-outer-spin-button,
@@ -4314,6 +4313,8 @@
           chip.addEventListener("click", () => {
             const qty = chip.dataset.qty;
             if (qty === "more") {
+              // Clear preset highlights — the stepper IS the active state.
+              chips.forEach((c) => c.classList.remove("is-active"));
               // Swap More button → stepper in the same flex slot.
               moreBtn.hidden = true;
               stepper.hidden = false;
