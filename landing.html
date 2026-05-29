@@ -402,8 +402,9 @@
       }
       .required-mark {
         color: var(--celta-red);
-        font-weight: 700;
-        margin-left: 0.15rem;
+        font-weight: 800;
+        font-size: 1.05em;
+        margin-right: 0.25rem;
       }
       .seatmap-section__label {
         display: block;
@@ -2767,13 +2768,13 @@
           </select>
 
         <div class="consent-group">
-          <label class="checkbox-label">
+          <label class="checkbox-label checkbox-label--required">
             <input type="checkbox" name="marketing_consent" required />
             <span>
+              <span class="required-mark" aria-hidden="true">*</span>
               <span data-i18n="form.marketingConsent">
                 Acepto recibir avisos por email cuando se libere una entrada en mi grada.
               </span>
-              <span class="required-mark" aria-hidden="true">*</span>
             </span>
           </label>
           <label class="checkbox-label">
