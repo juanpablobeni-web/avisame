@@ -420,41 +420,56 @@
         gap: 0.5rem;
         flex-wrap: wrap;
       }
-      .ticket-qty__opt {
+      .ticket-qty__chip {
+        appearance: none;
         flex: 1 1 auto;
         min-width: 56px;
-      }
-      .ticket-qty__opt input {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-        pointer-events: none;
-      }
-      .ticket-qty__opt span {
-        display: flex;
-        align-items: center;
-        justify-content: center;
         padding: 0.65rem 0.85rem;
         background: var(--celta-grey);
         border: 1px solid var(--celta-border);
         border-radius: 8px;
+        font-family: inherit;
         font-weight: 700;
         font-size: 1rem;
         color: var(--celta-navy);
         cursor: pointer;
         transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
       }
-      .ticket-qty__opt:hover span {
+      .ticket-qty__chip:hover {
         background: rgba(122, 177, 217, 0.18);
         border-color: var(--celta-sky);
       }
-      .ticket-qty__opt input:checked + span {
+      .ticket-qty__chip.is-active {
         background: var(--celta-celeste, #7AB1D9);
         border-color: var(--celta-celeste-dark, #5C9CCB);
         color: #ffffff;
       }
-      .ticket-qty__opt input:focus-visible + span {
+      .ticket-qty__chip:focus-visible {
+        outline: 2px solid var(--celta-sky);
+        outline-offset: 2px;
+      }
+      .ticket-qty__chip--more {
+        flex: 1.4 1 auto;
+        font-size: 0.92rem;
+        letter-spacing: 0.02em;
+      }
+      .ticket-qty__more {
+        margin-top: 0.6rem;
+      }
+      .ticket-qty__more[hidden] { display: none; }
+      .ticket-qty__more input {
+        width: 100%;
+        max-width: 160px;
+        padding: 0.65rem 0.85rem;
+        font-size: 1rem;
+        font-family: inherit;
+        font-weight: 700;
+        border: 1px solid var(--celta-celeste-dark, #5C9CCB);
+        border-radius: 8px;
+        color: var(--celta-navy);
+        background: #ffffff;
+      }
+      .ticket-qty__more input:focus {
         outline: 2px solid var(--celta-sky);
         outline-offset: 2px;
       }
@@ -2609,32 +2624,27 @@
 
         <fieldset class="ticket-qty">
           <legend class="ticket-qty__legend" data-i18n="form.tickets">¿Cuántas entradas?</legend>
-          <div class="ticket-qty__options" role="radiogroup" aria-labelledby="ticket-qty-legend">
-            <label class="ticket-qty__opt">
-              <input type="radio" name="TICKETS" value="1" checked />
-              <span>1</span>
-            </label>
-            <label class="ticket-qty__opt">
-              <input type="radio" name="TICKETS" value="2" />
-              <span>2</span>
-            </label>
-            <label class="ticket-qty__opt">
-              <input type="radio" name="TICKETS" value="3" />
-              <span>3</span>
-            </label>
-            <label class="ticket-qty__opt">
-              <input type="radio" name="TICKETS" value="4" />
-              <span>4</span>
-            </label>
-            <label class="ticket-qty__opt">
-              <input type="radio" name="TICKETS" value="5" />
-              <span>5</span>
-            </label>
-            <label class="ticket-qty__opt">
-              <input type="radio" name="TICKETS" value="6" />
-              <span>6</span>
-            </label>
+          <div class="ticket-qty__options" role="group">
+            <button type="button" class="ticket-qty__chip is-active" data-qty="1">1</button>
+            <button type="button" class="ticket-qty__chip" data-qty="2">2</button>
+            <button type="button" class="ticket-qty__chip" data-qty="3">3</button>
+            <button type="button" class="ticket-qty__chip" data-qty="4">4</button>
+            <button type="button" class="ticket-qty__chip ticket-qty__chip--more" data-qty="more" data-i18n="form.ticketsMore">Más</button>
           </div>
+          <div class="ticket-qty__more" id="ticket-qty-more" hidden>
+            <input
+              type="number"
+              id="ticket-qty-input"
+              min="5"
+              max="20"
+              step="1"
+              inputmode="numeric"
+              placeholder="5"
+              aria-label="¿Cuántas entradas?"
+              data-i18n-attr="aria-label:form.tickets"
+            />
+          </div>
+          <input type="hidden" name="TICKETS" id="ticket-qty-value" value="1" />
         </fieldset>
 
         <div class="seatmap-section">
@@ -3423,6 +3433,7 @@
             "form.phonePh": "+34 600 000 000",
             "form.optional": "(opcional)",
             "form.tickets": "¿Cuántas entradas?",
+            "form.ticketsMore": "Más",
             "form.grada": "Tu grada favorita",
             "form.submitting": "Enviando…",
             "form.notConfigured": "El formulario aún no está configurado.",
@@ -3539,6 +3550,7 @@
             "form.phonePh": "+34 600 000 000",
             "form.optional": "(opcional)",
             "form.tickets": "Cantas entradas?",
+            "form.ticketsMore": "Máis",
             "form.grada": "A túa grada favorita",
             "form.submitting": "Enviando…",
             "form.notConfigured": "O formulario aínda non está configurado.",
@@ -3655,6 +3667,7 @@
             "form.phonePh": "+34 600 000 000",
             "form.optional": "(optional)",
             "form.tickets": "How many tickets?",
+            "form.ticketsMore": "More",
             "form.grada": "Your favourite stand",
             "form.submitting": "Sending…",
             "form.notConfigured": "The form isn't configured yet.",
@@ -4239,6 +4252,50 @@
             return !select.value;
           },
         };
+      })();
+
+      // ─── Ticket-quantity selector ─────────────────────────────
+      // 1-4 chips set TICKETS directly; "More" reveals a number input
+      // for any value 5+. Final value carried by hidden #ticket-qty-value
+      // which is what Mailchimp posts as the TICKETS merge field.
+      (function () {
+        const chips = document.querySelectorAll(".ticket-qty__chip");
+        const moreBox = document.getElementById("ticket-qty-more");
+        const moreInput = document.getElementById("ticket-qty-input");
+        const hidden = document.getElementById("ticket-qty-value");
+        if (!chips.length || !moreBox || !moreInput || !hidden) return;
+
+        function setActive(chip) {
+          chips.forEach((c) => c.classList.toggle("is-active", c === chip));
+        }
+
+        chips.forEach((chip) => {
+          chip.addEventListener("click", () => {
+            const qty = chip.dataset.qty;
+            setActive(chip);
+            if (qty === "more") {
+              moreBox.hidden = false;
+              // If the input already has a valid number, use it; else
+              // default to 5 and focus the input for typing.
+              const cur = parseInt(moreInput.value, 10);
+              if (!Number.isFinite(cur) || cur < 5) {
+                moreInput.value = "5";
+              }
+              hidden.value = moreInput.value;
+              setTimeout(() => moreInput.focus(), 0);
+            } else {
+              moreBox.hidden = true;
+              hidden.value = qty;
+            }
+          });
+        });
+
+        moreInput.addEventListener("input", () => {
+          const n = parseInt(moreInput.value, 10);
+          if (Number.isFinite(n) && n >= 1) {
+            hidden.value = String(Math.min(n, 20));
+          }
+        });
       })();
 
       // Scroll-fade-in for sections marked with data-fade.
