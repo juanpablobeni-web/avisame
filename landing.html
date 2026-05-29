@@ -449,7 +449,7 @@
         outline-offset: 2px;
       }
       .ticket-qty__chip--more {
-        flex: 0 0 auto;
+        flex: 1 1 auto;
         font-size: 0.92rem;
         letter-spacing: 0.02em;
       }
@@ -457,8 +457,8 @@
          the same flex slot so the chip row stays the same width. */
       .ticket-qty__stepper[hidden] { display: none; }
       .ticket-qty__stepper {
-        flex: 0 0 auto;
-        min-width: 0;
+        flex: 1 1 auto;
+        min-width: 130px;
         display: inline-flex;
         align-items: stretch;
         background: var(--celta-celeste, #7AB1D9);
