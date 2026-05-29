@@ -400,6 +400,64 @@
       .seatmap-section {
         margin: 0 0 3.5rem;
       }
+
+      .ticket-qty {
+        border: 0;
+        padding: 0;
+        margin: 0 0 1.5rem;
+      }
+      .ticket-qty__legend {
+        display: block;
+        margin-bottom: 0.55rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--celta-navy);
+      }
+      .ticket-qty__options {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .ticket-qty__opt {
+        flex: 1 1 auto;
+        min-width: 56px;
+      }
+      .ticket-qty__opt input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+      }
+      .ticket-qty__opt span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 0.85rem;
+        background: var(--celta-grey);
+        border: 1px solid var(--celta-border);
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--celta-navy);
+        cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      }
+      .ticket-qty__opt:hover span {
+        background: rgba(122, 177, 217, 0.18);
+        border-color: var(--celta-sky);
+      }
+      .ticket-qty__opt input:checked + span {
+        background: var(--celta-celeste, #7AB1D9);
+        border-color: var(--celta-celeste-dark, #5C9CCB);
+        color: #ffffff;
+      }
+      .ticket-qty__opt input:focus-visible + span {
+        outline: 2px solid var(--celta-sky);
+        outline-offset: 2px;
+      }
       .required-mark {
         color: var(--celta-red);
         font-weight: 800;
@@ -2549,6 +2607,28 @@
           />
         </p>
 
+        <fieldset class="ticket-qty">
+          <legend class="ticket-qty__legend" data-i18n="form.tickets">¿Cuántas entradas?</legend>
+          <div class="ticket-qty__options" role="radiogroup" aria-labelledby="ticket-qty-legend">
+            <label class="ticket-qty__opt">
+              <input type="radio" name="TICKETS" value="1" checked />
+              <span>1</span>
+            </label>
+            <label class="ticket-qty__opt">
+              <input type="radio" name="TICKETS" value="2" />
+              <span>2</span>
+            </label>
+            <label class="ticket-qty__opt">
+              <input type="radio" name="TICKETS" value="3" />
+              <span>3</span>
+            </label>
+            <label class="ticket-qty__opt">
+              <input type="radio" name="TICKETS" value="4" />
+              <span>4</span>
+            </label>
+          </div>
+        </fieldset>
+
         <div class="seatmap-section">
           <span class="seatmap-section__label" data-i18n="seatmap.label">
             ¿Dónde quieres sentarte?
@@ -3334,6 +3414,7 @@
             "form.phone": "Teléfono",
             "form.phonePh": "+34 600 000 000",
             "form.optional": "(opcional)",
+            "form.tickets": "¿Cuántas entradas?",
             "form.grada": "Tu grada favorita",
             "form.submitting": "Enviando…",
             "form.notConfigured": "El formulario aún no está configurado.",
@@ -3449,6 +3530,7 @@
             "form.phone": "Teléfono",
             "form.phonePh": "+34 600 000 000",
             "form.optional": "(opcional)",
+            "form.tickets": "Cantas entradas?",
             "form.grada": "A túa grada favorita",
             "form.submitting": "Enviando…",
             "form.notConfigured": "O formulario aínda non está configurado.",
@@ -3564,6 +3646,7 @@
             "form.phone": "Phone",
             "form.phonePh": "+34 600 000 000",
             "form.optional": "(optional)",
+            "form.tickets": "How many tickets?",
             "form.grada": "Your favourite stand",
             "form.submitting": "Sending…",
             "form.notConfigured": "The form isn't configured yet.",

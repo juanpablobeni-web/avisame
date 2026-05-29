@@ -27,6 +27,7 @@ const FIELDS = [
   { tag: "PRIVACY", name: "Aceptación política privacidad", type: "text", required: false, public: false },
   { tag: "MARKETING", name: "Aceptación marketing (avisos)", type: "text", required: false, public: false },
   { tag: "PARTNERS", name: "Aceptación partners (viaje/alojamiento)", type: "text", required: false, public: false },
+  { tag: "TICKETS", name: "Nº de entradas deseadas", type: "number", required: false, public: false },
   { tag: "LANG", name: "Idioma signup", type: "text", required: false, public: false },
 ];
 
