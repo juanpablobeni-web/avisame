@@ -453,25 +453,57 @@
         font-size: 0.92rem;
         letter-spacing: 0.02em;
       }
-      .ticket-qty__more {
-        margin-top: 0.6rem;
-      }
-      .ticket-qty__more[hidden] { display: none; }
-      .ticket-qty__more input {
-        width: 100%;
-        max-width: 160px;
-        padding: 0.65rem 0.85rem;
-        font-size: 1rem;
-        font-family: inherit;
-        font-weight: 700;
+      /* When the stepper is visible, the More button hides; they share
+         the same flex slot so the chip row stays the same width. */
+      .ticket-qty__stepper[hidden] { display: none; }
+      .ticket-qty__stepper {
+        flex: 1.4 1 auto;
+        min-width: 140px;
+        display: inline-flex;
+        align-items: stretch;
+        background: var(--celta-celeste, #7AB1D9);
         border: 1px solid var(--celta-celeste-dark, #5C9CCB);
         border-radius: 8px;
-        color: var(--celta-navy);
-        background: #ffffff;
+        overflow: hidden;
       }
-      .ticket-qty__more input:focus {
-        outline: 2px solid var(--celta-sky);
-        outline-offset: 2px;
+      .ticket-qty__step {
+        appearance: none;
+        background: transparent;
+        border: 0;
+        color: #ffffff;
+        font-size: 1.25rem;
+        font-weight: 800;
+        line-height: 1;
+        padding: 0 0.9rem;
+        cursor: pointer;
+        transition: background 0.15s ease;
+      }
+      .ticket-qty__step:hover,
+      .ticket-qty__step:focus-visible {
+        background: rgba(255, 255, 255, 0.18);
+        outline: none;
+      }
+      .ticket-qty__stepper input {
+        flex: 1 1 auto;
+        min-width: 0;
+        background: transparent;
+        border: 0;
+        color: #ffffff;
+        font-family: inherit;
+        font-weight: 800;
+        font-size: 1rem;
+        text-align: center;
+        padding: 0.55rem 0.25rem;
+        -moz-appearance: textfield;
+      }
+      .ticket-qty__stepper input::-webkit-outer-spin-button,
+      .ticket-qty__stepper input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .ticket-qty__stepper input:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.12);
       }
       .required-mark {
         color: var(--celta-red);
@@ -2629,20 +2661,22 @@
             <button type="button" class="ticket-qty__chip" data-qty="2">2</button>
             <button type="button" class="ticket-qty__chip" data-qty="3">3</button>
             <button type="button" class="ticket-qty__chip" data-qty="4">4</button>
-            <button type="button" class="ticket-qty__chip ticket-qty__chip--more" data-qty="more" data-i18n="form.ticketsMore">Más</button>
-          </div>
-          <div class="ticket-qty__more" id="ticket-qty-more" hidden>
-            <input
-              type="number"
-              id="ticket-qty-input"
-              min="5"
-              max="20"
-              step="1"
-              inputmode="numeric"
-              placeholder="5"
-              aria-label="¿Cuántas entradas?"
-              data-i18n-attr="aria-label:form.tickets"
-            />
+            <button type="button" class="ticket-qty__chip ticket-qty__chip--more" data-qty="more" id="ticket-qty-more-btn" data-i18n="form.ticketsMore">Más</button>
+            <div class="ticket-qty__stepper" id="ticket-qty-stepper" hidden role="group" aria-label="More tickets">
+              <button type="button" class="ticket-qty__step" data-step="-1" aria-label="−">−</button>
+              <input
+                type="number"
+                id="ticket-qty-input"
+                min="5"
+                max="20"
+                step="1"
+                inputmode="numeric"
+                value="5"
+                aria-label="¿Cuántas entradas?"
+                data-i18n-attr="aria-label:form.tickets"
+              />
+              <button type="button" class="ticket-qty__step" data-step="+1" aria-label="+">+</button>
+            </div>
           </div>
           <input type="hidden" name="TICKETS" id="ticket-qty-value" value="1" />
         </fieldset>
@@ -4255,46 +4289,66 @@
       })();
 
       // ─── Ticket-quantity selector ─────────────────────────────
-      // 1-4 chips set TICKETS directly; "More" reveals a number input
-      // for any value 5+. Final value carried by hidden #ticket-qty-value
+      // 1-4 chips set TICKETS directly. Clicking "More" swaps that chip
+      // for an inline stepper (− N +) in the SAME slot, preserving the
+      // chip row's rhythm. Final value carried by hidden #ticket-qty-value
       // which is what Mailchimp posts as the TICKETS merge field.
       (function () {
         const chips = document.querySelectorAll(".ticket-qty__chip");
-        const moreBox = document.getElementById("ticket-qty-more");
-        const moreInput = document.getElementById("ticket-qty-input");
+        const moreBtn = document.getElementById("ticket-qty-more-btn");
+        const stepper = document.getElementById("ticket-qty-stepper");
+        const input = document.getElementById("ticket-qty-input");
         const hidden = document.getElementById("ticket-qty-value");
-        if (!chips.length || !moreBox || !moreInput || !hidden) return;
+        if (!chips.length || !moreBtn || !stepper || !input || !hidden) return;
+        const MIN = 5, MAX = 20;
 
-        function setActive(chip) {
+        function setActiveChip(chip) {
           chips.forEach((c) => c.classList.toggle("is-active", c === chip));
+        }
+        function clamp(n) {
+          if (!Number.isFinite(n)) return MIN;
+          return Math.min(MAX, Math.max(MIN, Math.floor(n)));
         }
 
         chips.forEach((chip) => {
           chip.addEventListener("click", () => {
             const qty = chip.dataset.qty;
-            setActive(chip);
             if (qty === "more") {
-              moreBox.hidden = false;
-              // If the input already has a valid number, use it; else
-              // default to 5 and focus the input for typing.
-              const cur = parseInt(moreInput.value, 10);
-              if (!Number.isFinite(cur) || cur < 5) {
-                moreInput.value = "5";
-              }
-              hidden.value = moreInput.value;
-              setTimeout(() => moreInput.focus(), 0);
+              // Swap More button → stepper in the same flex slot.
+              moreBtn.hidden = true;
+              stepper.hidden = false;
+              input.value = clamp(parseInt(input.value, 10) || MIN);
+              hidden.value = input.value;
+              setTimeout(() => input.select(), 0);
             } else {
-              moreBox.hidden = true;
+              // Restore More button if it was hidden.
+              stepper.hidden = true;
+              moreBtn.hidden = false;
+              setActiveChip(chip);
               hidden.value = qty;
             }
           });
         });
 
-        moreInput.addEventListener("input", () => {
-          const n = parseInt(moreInput.value, 10);
-          if (Number.isFinite(n) && n >= 1) {
-            hidden.value = String(Math.min(n, 20));
-          }
+        // Stepper − / + buttons
+        stepper.querySelectorAll(".ticket-qty__step").forEach((b) => {
+          b.addEventListener("click", () => {
+            const delta = parseInt(b.dataset.step, 10) || 0;
+            const next = clamp((parseInt(input.value, 10) || MIN) + delta);
+            input.value = String(next);
+            hidden.value = input.value;
+          });
+        });
+
+        // Typed input
+        input.addEventListener("input", () => {
+          const n = parseInt(input.value, 10);
+          if (Number.isFinite(n)) hidden.value = String(clamp(n));
+        });
+        input.addEventListener("blur", () => {
+          // Snap displayed value back into range on blur.
+          input.value = String(clamp(parseInt(input.value, 10)));
+          hidden.value = input.value;
         });
       })();
 
